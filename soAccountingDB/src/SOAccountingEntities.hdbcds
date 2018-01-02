@@ -1,0 +1,212 @@
+namespace SOAccounting_HANAXSA.soAccountingDB;
+
+context CRM {
+    entity tblRawAllServiceOrders {
+        key LoadDate                  : String(100);
+        key ServiceOrderID            : String(100);
+            CustomerID                : String(100);
+            CustomerName              : String(100);
+            Status                    : String(100);
+            Description               : String(100);
+            ServiceProductID          : String(100);
+            ServiceProductDescription : String(100);
+            ReqDeliveryDate           : String(100);
+            GoLiveDate                : String(100);
+            ServiceOrderGroup         : String(100);
+            Qty                       : String(100);
+            UoM                       : String(100);
+    };
+};
+
+context ISP_ZSMAXA {
+    entity tblRawAllServiceOrders {
+        LoadDate                    : String(100);
+        ContractID                  : String(100);
+        NoName                      : String(100);
+        ItemContract                : String(100);
+        DescriptionContract         : String(100);
+        MaterialContrNo             : String(100);
+        DeliveryLocation            : String(100);
+        ItemText                    : String(100);
+        ContractStartDate           : String(100);
+        ContractEndDate             : String(100);
+        TargetQuantity              : String(100);
+        TargetQuantityUoM           : String(100);
+        ShipToContract              : String(100);
+        DescriptionConsolidated     : String(100);
+        QuantityConsNo              : String(100);
+        UnitConsNo                  : String(100);
+        DateConsNo                  : String(100);
+        SalesDocument               : String(100);
+        ServiceOrderGroup           : String(100);
+        ItemService                 : String(100);
+        SoldToService               : String(100);
+        MaterialService             : String(100);
+        DescriptionService          : String(100);
+        QuantityService             : String(100);
+        UnitService                 : String(100);
+        DeliveryDate                : String(100);
+        CatsQtyDirect               : String(100);
+        DisplayUnitMeasure          : String(100);
+        DateActExp                  : String(100);
+        PersonelNumber              : String(100);
+        NameEmployeeApplicant       : String(100);
+        TaskType                    : String(100);
+        TaskTypeDescription         : String(100);
+        SubType1                    : String(100);
+        CatsTypeEXPHRS              : String(100);
+        NoName1                     : String(100);
+        DescriptionActivityExpenses : String(100);
+    };
+};
+
+context ISP_ZVZC {
+    entity tblRawAllServiceOrders {
+        LoadDate                   : String(100);
+        SalesDocument              : String(100);
+        SalesDocumentItem          : String(100);
+        PersonelNumber             : String(100);
+        NameOfEmployeeOrApplicants : String(100);
+        CompanyCode                : String(100);
+        StartDate                  : String(100);
+        EndDate                    : String(100);
+        TaskWork                   : String(100);
+        TaskLevel                  : String(100);
+        TaskType                   : String(100);
+        EstimatedActivityDays      : String(100);
+        RecordedActivityDays       : String(100);
+        TravelTasklevel            : String(100);
+        EstimatedTravelHours       : String(100);
+        RecordedTravelHours        : String(100);
+        ShortNote                  : String(255);
+    };
+};
+
+context REFERENCE_DATA {
+    entity tblLkpContractProperties {
+        key ContractID        : Integer;
+        key ItemID            : Integer;
+            DayWeight         : Double;
+            CRMConversion     : Double;
+            DirectConsumption : String(100);
+            ZS_MSD_Reporting  : String(100);
+    };
+};
+
+context FORECAST {
+    entity tblManualForecast {
+            ForecastID     : Integer;
+        key ContractID     : Integer;
+        key ItemID         : Integer;
+            ForecastDate   : LocalDate;
+        key Month          : String(50);
+            Probability    : String(50);
+            DaysForecasted : Double;
+    };
+
+    entity tblManualForecastFlat {
+            ForecastID   : Integer;
+        key ContractID   : Integer;
+        key ItemID       : Integer;
+        key ForecastDate : String(20);
+            JanHigh      : Double;
+            FebHigh      : Double;
+            MarHigh      : Double;
+            AprHigh      : Double;
+            MayHigh      : Double;
+            JunHigh      : Double;
+            JulHigh      : Double;
+            AugHigh      : Double;
+            SepHigh      : Double;
+            OctHigh      : Double;
+            NovHigh      : Double;
+            DecHigh      : Double;
+            JanMed       : Double;
+            FebMed       : Double;
+            MarMed       : Double;
+            AprMed       : Double;
+            MayMed       : Double;
+            JunMed       : Double;
+            JulMed       : Double;
+            AugMed       : Double;
+            SepMed       : Double;
+            OctMed       : Double;
+            NovMed       : Double;
+            DecMed       : Double;
+            JanLow       : Double;
+            FebLow       : Double;
+            MarLow       : Double;
+            AprLow       : Double;
+            MayLow       : Double;
+            JunLow       : Double;
+            JulLow       : Double;
+            AugLow       : Double;
+            SepLow       : Double;
+            OctLow       : Double;
+            NovLow       : Double;
+            DecLow       : Double;
+    };
+};
+
+context Procedures {
+    table type tt_errors {
+        HTTP_STATUS_CODE : Integer;
+        ERROR_MESSAGE    : String(100);
+        DETAIL           : String(100);
+    };
+};
+
+context TEST_FORECAST {
+    entity tblManualForecast {
+            ForecastID     : Integer;
+        key ContractID     : Integer;
+        key ItemID         : Integer;
+            ForecastDate   : LocalDate;
+        key Month          : String(50);
+            Probability    : String(50);
+            DaysForecasted : Double;
+    };
+
+    entity tblManualForecastFlat {
+         ForecastID   : Integer;
+        key ContractID   : Integer;
+        key ItemID       : Integer;
+        key    ForecastDate : String(20);
+            JanHigh      : Double;
+            FebHigh      : Double;
+            MarHigh      : Double;
+            AprHigh      : Double;
+            MayHigh      : Double;
+            JunHigh      : Double;
+            JulHigh      : Double;
+            AugHigh      : Double;
+            SepHigh      : Double;
+            OctHigh      : Double;
+            NovHigh      : Double;
+            DecHigh      : Double;
+            JanMed       : Double;
+            FebMed       : Double;
+            MarMed       : Double;
+            AprMed       : Double;
+            MayMed       : Double;
+            JunMed       : Double;
+            JulMed       : Double;
+            AugMed       : Double;
+            SepMed       : Double;
+            OctMed       : Double;
+            NovMed       : Double;
+            DecMed       : Double;
+            JanLow       : Double;
+            FebLow       : Double;
+            MarLow       : Double;
+            AprLow       : Double;
+            MayLow       : Double;
+            JunLow       : Double;
+            JulLow       : Double;
+            AugLow       : Double;
+            SepLow       : Double;
+            OctLow       : Double;
+            NovLow       : Double;
+            DecLow       : Double;
+    };
+};

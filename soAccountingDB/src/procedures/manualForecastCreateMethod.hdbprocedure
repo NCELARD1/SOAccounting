@@ -1,0 +1,38 @@
+PROCEDURE "SOAccounting_HANAXSA.soAccountingDB.procedures::manualforecastCreateMethod" (
+IN im_row "SOAccounting_HANAXSA.soAccountingDB::FORECAST.tblManualForecast",
+OUT ex_error "SOAccounting_HANAXSA.soAccountingDB::Procedures.tt_errors" )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER 
+   --DEFAULT SCHEMA <default_schema_name>
+   --READS SQL DATA 
+   AS
+BEGIN
+   /*************************************
+       Write your procedure logic 
+   *************************************/
+declare lv_forecast_id integer;
+declare lv_contract_id integer;
+declare lv_item_id integer;
+declare lv_month string;
+declare lv_forecast_date string;
+declare lv_forecasted_days string;
+declare lv_probability string;
+
+
+select "ForecastID", "ContractID", "ItemID", "Month" 
+     into lv_forecast_id, lv_contract_id, 
+          lv_item_id, lv_month
+                      from :im_row;
+                     
+                     
+if :lv_month = '' then
+  ex_error = select 500 as http_status_code, 
+               'Invalid month ' || lv_month as error_message, 
+                     'No Way! Month field can not be empty' as detail from "SOAccounting_HANAXSA.soAccountingDB.synonyms::DUMMY";
+else
+                      
+   insert into "SOAccounting_HANAXSA.soAccountingDB::FORECAST.tblManualForecast"  ("ForecastID","ContractID","ItemID","ForecastDate","Month","Probability","DaysForecasted")
+             values ("SOAccounting_HANAXSA.soAccountingDB.sequences::manualForecastSeqId".NEXTVAL, lv_contract_id,lv_item_id,lv_forecast_date,lv_month,lv_probability,lv_forecasted_days);
+                     
+end if;  
+END

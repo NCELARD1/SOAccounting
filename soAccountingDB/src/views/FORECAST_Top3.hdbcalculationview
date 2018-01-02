@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="SOAccounting_HANAXSA.soAccountingDB.views::FORECAST_Top3" applyPrivilegeType="NONE" dataCategory="DEFAULT" schemaVersion="3.0" defaultClient="$$client$$" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="FORECAST_Top3"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="SOAccounting_HANAXSA.soAccountingDB::FORECAST.tblManualForecast">
+    <resourceUri>SOAccounting_HANAXSA.soAccountingDB::FORECAST.tblManualForecast</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:RankView" id="Rank_1">
+    <viewAttributes>
+      <viewAttribute id="ContractID" aggregationType="sum">
+        <descriptions defaultDescription="ContractID"/>
+      </viewAttribute>
+      <viewAttribute id="DaysForecasted" aggregationType="sum">
+        <descriptions defaultDescription="DaysForecasted"/>
+      </viewAttribute>
+      <viewAttribute id="ForecastDate">
+        <descriptions defaultDescription="ForecastDate"/>
+      </viewAttribute>
+      <viewAttribute id="ForecastID" aggregationType="sum">
+        <descriptions defaultDescription="ForecastID"/>
+      </viewAttribute>
+      <viewAttribute id="ItemID" aggregationType="sum">
+        <descriptions defaultDescription="ItemID"/>
+      </viewAttribute>
+      <viewAttribute id="Month">
+        <descriptions defaultDescription="Month"/>
+      </viewAttribute>
+      <viewAttribute id="Probability">
+        <descriptions defaultDescription="Probability"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="SOAccounting_HANAXSA.soAccountingDB::FORECAST.tblManualForecast">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ContractID" source="ContractID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DaysForecasted" source="DaysForecasted"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ForecastDate" source="ForecastDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ForecastID" source="ForecastID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ItemID" source="ItemID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Month" source="Month"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Probability" source="Probability"/>
+    </input>
+    <windowFunction dynamicPartitionAttributes="null">
+      <order byViewAttributeName="ContractID" direction="DESC"/>
+      <rankThreshold>
+        <value>3</value>
+      </rankThreshold>
+    </windowFunction>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Rank_1">
+  <attributes>
+    <attribute id="ContractID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ContractID"/>
+      <keyMapping columnObjectName="Rank_1" columnName="ContractID"/>
+    </attribute>
+    <attribute id="DaysForecasted" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DaysForecasted"/>
+      <keyMapping columnObjectName="Rank_1" columnName="DaysForecasted"/>
+    </attribute>
+    <attribute id="ForecastDate" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ForecastDate"/>
+      <keyMapping columnObjectName="Rank_1" columnName="ForecastDate"/>
+    </attribute>
+    <attribute id="ForecastID" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ForecastID"/>
+      <keyMapping columnObjectName="Rank_1" columnName="ForecastID"/>
+    </attribute>
+    <attribute id="ItemID" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ItemID"/>
+      <keyMapping columnObjectName="Rank_1" columnName="ItemID"/>
+    </attribute>
+    <attribute id="Month" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Month"/>
+      <keyMapping columnObjectName="Rank_1" columnName="Month"/>
+    </attribute>
+    <attribute id="Probability" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Probability"/>
+      <keyMapping columnObjectName="Rank_1" columnName="Probability"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Rank_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="38" y="225"/>
+      <rectangleSize height="30" width="196"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

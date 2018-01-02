@@ -1,0 +1,207 @@
+{
+    "format_version": 1,
+    "imports": [
+        {
+            "target_table": "SOAccounting_HANAXSA.soAccountingDB::CRM.tblRawAllServiceOrders",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "SOAccounting_HANAXSA.soAccountingDB.data::Export_CRM_AllServiceOrders.csv",
+                "has_header": true
+            },
+			"column_mappings": {
+					"LoadDate": 1,
+				    "ServiceOrderID": 2,
+					"CustomerID": 3,
+					"CustomerName": 4,
+					"Description": 5,
+					"Status": 6,
+					"ServiceProductID": 7,
+					"ServiceProductDescription": 8,
+					"ReqDeliveryDate": 9,
+					"GoLiveDate": 10,
+					"ServiceOrderGroup": 11,
+					"Qty": 12,
+					"UoM": 13
+			},
+            "import_settings": {
+                "import_columns": [
+            		"LoadDate",
+                    "ServiceOrderID",
+					"CustomerID",
+					"CustomerName",
+					"Status",
+					"Description",
+					"ServiceProductID",
+					"ServiceProductDescription",
+					"ReqDeliveryDate",
+					"GoLiveDate",
+					"ServiceOrderGroup",
+					"Qty",
+					"UoM"
+                ]
+            }
+        },
+        {
+            "target_table": "SOAccounting_HANAXSA.soAccountingDB::ISP_ZSMAXA.tblRawAllServiceOrders",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "SOAccounting_HANAXSA.soAccountingDB.data::Export_ISP_ZS_MSD_MAXATTENTION5_AllContracts.csv",
+                "has_header": true
+            },
+			"column_mappings": {
+    				"LoadDate"                    : 1,
+        			"ContractID"                  : 2,
+        			"NoName"                      : 3,
+        			"ItemContract"                : 4,
+        			"DescriptionContract"         : 5,
+        			"MaterialContrNo"              : 6,
+        			"DeliveryLocation"            : 7,
+        			"ItemText"                    : 8,
+        			"ContractStartDate"           : 9,
+        			"ContractEndDate"             : 10,
+        			"TargetQuantity"              : 11,
+        			"TargetQuantityUoM"           : 12,
+        			"ShipToContract"              : 13,
+        			"DescriptionConsolidated"     : 14,
+        			"QuantityConsNo"               : 15,
+        			"UnitConsNo"                   : 16,
+        			"DateConsNo"                   : 17,
+        			"SalesDocument"               : 18,
+        			"ServiceOrderGroup"           : 19,
+        			"ItemService"                 : 20,
+        			"SoldToService"               : 21,
+        			"MaterialService"             : 22,
+        			"DescriptionService"          : 23,
+        			"QuantityService"             : 24,
+        			"UnitService"                 : 25,
+        			"DeliveryDate"                : 26,
+        			"CatsQtyDirect"               : 27,
+        			"DisplayUnitMeasure"          : 28,
+        			"DateActExp"                  : 29,
+        			"PersonelNumber"              : 30,
+        			"NameEmployeeApplicant"       : 31,
+        			"TaskType"                    : 32,
+        			"TaskTypeDescription"         : 33,
+        			"SubType1"                    : 34,
+        			"CatsTypeEXPHRS"              : 35,
+        			"NoName1"                     : 36,
+        			"DescriptionActivityExpenses" : 37
+			},
+            "import_settings": {
+                "import_columns": [
+        			"LoadDate",
+        			"ContractID",
+        			"NoName",
+        			"ItemContract",
+        			"DescriptionContract",
+        			"MaterialContrNo",
+        			"DeliveryLocation",
+        			"ItemText",
+        			"ContractStartDate",
+        			"ContractEndDate",
+        			"TargetQuantity",
+        			"TargetQuantityUoM",
+        			"ShipToContract",
+        			"DescriptionConsolidated",
+        			"QuantityConsNo",
+        			"UnitConsNo",
+        			"DateConsNo",
+        			"SalesDocument",
+        			"ServiceOrderGroup",
+        			"ItemService",
+        			"SoldToService",
+        			"MaterialService",
+        			"DescriptionService",
+        			"QuantityService",
+        			"UnitService",
+        			"DeliveryDate",
+        			"CatsQtyDirect",
+        			"DisplayUnitMeasure",
+        			"DateActExp",
+        			"PersonelNumber",
+        			"NameEmployeeApplicant",
+        			"TaskType",
+        			"TaskTypeDescription",
+        			"SubType1",
+        			"CatsTypeEXPHRS",
+        			"NoName1",
+        			"DescriptionActivityExpenses"
+                ]
+            }
+        },
+        {
+            "target_table": "SOAccounting_HANAXSA.soAccountingDB::ISP_ZVZC.tblRawAllServiceOrders",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "SOAccounting_HANAXSA.soAccountingDB.data::Export_ISP_ZV_ZCXPER_AllStaffingLists.csv",
+                "has_header": true
+            },
+			"column_mappings": {
+    				"LoadDate"                  				: 1,
+        			"SalesDocument"                 			: 2,
+        			"SalesDocumentItem"                     	: 3,
+        			"PersonelNumber"                			: 4,
+        			"NameOfEmployeeOrApplicants"        		: 5,
+        			"CompanyCode"           					: 6,
+        			"StartDate"         						: 7,
+        			"EndDate"                   				: 8,
+        			"TaskWork"          						: 9,
+        			"TaskLevel"             					: 10,
+        			"TaskType"              					: 11,
+        			"EstimatedActivityDays"         			: 12,
+        			"RecordedActivityDays"              		: 13,
+        			"TravelTasklevel"   						: 14,
+        			"EstimatedTravelHours"              		: 15,
+        			"RecordedTravelHours"                   	: 16,
+        			"ShortNote"                 				: 17
+			},
+            "import_settings": {
+                "import_columns": [
+    				"LoadDate",
+        			"SalesDocument",
+        			"SalesDocumentItem",
+        			"PersonelNumber",
+        			"NameOfEmployeeOrApplicants",
+        			"CompanyCode",
+        			"StartDate",
+        			"EndDate",
+        			"TaskWork",
+        			"TaskLevel",
+        			"TaskType",
+        			"EstimatedActivityDays",
+        			"RecordedActivityDays",
+        			"TravelTasklevel",
+        			"EstimatedTravelHours",
+        			"RecordedTravelHours",
+        			"ShortNote"
+                ]
+            }
+        },
+        {
+            "target_table": "SOAccounting_HANAXSA.soAccountingDB::REFERENCE_DATA.tblLkpContractProperties",
+            "source_data": {
+                "data_type": "CSV",
+                "file_name": "SOAccounting_HANAXSA.soAccountingDB.data::Reference_Contract_Properties.csv",
+                "has_header": true
+            },
+			"column_mappings": {
+    				"ContractID"                  				: 1,
+        			"ItemID"                 					: 2,
+        			"DayWeight"                     			: 3,
+        			"CRMConversion"                				: 4,
+        			"DirectConsumption"        					: 5,
+        			"ZS_MSD_Reporting"           				: 6
+			},
+            "import_settings": {
+                "import_columns": [
+    				"ContractID",
+        			"ItemID",
+        			"DayWeight",
+        			"CRMConversion",
+        			"DirectConsumption",
+        			"ZS_MSD_Reporting"
+                ]
+            }
+        }
+    ]
+}

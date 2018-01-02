@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flowgraph:ContainerNode xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:flowgraph="http://www.sap.com/ndb/flowgraph/1.0" xmi:version="2.0" xmi:id="931d3c5f3417e3d7d0151b9b0656515e" name="ECCD_ISP_ZVZC_Raw" runtimeBehavior="BATCH_TASK">
+  <annotations key="sap.afm.layout" xmi:id="f32196e77513c3eb3a2e6ceb16151da9">
+    <annotations xmi:id="b2cc147e6c29e2a835c43ebc1eb419d9" key="x" value="10">
+    </annotations>
+    <annotations xmi:id="a2071bcbb0a5ab0970110c48c147326f" key="y" value="10">
+    </annotations>
+    <annotations xmi:id="d576083ab5ef16053ea653fbd3362a08" key="width" value="100">
+    </annotations>
+    <annotations xmi:id="960f1e416c64fd09630e5aecbe0e8859" key="height" value="84">
+    </annotations>
+  </annotations>
+  <annotations xmi:id="318dfb2ffdb89f5fdc428dede54cdc03" key="sap.afm.palette">
+    <annotations xmi:id="145a485a17e435282debd05493ae8438" key="additions" value=""/>
+  </annotations>
+  <annotations xmi:id="c6e2008bc309452e09719e7da0746e0f" key="sap.afm.nodeType" value="ContainerNode">
+  </annotations>
+  <annotations xmi:id="bc21e2482ea1d32e054ab2b401d8a3fe" key="sap.afm.nodeInputs">
+  </annotations>
+  <annotations xmi:id="0b833ad21fcde6790c37705aa0f2ea37" key="sap.afm.nodeOutputs">
+  </annotations>
+  <tableMappings xmi:id="6e30cadb91f7dff675ecf8d481232dfb" source="6727d041ee05d0ba1a6507e545f4fa8a" target="37dd781b1328881c35508c55460751bd">
+    <attributeMappings xmi:id="673efa6fd1f6365b4cb4ce477afc61ba" source="c595060bb6e89aa1c6556892e73fd9f9" target="2e3b98b5da84e77004d30512722e8ae1">
+    </attributeMappings>
+    <attributeMappings xmi:id="b2715c3a65ea19e800b935a982baecb1" source="251b061da4e28ca63ec85f7ea0ce6c46" target="b314a7879d30efc277c2da0a3a9229ab">
+    </attributeMappings>
+    <attributeMappings xmi:id="5f4a2881c148959477aafc5bf87b509f" source="c32554b0d61dc94a696580c337a2334c" target="82af4bee2c46690bd0d67bd6909b6ffb">
+    </attributeMappings>
+    <attributeMappings xmi:id="1177a2157cf2bbd7ee7be4b1da6b5707" source="492abfe8c6f988cdecf2b5b66f5d4a3b" target="28ac5f925f3ead15f505f702a6a816d2">
+    </attributeMappings>
+    <attributeMappings xmi:id="571659927af6101ad5d0e4f44f4d328a" source="83d5cb278392c61a1686ea8d32b10594" target="57b61526c3d705fb2f2f21c10094b008">
+    </attributeMappings>
+    <attributeMappings xmi:id="f6e90316fc41ea804dfe7107c65217db" source="a4b438ce83248efe75fd4996ac6a1ccb" target="e20c684b2056d86a7c085a60b5a28a58">
+    </attributeMappings>
+    <attributeMappings xmi:id="286535b4bb262676fa158801a59dbff8" source="0b19b2028c7aebc4be8bbc53fb114845" target="1217535abf8fff9faed86e950aadfe08">
+    </attributeMappings>
+    <attributeMappings xmi:id="d76b0229b0a79aebacefdd3b44238523" source="923b867b0f0436e468a83face8ab91a5" target="398a37067cbaa00804cbc247462aeea0">
+    </attributeMappings>
+    <attributeMappings xmi:id="f22d2b2525020bbae0394b89d39fc241" source="7290642fcedfccdb376303f0b4b66da9" target="f67a8b9d48d42bbb7588d890b3b502aa">
+    </attributeMappings>
+    <attributeMappings xmi:id="8fc4625e4baca6fc395d4ed2884444e6" source="9db135b23d8e296bac7689e6d75513fa" target="976d2efb342d7ca054ac7b3834fab781">
+    </attributeMappings>
+    <attributeMappings xmi:id="48768f267a3e7c2e09decb35afc76c7d" source="a89bb4881fb89064214283b3cd6cc853" target="d2390beb0a676201cfc22ca180c3af52">
+    </attributeMappings>
+    <attributeMappings xmi:id="eda19ab03aae13a0308744e1fdabadb2" source="1f9b73d1d42defc0a5506de2fe94b687" target="b3fb2b8856f35f8c97ec352f8139058f">
+    </attributeMappings>
+    <attributeMappings xmi:id="0fc2515f133c00cee8b447860e6b630e" source="b39c433faad257d1100b38c8fa448228" target="7bbd8d8ddb1c89c9665cd143d694af73">
+    </attributeMappings>
+    <attributeMappings xmi:id="31067b23c33dfd49bc777fb9b7dd82fa" source="e933f5d9a1f340eda1a38cce8b2eddf7" target="ee1574055482b6f8a1f9940b5f89b5fb">
+    </attributeMappings>
+    <attributeMappings xmi:id="8a3dac1b3551c5a890e16d11a886f181" source="6a2be4cd69229ffca4046d944cdfc580" target="7c3dd8256252d6acb38608e8ad6c40bc">
+    </attributeMappings>
+    <attributeMappings xmi:id="9e76618abe899581a500383e0ed806fb" source="f448b27c3c166c7029d6a4dacc4c5d50" target="8de78110d020e84c872d1526951d5baf">
+    </attributeMappings>
+    <attributeMappings xmi:id="4afc5f765071bf819292685cbd8c7f64" source="af35b45ad17269d923ff78647c824853" target="f1bf7b94d4788d1d4afb88208596ebe5">
+    </attributeMappings>
+  </tableMappings>
+  <tableMappings xmi:id="0d9c1e965ef9c69ff16f6e64166313a4" source="08efe540365cbdf46ada73496a64e93d" target="4dbb0248c3278f09334eff6278114dac">
+    <attributeMappings xmi:id="aebdf923cef6179cf5ce0b88ebc41836" source="e858f09aa9cacdab165e189612b26d08" target="123632ad42139d49a29f2347c8a4f8c8">
+    </attributeMappings>
+    <attributeMappings xmi:id="bc50fa11e612907830f0aeb379ee5ff1" source="04825021518be4c41d67f169c9c30885" target="56d0e45aa580716a766789bde81a279c">
+    </attributeMappings>
+    <attributeMappings xmi:id="332280dcd6ec27e867a34a0c4fda2a3e" source="fb9202fa449f5c8074f7e3321ec9386e" target="4cd89266771381ab7531beeb7f860d01">
+    </attributeMappings>
+    <attributeMappings xmi:id="7ad7b4ed4f6fa53e1c2e9c844ea04e25" source="2bc219299de5b595c9139adbd881c312" target="6ca9e281801d1d6ed9bb17f0f9dd88cc">
+    </attributeMappings>
+    <attributeMappings xmi:id="9c72763ad5259072cb647f6e54d1e1d2" source="092bf82cfb0e83026ad782c523e20f01" target="8ebb1167662d71bd55138ad5008734db">
+    </attributeMappings>
+    <attributeMappings xmi:id="401691215cbd4efe64258238802ec133" source="69b05ddc71d79923fa3d2f968d56623d" target="b3b94354750153750274805b02a3475f">
+    </attributeMappings>
+    <attributeMappings xmi:id="f3663340533b62b89e9a7d6e7d52ec0a" source="7bf89e61050661fe31b5728560bbda6b" target="0e12942c3682e34414573e04ec0cee9d">
+    </attributeMappings>
+    <attributeMappings xmi:id="f4cb0bebd0998d81b399d8abf9d58eff" source="e771deca95db17c58e982c2b27e29336" target="7cdb8fe6846a6667c0b955c8c303e063">
+    </attributeMappings>
+    <attributeMappings xmi:id="4302da3f635d08a7941648ec7c128470" source="93cded81abc544a5fef74c46e9f8ead3" target="00e2b85750896a0148ceff91c54f2f38">
+    </attributeMappings>
+    <attributeMappings xmi:id="8532a7aa83db3e3d325b034947b7994a" source="89c633e20ed84e5bfb27fe310447f74e" target="b1f3b2c2e12abb544141ede02d546527">
+    </attributeMappings>
+    <attributeMappings xmi:id="ffa59704fc5f952a4008f50bb6c5b492" source="185d3a20105a207c7ce363b0358b75d6" target="32842d4e21b8b3aa80dd1be2ef77a949">
+    </attributeMappings>
+    <attributeMappings xmi:id="78e021885b6b30457ecc269e8640c962" source="512d126b02ed027e8e698aaae245f938" target="a114641ad0cd4485f61fd8945e47fc4b">
+    </attributeMappings>
+    <attributeMappings xmi:id="ef1dcfa7f091332400638b6c8766c9c1" source="ae84d76d2d4003c78a2688f14f871cdb" target="fbb690e9be6f15f4a796924fda0a0574">
+    </attributeMappings>
+    <attributeMappings xmi:id="f3e2283cf641b5944b780fa886bf5d6a" source="cd4a672703942bf0a2de7efd3e2de941" target="e653be0b8883d9d24885c75a4f270874">
+    </attributeMappings>
+    <attributeMappings xmi:id="272ea39920dbb8b4ab892b3f0b4c5ab6" source="6f85815d27d85c6f2802221682c9b860" target="3f337d96549912fd47a80bc397110ba7">
+    </attributeMappings>
+    <attributeMappings xmi:id="45b2a9c1804ed62f3efca736e76f29cc" source="61ad9b768ee99acb82aab8dac819686c" target="eadb47cc2edafcb37daa5f2cd9e01b01">
+    </attributeMappings>
+    <attributeMappings xmi:id="e6b59735b2891208d2b2675c22546e15" source="6ddc56df90ee2b67aad19ea9737ebf51" target="2ddfb3c138498c8d2ccb9cfee885d562">
+    </attributeMappings>
+  </tableMappings>
+  <nodes xmi:id="bfe6989788ed8f24dfe1630a9031f75e" name="DataSource" catalogObjectName="SOAccounting_HANAXSA.soAccountingDB::ISP_ZVZC.tblRawAllServiceOrders" type="DATABASE_TABLE" xsi:type="flowgraph:DataNode" dataLayout="COLUMN">
+    <annotations key="sap.afm.layout" xmi:id="3dd1775af56b1e41b5f7a43bd172d8ff">
+      <annotations xmi:id="609bf0dee66ae3466eb40b8759277262" key="x" value="12">
+      </annotations>
+      <annotations xmi:id="5a5a0bfad3dab463ef0e9ae115c94356" key="y" value="60">
+      </annotations>
+      <annotations xmi:id="44c20c318549b376e18f226ca3281ed1" key="width" value="120">
+      </annotations>
+      <annotations xmi:id="19e6cf4bcb55b9122bc27f574f3218a1" key="height" value="115">
+      </annotations>
+    </annotations>
+    <annotations xmi:id="7b63d107439dd90dd95b776aac1c8589" key="sap.afm.description">
+    </annotations>
+    <annotations xmi:id="6a243df9126bbcbf19139869235c630f" key="sap.afm.nodeType" value="DataNode">
+    </annotations>
+    <annotations xmi:id="bc910fb67f82cb67c30b9d49fb9e7639" key="sap.afm.nodeInputs">
+    </annotations>
+    <annotations xmi:id="72daada86c7b45164e0a6ccefe485492" key="sap.afm.nodeOutputs">
+    </annotations>
+    <annotations xmi:id="27c81ae9f6963b843c44c9c3b858e8fa" key="sap.afm.displayName" value="Data Source">
+    </annotations>
+    <annotations xmi:id="5e07fdf7618a5e92527de23f135c9138" key="columns" value="[{&quot;name&quot;:&quot;LoadDate&quot;,&quot;type&quot;:&quot;NVARCHAR&quot;,&quot;length&quot;:100,&quot;nullable&quot;:&quot;true&quot;},{&quot;name&quot;:&quot;SalesDocument&quot;,&quot;type&quot;:&quot;NVARCHAR&quot;,&quot;length&quot;:100,&quot;nullable&quot;:&quot;true&quot;},{&quot;name&quot;:&quot;SalesDocumentItem&quot;,&quot;type&quot;:&quot;NVARCHAR&quot;,&quot;length&quot;:100,&quot;nullable&quot;:&quot;true&quot;},{&quot;name&quot;:&quot;PersonelNumber&quot;,&quot;type&quot;:&quot;NVARCHAR&quot;,&quot;length&quot;:100,&quot;nullable&quot;:&quot;true&quot;},{&quot;name&quot;:&quot;NameOfEmployeeOrApplicants&quot;,&quot;type&quot;:&quot;NVARCHAR&quot;,&quot;length&quot;:100,&quot;nullable&quot;:&quot;true&quot;},{&quot;name&quot;:&quot;CompanyCode&quot;,&quot;type&quot;:&quot;NVARCHAR&quot;,&quot;length&quot;:100,&quot;nullable&quot;:&quot;true&quot;},{&quot;name&quot;:&quot;StartDate&quot;,&quot;type&quot;:&quot;NVARCHAR&quot;,&quot;length&quot;:100,&quot;nullable&quot;:&quot;true&quot;},{&quot;name&quot;:&quot;EndDate&quot;,&quot;type&quot;:&quot;NVARCHAR&quot;,&quot;length&quot;:100,&quot;nullable&quot;:&quot;true&quot;},{&quot;name&quot;:&quot;TaskWork&quot;,&quot;type&quot;:&quot;NVARCHAR&quot;,&quot;length&quot;:100,&quot;nullable&quot;:&quot;true&quot;},{&quot;name&quot;:&quot;TaskLevel&quot;,&quot;type&quot;:&quot;NVARCHAR&quot;,&quot;length&quot;:100,&quot;nullable&quot;:&quot;true&quot;},{&quot;name&quot;:&quot;TaskType&quot;,&quot;type&quot;:&quot;NVARCHAR&quot;,&quot;length&quot;:100,&quot;nullable&quot;:&quot;true&quot;},{&quot;name&quot;:&quot;EstimatedActivityDays&quot;,&quot;type&quot;:&quot;NVARCHAR&quot;,&quot;length&quot;:100,&quot;nullable&quot;:&quot;true&quot;},{&quot;name&quot;:&quot;RecordedActivityDays&quot;,&quot;type&quot;:&quot;NVARCHAR&quot;,&quot;length&quot;:100,&quot;nullable&quot;:&quot;true&quot;},{&quot;name&quot;:&quot;TravelTasklevel&quot;,&quot;type&quot;:&quot;NVARCHAR&quot;,&quot;length&quot;:100,&quot;nullable&quot;:&quot;true&quot;},{&quot;name&quot;:&quot;EstimatedTravelHours&quot;,&quot;type&quot;:&quot;NVARCHAR&quot;,&quot;length&quot;:100,&quot;nullable&quot;:&quot;true&quot;},{&quot;name&quot;:&quot;RecordedTravelHours&quot;,&quot;type&quot;:&quot;NVARCHAR&quot;,&quot;length&quot;:100,&quot;nullable&quot;:&quot;true&quot;},{&quot;name&quot;:&quot;ShortNote&quot;,&quot;type&quot;:&quot;NVARCHAR&quot;,&quot;length&quot;:255,&quot;nullable&quot;:&quot;true&quot;}]">
+    </annotations>
+    <outputs xmi:id="6727d041ee05d0ba1a6507e545f4fa8a" name="DataSource">
+      <attributes xmi:id="c595060bb6e89aa1c6556892e73fd9f9" name="LoadDate" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="251b061da4e28ca63ec85f7ea0ce6c46" name="SalesDocument" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="c32554b0d61dc94a696580c337a2334c" name="SalesDocumentItem" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="492abfe8c6f988cdecf2b5b66f5d4a3b" name="PersonelNumber" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="83d5cb278392c61a1686ea8d32b10594" name="NameOfEmployeeOrApplicants" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="a4b438ce83248efe75fd4996ac6a1ccb" name="CompanyCode" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="0b19b2028c7aebc4be8bbc53fb114845" name="StartDate" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="923b867b0f0436e468a83face8ab91a5" name="EndDate" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="7290642fcedfccdb376303f0b4b66da9" name="TaskWork" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="9db135b23d8e296bac7689e6d75513fa" name="TaskLevel" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="a89bb4881fb89064214283b3cd6cc853" name="TaskType" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="1f9b73d1d42defc0a5506de2fe94b687" name="EstimatedActivityDays" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="b39c433faad257d1100b38c8fa448228" name="RecordedActivityDays" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="e933f5d9a1f340eda1a38cce8b2eddf7" name="TravelTasklevel" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="6a2be4cd69229ffca4046d944cdfc580" name="EstimatedTravelHours" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="f448b27c3c166c7029d6a4dacc4c5d50" name="RecordedTravelHours" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="af35b45ad17269d923ff78647c824853" name="ShortNote" type="NVARCHAR" nullable="true" length="255">
+      </attributes>
+    </outputs>
+  </nodes>
+  <nodes xmi:id="7e87bec708c5b3cf5b970bdd121e6f0b" xsi:type="flowgraph:FilterNode" name="Projection">
+    <annotations key="sap.afm.layout" xmi:id="7083c8c5332957910d2a27e785cb9713">
+      <annotations xmi:id="ae15934df2e9862c5426af3d35397eb1" key="x" value="192">
+      </annotations>
+      <annotations xmi:id="9785154cee3f8461a3107e044f12c9e6" key="y" value="60">
+      </annotations>
+      <annotations xmi:id="63a19bb33d3b02f2ccdee4a811e3443c" key="width" value="120">
+      </annotations>
+      <annotations xmi:id="cd4b8ad7ca9a708df4d14ad4a3e66293" key="height" value="115">
+      </annotations>
+    </annotations>
+    <inputs xmi:id="37dd781b1328881c35508c55460751bd" name="Projection_IN">
+      <attributes xmi:id="2e3b98b5da84e77004d30512722e8ae1" name="LoadDate" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="b314a7879d30efc277c2da0a3a9229ab" name="SalesDocument" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="82af4bee2c46690bd0d67bd6909b6ffb" name="SalesDocumentItem" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="28ac5f925f3ead15f505f702a6a816d2" name="PersonelNumber" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="57b61526c3d705fb2f2f21c10094b008" name="NameOfEmployeeOrApplicants" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="e20c684b2056d86a7c085a60b5a28a58" name="CompanyCode" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="1217535abf8fff9faed86e950aadfe08" name="StartDate" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="398a37067cbaa00804cbc247462aeea0" name="EndDate" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="f67a8b9d48d42bbb7588d890b3b502aa" name="TaskWork" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="976d2efb342d7ca054ac7b3834fab781" name="TaskLevel" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="d2390beb0a676201cfc22ca180c3af52" name="TaskType" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="b3fb2b8856f35f8c97ec352f8139058f" name="EstimatedActivityDays" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="7bbd8d8ddb1c89c9665cd143d694af73" name="RecordedActivityDays" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="ee1574055482b6f8a1f9940b5f89b5fb" name="TravelTasklevel" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="7c3dd8256252d6acb38608e8ad6c40bc" name="EstimatedTravelHours" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="8de78110d020e84c872d1526951d5baf" name="RecordedTravelHours" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="f1bf7b94d4788d1d4afb88208596ebe5" name="ShortNote" type="NVARCHAR" nullable="true" length="255">
+      </attributes>
+    </inputs>
+    <outputs xmi:id="08efe540365cbdf46ada73496a64e93d" name="Projection_OUT">
+      <attributes xmi:id="e858f09aa9cacdab165e189612b26d08" name="LoadDate" type="DATE" nullable="true" expression="TO_DATE(LEFT(REPLACE(&quot;LoadDate&quot;, &#x27;/&#x27;, &#x27;.&#x27;),10))">
+      </attributes>
+      <attributes xmi:id="04825021518be4c41d67f169c9c30885" name="SalesDocument" type="INTEGER" nullable="true" expression="TO_INTEGER(&quot;SalesDocument&quot;)">
+      </attributes>
+      <attributes xmi:id="fb9202fa449f5c8074f7e3321ec9386e" name="SalesDocumentItem" type="NVARCHAR" nullable="true" expression="&quot;SalesDocumentItem&quot;" length="100">
+      </attributes>
+      <attributes xmi:id="2bc219299de5b595c9139adbd881c312" name="PersonelNumber" type="NVARCHAR" nullable="true" expression="&quot;PersonelNumber&quot;" length="100">
+      </attributes>
+      <attributes xmi:id="092bf82cfb0e83026ad782c523e20f01" name="NameOfEmployeeOrApplicants" type="NVARCHAR" nullable="true" expression="&quot;NameOfEmployeeOrApplicants&quot;" length="100">
+      </attributes>
+      <attributes xmi:id="69b05ddc71d79923fa3d2f968d56623d" name="CompanyCode" type="NVARCHAR" nullable="true" expression="&quot;CompanyCode&quot;" length="100">
+      </attributes>
+      <attributes xmi:id="7bf89e61050661fe31b5728560bbda6b" name="StartDate" type="DATE" nullable="true" expression="TO_DATE(LEFT(REPLACE(&quot;StartDate&quot;, &#x27;/&#x27;, &#x27;.&#x27;),10))">
+      </attributes>
+      <attributes xmi:id="e771deca95db17c58e982c2b27e29336" name="EndDate" type="DATE" nullable="true" expression="TO_DATE(LEFT(REPLACE(&quot;EndDate&quot;, &#x27;/&#x27;, &#x27;.&#x27;),10))">
+      </attributes>
+      <attributes xmi:id="93cded81abc544a5fef74c46e9f8ead3" name="TaskWork" type="NVARCHAR" nullable="true" expression="&quot;TaskWork&quot;" length="100">
+      </attributes>
+      <attributes xmi:id="89c633e20ed84e5bfb27fe310447f74e" name="TaskLevel" type="NVARCHAR" nullable="true" expression="&quot;TaskLevel&quot;" length="100">
+      </attributes>
+      <attributes xmi:id="185d3a20105a207c7ce363b0358b75d6" name="TaskType" type="NVARCHAR" nullable="true" expression="&quot;TaskType&quot;" length="100">
+      </attributes>
+      <attributes xmi:id="512d126b02ed027e8e698aaae245f938" name="EstimatedActivityDays" type="DECIMAL" nullable="true" expression="TO_DECIMAL(&quot;EstimatedActivityDays&quot;)" length="38">
+      </attributes>
+      <attributes xmi:id="ae84d76d2d4003c78a2688f14f871cdb" name="RecordedActivityDays" type="DECIMAL" nullable="true" expression="TO_DECIMAL(&quot;RecordedActivityDays&quot;)" length="38">
+      </attributes>
+      <attributes xmi:id="cd4a672703942bf0a2de7efd3e2de941" name="TravelTasklevel" type="NVARCHAR" nullable="true" expression="&quot;TravelTasklevel&quot;" length="100">
+      </attributes>
+      <attributes xmi:id="6f85815d27d85c6f2802221682c9b860" name="EstimatedTravelHours" type="NVARCHAR" nullable="true" expression="&quot;EstimatedTravelHours&quot;" length="100">
+      </attributes>
+      <attributes xmi:id="61ad9b768ee99acb82aab8dac819686c" name="RecordedTravelHours" type="NVARCHAR" nullable="true" expression="&quot;RecordedTravelHours&quot;" length="100">
+      </attributes>
+      <attributes xmi:id="6ddc56df90ee2b67aad19ea9737ebf51" name="ShortNote" type="NVARCHAR" nullable="true" expression="&quot;ShortNote&quot;" length="255">
+      </attributes>
+    </outputs>
+  </nodes>
+  <nodes xmi:id="5993ba500d75bc6c12d83fdd63e741c6" name="DataTarget" catalogObjectName="SOAccounting_HANAXSA.soAccountingDB::ISP_ZVZC.tblECCDAllServiceOrders" type="TEMPLATE_TABLE" xsi:type="flowgraph:DataNode" truncateTable="true">
+    <annotations key="sap.afm.layout" xmi:id="f85727a3c45916b5a8859971a14cc0f5">
+      <annotations xmi:id="4032d576b8a7d866836481aedc73881c" key="x" value="372">
+      </annotations>
+      <annotations xmi:id="f7fb33cda31703cd47481e3c61c53704" key="y" value="60">
+      </annotations>
+      <annotations xmi:id="9e4b606aa1b183043b724e1389be9721" key="width" value="120">
+      </annotations>
+      <annotations xmi:id="215253007a5ecedbcf1832234e239771" key="height" value="115">
+      </annotations>
+    </annotations>
+    <annotations xmi:id="4ecbdd83ddcd685c1658ef1e813edf01" key="sap.afm.description">
+    </annotations>
+    <annotations xmi:id="80abb8981705ae3d6d11a23b2327e68a" key="sap.afm.nodeType" value="DataNode">
+    </annotations>
+    <annotations xmi:id="46afd3ba77324098ef3c6e651be5a86c" key="sap.afm.nodeInputs">
+    </annotations>
+    <annotations xmi:id="7b06f2559ae1e787285c6d9ce73f76bb" key="sap.afm.nodeOutputs">
+    </annotations>
+    <annotations xmi:id="4b10018d8dd2462cddab4f1448591497" key="sap.afm.displayName" value="Data Target">
+    </annotations>
+    <inputs xmi:id="4dbb0248c3278f09334eff6278114dac" name="DataTarget">
+      <attributes xmi:id="123632ad42139d49a29f2347c8a4f8c8" name="LoadDate" type="DATE" nullable="true">
+        <annotations xmi:id="23bf289d543a914b6d3e73f8ab3818fe" key="sap.im.primaryKey" value="true">
+        </annotations>
+      </attributes>
+      <attributes xmi:id="56d0e45aa580716a766789bde81a279c" name="SalesDocument" type="INTEGER" nullable="true">
+        <annotations xmi:id="a522d90afd99ea6907e0cdbf00491107" key="sap.im.primaryKey" value="true">
+        </annotations>
+      </attributes>
+      <attributes xmi:id="4cd89266771381ab7531beeb7f860d01" name="SalesDocumentItem" type="NVARCHAR" nullable="true" length="100">
+        <annotations xmi:id="570c6b0f58348816667cb4b1d9922461" key="sap.im.primaryKey" value="true">
+        </annotations>
+      </attributes>
+      <attributes xmi:id="6ca9e281801d1d6ed9bb17f0f9dd88cc" name="PersonelNumber" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="8ebb1167662d71bd55138ad5008734db" name="NameOfEmployeeOrApplicants" type="NVARCHAR" nullable="true" length="100">
+        <annotations xmi:id="eeb6c11dcff131b206c3806d2369e565" key="sap.im.primaryKey" value="true">
+        </annotations>
+      </attributes>
+      <attributes xmi:id="b3b94354750153750274805b02a3475f" name="CompanyCode" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="0e12942c3682e34414573e04ec0cee9d" name="StartDate" type="DATE" nullable="true">
+        <annotations xmi:id="36bf03b7751a77c1345dbab1f2e808a5" key="sap.im.primaryKey" value="true">
+        </annotations>
+      </attributes>
+      <attributes xmi:id="7cdb8fe6846a6667c0b955c8c303e063" name="EndDate" type="DATE" nullable="true">
+        <annotations xmi:id="5e1586256fc290da01356b0439f138c9" key="sap.im.primaryKey" value="true">
+        </annotations>
+      </attributes>
+      <attributes xmi:id="00e2b85750896a0148ceff91c54f2f38" name="TaskWork" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="b1f3b2c2e12abb544141ede02d546527" name="TaskLevel" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="32842d4e21b8b3aa80dd1be2ef77a949" name="TaskType" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="a114641ad0cd4485f61fd8945e47fc4b" name="EstimatedActivityDays" type="DECIMAL" nullable="true" length="38">
+      </attributes>
+      <attributes xmi:id="fbb690e9be6f15f4a796924fda0a0574" name="RecordedActivityDays" type="DECIMAL" nullable="true" length="38">
+      </attributes>
+      <attributes xmi:id="e653be0b8883d9d24885c75a4f270874" name="TravelTasklevel" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="3f337d96549912fd47a80bc397110ba7" name="EstimatedTravelHours" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="eadb47cc2edafcb37daa5f2cd9e01b01" name="RecordedTravelHours" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="2ddfb3c138498c8d2ccb9cfee885d562" name="ShortNote" type="NVARCHAR" nullable="true" length="255">
+      </attributes>
+    </inputs>
+  </nodes>
+</flowgraph:ContainerNode>

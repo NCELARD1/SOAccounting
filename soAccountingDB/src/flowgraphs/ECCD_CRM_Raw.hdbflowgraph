@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flowgraph:ContainerNode xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:flowgraph="http://www.sap.com/ndb/flowgraph/1.0" xmi:version="2.0" xmi:id="6d9819c358ddc8e9272a2240d162d097" name="ECCDCRMRaw" runtimeBehavior="BATCH_TASK">
+  <annotations key="sap.afm.layout" xmi:id="76ef5a7748a3c8d2bc8cfff45eda0043">
+    <annotations xmi:id="6e737301ff5cbaec2dabb8164a034b1a" key="x" value="10">
+    </annotations>
+    <annotations xmi:id="381e9efae88865f4e7b5ff2b89850786" key="y" value="10">
+    </annotations>
+    <annotations xmi:id="8405056835af2dc8fcb93af0587d073f" key="width" value="100">
+    </annotations>
+    <annotations xmi:id="c8cd654722a66dba7db1a9ba30a32a7d" key="height" value="84">
+    </annotations>
+  </annotations>
+  <annotations xmi:id="3df22fe0fe6b47b1ace65e56db3d86d5" key="sap.afm.palette">
+    <annotations xmi:id="4c283ec1c1b836d53c68273ad9e8b33b" key="additions" value=""/>
+  </annotations>
+  <annotations xmi:id="43e6d4f1701906dc7f892bfe6c2779b9" key="sap.afm.nodeType" value="ContainerNode">
+  </annotations>
+  <annotations xmi:id="7a921404c2ece1e84f3195a4d48dadd4" key="sap.afm.nodeInputs">
+  </annotations>
+  <annotations xmi:id="29c26963784064666dd743e80801fec5" key="sap.afm.nodeOutputs">
+  </annotations>
+  <tableMappings xmi:id="94ecedfef0756437ab30b7bed2136167" source="dfacb8c4deea5ea5cfd04d0e747a0bc9" target="84864242fbda12149289b92dd34b2bd9">
+    <attributeMappings xmi:id="964f2ced757a96bb879e4e5b99094ee2" source="afc0d5420f9b90d6f89919fd463f9c1f" target="c7d05810dde9a78e13622e3fe17c4cb7">
+    </attributeMappings>
+    <attributeMappings xmi:id="3aaf03dcb41407d5a93f751c3f98d1ff" source="a9b036f34a36dec3c527a67ac9184298" target="23930fcccf108eb573cd481022351fb3">
+    </attributeMappings>
+    <attributeMappings xmi:id="640a582d05745396ea8ee615b28713d1" source="dbbc69679ba652d378caeb9a1e301a25" target="543c8b3237a72cebd71944eb1e6cce0c">
+    </attributeMappings>
+    <attributeMappings xmi:id="ee18b0a8497f2b6349e744b9bf60f0e7" source="2c1715b149f10cc5c2c09ad06be9da69" target="c78be64fd4b63535892bd2e59057f3c1">
+    </attributeMappings>
+    <attributeMappings xmi:id="4e98d894cef305a1d1104b68d2716d07" source="c0eadc438aeb9ab396308532f01ac770" target="21e653bf7485a093a97153625184dadd">
+    </attributeMappings>
+    <attributeMappings xmi:id="c297e74dbc91a2ab5659327c86b246f0" source="d55711ee29e30cf9f59c50a2fae43a30" target="bc09a126e5a547c0a252f818b045faba">
+    </attributeMappings>
+    <attributeMappings xmi:id="eba099471ee6a6acfc0b1f35084d616a" source="7d814ff63b21e9fb3ea4814d64b9fc0f" target="9f0b0e98277a1c1e5371db684be3275a">
+    </attributeMappings>
+    <attributeMappings xmi:id="df8aba852750c1d1c7c8bc0df7f003c4" source="3fed4f1eaf2d8db6ada2315a6d3cd01c" target="ebf42204f0d1ee1f08825c6160675fa2">
+    </attributeMappings>
+    <attributeMappings xmi:id="c3f92d6f4aba2e61d604df4dec95cbf5" source="0a5d76e2678e83da4e0bc83b4114f925" target="aee672f59d285a709fa1e98309cb416b">
+    </attributeMappings>
+    <attributeMappings xmi:id="8ff6ee7a3293df2fb76a5d436eb93320" source="f2fa281b180f7dc2cbce1d817072297f" target="506bb35e1acf78b2ab9102227b143160">
+    </attributeMappings>
+    <attributeMappings xmi:id="d3a8db3826963fcf51bf37cc992b0f04" source="994c6759b7c56a904fc38e82e9cf0708" target="c82e71e3cf532bc07086b26b1882f0cc">
+    </attributeMappings>
+    <attributeMappings xmi:id="d9f93714fec888660be481a71ce7070e" source="8fb977abc77b73df8c242db402ae7225" target="5bd663860f2b93ad878a56199032757e">
+    </attributeMappings>
+    <attributeMappings xmi:id="aa10017b650b3e187c0c8128953f576d" source="a6f30ee24bbc46f7408ceb8592c837b5" target="2f5acb1fab8d8ed940f715a5eb71100f">
+    </attributeMappings>
+  </tableMappings>
+  <tableMappings xmi:id="b3f5fb6fbdf4305ec86aacdcc69b1db5" source="00193a291c2d7c9d5fddb051265563ff" target="016a4c048340bd9ced1bb10a8ce1eafa">
+    <attributeMappings xmi:id="eaea775efd4c977d1e24c4e53db65348" source="6425aae11e6ac84b544c00ecd5d62d27" target="eb4b9a11ba7e559778c36fabaa26316c">
+    </attributeMappings>
+    <attributeMappings xmi:id="73ab3bf2c6f44c5cd3f5ba271fd9e6e4" source="4cd2f8a63598b5599b142d1283554bb1" target="c95fd01d3f38ef965e09d4c3d8174810">
+    </attributeMappings>
+    <attributeMappings xmi:id="fb5fa32c558641ddbf024e465a067eaa" source="dbafec89617d9cba93bc7c1906b09b71" target="4147b622b82543023e0902ca5e0d5a6c">
+    </attributeMappings>
+    <attributeMappings xmi:id="364078a61ee76de323d5814095102aba" source="8f9516b0330595fc7bf6d427e3b17c62" target="bed3d52da6d44df2a7b3d2b4f8ae84c8">
+    </attributeMappings>
+    <attributeMappings xmi:id="0f9fe422cbdadad9ea61af0fe0b32fc4" source="eb6ccf26e3f9b84d6535423a40ebf1e1" target="259702993851af73d796f6053d2ae544">
+    </attributeMappings>
+    <attributeMappings xmi:id="7f335b4ef02de993cf0ede372657ba11" source="952dd73549bc52380f0819f3b2645833" target="cbe27487d33464e866bc3862c43c89d2">
+    </attributeMappings>
+    <attributeMappings xmi:id="99803a69e30a65a7091cb3f929c84398" source="bb8553c6e2fdfd78b9e10367ffdbc8d1" target="7a2161656aca959f4e8335bb5f15d5cc">
+    </attributeMappings>
+    <attributeMappings xmi:id="af3d4c6180596e92fef66ffc4cb5bc69" source="1d88c7ae7d85d64a42fa85e2be407317" target="35b7a7705f0febae377de455f60c525d">
+    </attributeMappings>
+    <attributeMappings xmi:id="1f8a84ef4edc40b85c15d0dc99b0d5cb" source="60b4ccb5687bf63e8ffda5cd910a395c" target="3254bcd41ee7f579e807ea3607e0895c">
+    </attributeMappings>
+    <attributeMappings xmi:id="0a344eb83d81afe29c6a302d4ba6c9ab" source="ca74470fec3d42a895c19dee1555a5eb" target="4e69151be93f20511a2e0d18fbd4604e">
+    </attributeMappings>
+    <attributeMappings xmi:id="bd41502b26d546dc6f8f4b551fdd5892" source="2a3fba5ce320ca78745d6b941cc7fc13" target="e032d94c62cb165a9a687be25be8db56">
+    </attributeMappings>
+    <attributeMappings xmi:id="c5f8d8dc7259f312cb99fa730b60a87d" source="073f7fe41093ef8e223cf5a75607af30" target="d2240adc2f2b165f76569743b75e9c3c">
+    </attributeMappings>
+    <attributeMappings xmi:id="93bf87498b59a63fe8a1bd3db18b8388" source="51b770def68fae5a8d0d08dd62ed3c15" target="2219b560e79090dd56f00dd503564bb5">
+    </attributeMappings>
+  </tableMappings>
+  <nodes xmi:id="25ea8954156db16ca5d8d5aa4e53612b" name="DataSource" catalogObjectName="SOAccounting_HANAXSA.soAccountingDB::CRM.tblRawAllServiceOrders" type="DATABASE_TABLE" xsi:type="flowgraph:DataNode" dataLayout="COLUMN">
+    <annotations key="sap.afm.layout" xmi:id="584bc6561743188479cbd1d5faaaa975">
+      <annotations xmi:id="bb19ba4feeff22d79a4d5639a4be4858" key="x" value="12">
+      </annotations>
+      <annotations xmi:id="747d922516f578893cdcbd1624217a08" key="y" value="60">
+      </annotations>
+      <annotations xmi:id="1e3a45fe942c9d15a793c430cd52767e" key="width" value="120">
+      </annotations>
+      <annotations xmi:id="a993917a7b594d41b930dd6b14d69163" key="height" value="115">
+      </annotations>
+    </annotations>
+    <annotations xmi:id="06213bb3dbb837d786e8524513e3e967" key="sap.afm.description">
+    </annotations>
+    <annotations xmi:id="e31695bfc11c83d71b309cc7970081a8" key="sap.afm.nodeType" value="DataNode">
+    </annotations>
+    <annotations xmi:id="5415143cb686d0ce0fe2662f8d3e0cde" key="sap.afm.nodeInputs">
+    </annotations>
+    <annotations xmi:id="652d0239f3a3dacb3973c43bdf950ff5" key="sap.afm.nodeOutputs">
+    </annotations>
+    <annotations xmi:id="66e9bf815921eb274c9990ea7210ea3b" key="sap.afm.displayName" value="Data Source">
+    </annotations>
+    <annotations xmi:id="a0273cfb10fb86538686745658db3322" key="columns" value="[{&quot;name&quot;:&quot;LoadDate&quot;,&quot;type&quot;:&quot;NVARCHAR&quot;,&quot;length&quot;:100,&quot;nullable&quot;:&quot;false&quot;,&quot;primarykey&quot;:true},{&quot;name&quot;:&quot;ServiceOrderID&quot;,&quot;type&quot;:&quot;NVARCHAR&quot;,&quot;length&quot;:100,&quot;nullable&quot;:&quot;false&quot;,&quot;primarykey&quot;:true},{&quot;name&quot;:&quot;CustomerID&quot;,&quot;type&quot;:&quot;NVARCHAR&quot;,&quot;length&quot;:100,&quot;nullable&quot;:&quot;true&quot;},{&quot;name&quot;:&quot;CustomerName&quot;,&quot;type&quot;:&quot;NVARCHAR&quot;,&quot;length&quot;:100,&quot;nullable&quot;:&quot;true&quot;},{&quot;name&quot;:&quot;Status&quot;,&quot;type&quot;:&quot;NVARCHAR&quot;,&quot;length&quot;:100,&quot;nullable&quot;:&quot;true&quot;},{&quot;name&quot;:&quot;Description&quot;,&quot;type&quot;:&quot;NVARCHAR&quot;,&quot;length&quot;:100,&quot;nullable&quot;:&quot;true&quot;},{&quot;name&quot;:&quot;ServiceProductID&quot;,&quot;type&quot;:&quot;NVARCHAR&quot;,&quot;length&quot;:100,&quot;nullable&quot;:&quot;true&quot;},{&quot;name&quot;:&quot;ServiceProductDescription&quot;,&quot;type&quot;:&quot;NVARCHAR&quot;,&quot;length&quot;:100,&quot;nullable&quot;:&quot;true&quot;},{&quot;name&quot;:&quot;ReqDeliveryDate&quot;,&quot;type&quot;:&quot;NVARCHAR&quot;,&quot;length&quot;:100,&quot;nullable&quot;:&quot;true&quot;},{&quot;name&quot;:&quot;GoLiveDate&quot;,&quot;type&quot;:&quot;NVARCHAR&quot;,&quot;length&quot;:100,&quot;nullable&quot;:&quot;true&quot;},{&quot;name&quot;:&quot;ServiceOrderGroup&quot;,&quot;type&quot;:&quot;NVARCHAR&quot;,&quot;length&quot;:100,&quot;nullable&quot;:&quot;true&quot;},{&quot;name&quot;:&quot;Qty&quot;,&quot;type&quot;:&quot;NVARCHAR&quot;,&quot;length&quot;:100,&quot;nullable&quot;:&quot;true&quot;},{&quot;name&quot;:&quot;UoM&quot;,&quot;type&quot;:&quot;NVARCHAR&quot;,&quot;length&quot;:100,&quot;nullable&quot;:&quot;true&quot;}]">
+    </annotations>
+    <outputs xmi:id="dfacb8c4deea5ea5cfd04d0e747a0bc9" name="DataSource">
+      <attributes xmi:id="afc0d5420f9b90d6f89919fd463f9c1f" name="LoadDate" type="NVARCHAR" nullable="false" length="100">
+        <annotations xmi:id="7f9a231274c3eb5e36cdb2bd2fa37211" key="sap.im.primaryKey" value="true"/>
+      </attributes>
+      <attributes xmi:id="a9b036f34a36dec3c527a67ac9184298" name="ServiceOrderID" type="NVARCHAR" nullable="false" length="100">
+        <annotations xmi:id="6742f1b78560fc7819069f30038cd980" key="sap.im.primaryKey" value="true"/>
+      </attributes>
+      <attributes xmi:id="dbbc69679ba652d378caeb9a1e301a25" name="CustomerID" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="2c1715b149f10cc5c2c09ad06be9da69" name="CustomerName" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="c0eadc438aeb9ab396308532f01ac770" name="Status" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="d55711ee29e30cf9f59c50a2fae43a30" name="Description" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="7d814ff63b21e9fb3ea4814d64b9fc0f" name="ServiceProductID" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="3fed4f1eaf2d8db6ada2315a6d3cd01c" name="ServiceProductDescription" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="0a5d76e2678e83da4e0bc83b4114f925" name="ReqDeliveryDate" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="f2fa281b180f7dc2cbce1d817072297f" name="GoLiveDate" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="994c6759b7c56a904fc38e82e9cf0708" name="ServiceOrderGroup" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="8fb977abc77b73df8c242db402ae7225" name="Qty" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="a6f30ee24bbc46f7408ceb8592c837b5" name="UoM" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+    </outputs>
+  </nodes>
+  <nodes xmi:id="ad6e389731b28f072e5e73f1425cbce0" xsi:type="flowgraph:FilterNode" name="Projection">
+    <annotations key="sap.afm.layout" xmi:id="a15dcf88060aa201ed3a460f5ff13267">
+      <annotations xmi:id="900933884f947872d729a6357d493859" key="x" value="192">
+      </annotations>
+      <annotations xmi:id="4adb93b6176a25ab29c92cfcb6647e15" key="y" value="60">
+      </annotations>
+      <annotations xmi:id="98f8acbc298c3e86c5af37866b715dc2" key="width" value="120">
+      </annotations>
+      <annotations xmi:id="bd0e00ad2cde57ddf87432e61f638087" key="height" value="115">
+      </annotations>
+    </annotations>
+    <inputs xmi:id="84864242fbda12149289b92dd34b2bd9" name="Projection_IN">
+      <attributes xmi:id="c7d05810dde9a78e13622e3fe17c4cb7" name="LoadDate" type="NVARCHAR" nullable="false" length="100">
+        <annotations xmi:id="343ab7696146f7d3c43de82844451a3e" key="sap.im.primaryKey" value="true"/>
+      </attributes>
+      <attributes xmi:id="23930fcccf108eb573cd481022351fb3" name="ServiceOrderID" type="NVARCHAR" nullable="false" length="100">
+        <annotations xmi:id="2f185690fa47a74cead04fe294dd5e96" key="sap.im.primaryKey" value="true"/>
+      </attributes>
+      <attributes xmi:id="543c8b3237a72cebd71944eb1e6cce0c" name="CustomerID" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="c78be64fd4b63535892bd2e59057f3c1" name="CustomerName" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="21e653bf7485a093a97153625184dadd" name="Status" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="bc09a126e5a547c0a252f818b045faba" name="Description" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="9f0b0e98277a1c1e5371db684be3275a" name="ServiceProductID" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="ebf42204f0d1ee1f08825c6160675fa2" name="ServiceProductDescription" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="aee672f59d285a709fa1e98309cb416b" name="ReqDeliveryDate" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="506bb35e1acf78b2ab9102227b143160" name="GoLiveDate" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="c82e71e3cf532bc07086b26b1882f0cc" name="ServiceOrderGroup" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="5bd663860f2b93ad878a56199032757e" name="Qty" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="2f5acb1fab8d8ed940f715a5eb71100f" name="UoM" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+    </inputs>
+    <outputs xmi:id="00193a291c2d7c9d5fddb051265563ff" name="Projection_OUT">
+      <attributes xmi:id="6425aae11e6ac84b544c00ecd5d62d27" name="LoadDate" type="DATE" nullable="false" expression="TO_DATE(LEFT(REPLACE(&quot;LoadDate&quot;, &#x27;/&#x27;, &#x27;.&#x27;),10))">
+        <annotations xmi:id="7c4f268d09f4138e0807d52137ec8bf4" key="sap.im.primaryKey" value="true"/>
+      </attributes>
+      <attributes xmi:id="4cd2f8a63598b5599b142d1283554bb1" name="ServiceOrderID" type="INTEGER" nullable="false" expression="TO_INTEGER(SUBSTR_BEFORE(&quot;ServiceOrderID&quot;,&#x27;.&#x27;))">
+        <annotations xmi:id="9a1480a53e007815fe97033b9e028880" key="sap.im.primaryKey" value="true"/>
+      </attributes>
+      <attributes xmi:id="dbafec89617d9cba93bc7c1906b09b71" name="CustomerID" type="INTEGER" nullable="true" expression="TO_INTEGER(SUBSTR_BEFORE(&quot;CustomerID&quot;,&#x27;.&#x27;))">
+      </attributes>
+      <attributes xmi:id="8f9516b0330595fc7bf6d427e3b17c62" name="CustomerName" type="NVARCHAR" nullable="true" expression="&quot;CustomerName&quot;" length="100">
+      </attributes>
+      <attributes xmi:id="eb6ccf26e3f9b84d6535423a40ebf1e1" name="Status" type="NVARCHAR" nullable="true" expression="&quot;Status&quot;" length="100">
+      </attributes>
+      <attributes xmi:id="952dd73549bc52380f0819f3b2645833" name="Description" type="NVARCHAR" nullable="true" expression="&quot;Description&quot;" length="100">
+      </attributes>
+      <attributes xmi:id="bb8553c6e2fdfd78b9e10367ffdbc8d1" name="ServiceProductID" type="INTEGER" nullable="true" expression="TO_INTEGER(SUBSTR_BEFORE(&quot;ServiceProductID&quot;,&#x27;.&#x27;))">
+      </attributes>
+      <attributes xmi:id="1d88c7ae7d85d64a42fa85e2be407317" name="ServiceProductDescription" type="NVARCHAR" nullable="true" expression="&quot;ServiceProductDescription&quot;" length="100">
+      </attributes>
+      <attributes xmi:id="60b4ccb5687bf63e8ffda5cd910a395c" name="ReqDeliveryDate" type="DATE" nullable="true" expression="TO_DATE(LEFT(REPLACE(&quot;ReqDeliveryDate&quot;, &#x27;/&#x27;, &#x27;.&#x27;),10))">
+      </attributes>
+      <attributes xmi:id="ca74470fec3d42a895c19dee1555a5eb" name="GoLiveDate" type="DATE" nullable="true" expression="TO_DATE(LEFT(REPLACE(&quot;GoLiveDate&quot;, &#x27;/&#x27;, &#x27;.&#x27;),10))">
+      </attributes>
+      <attributes xmi:id="2a3fba5ce320ca78745d6b941cc7fc13" name="ServiceOrderGroup" type="NVARCHAR" nullable="true" expression="&quot;ServiceOrderGroup&quot;" length="100">
+      </attributes>
+      <attributes xmi:id="073f7fe41093ef8e223cf5a75607af30" name="Qty" type="DECIMAL" nullable="true" expression="TO_DECIMAL(&quot;Qty&quot;)" length="38">
+      </attributes>
+      <attributes xmi:id="51b770def68fae5a8d0d08dd62ed3c15" name="UoM" type="NVARCHAR" nullable="true" expression="&quot;UoM&quot;" length="100">
+      </attributes>
+    </outputs>
+  </nodes>
+  <nodes xmi:id="c468194352b7c016f6df59f0f4913ef4" name="DataTarget" catalogObjectName="SOAccounting_HANAXSA.soAccountingDB::CRM.tblECCDAllServiceOrders" type="TEMPLATE_TABLE" xsi:type="flowgraph:DataNode" truncateTable="true">
+    <annotations key="sap.afm.layout" xmi:id="701266c5d774148c12ad901fc7fe97ad">
+      <annotations xmi:id="8ba3eebefa52dfb1c250798172cbb87b" key="x" value="372">
+      </annotations>
+      <annotations xmi:id="f7c000bdbaef64b84b4620a31936a66e" key="y" value="60">
+      </annotations>
+      <annotations xmi:id="75a5d2ed789610c91af0796f94525d58" key="width" value="120">
+      </annotations>
+      <annotations xmi:id="7c802f1df8aa4804cb0b10212d0fe373" key="height" value="115">
+      </annotations>
+    </annotations>
+    <annotations xmi:id="186067177e41ee0e0bc7d1367df2c57b" key="sap.afm.description">
+    </annotations>
+    <annotations xmi:id="0e6ac56f59a5cc3a79330f0d0bd022fb" key="sap.afm.nodeType" value="DataNode">
+    </annotations>
+    <annotations xmi:id="7de8d05331b6a65afdd262bab842782a" key="sap.afm.nodeInputs">
+    </annotations>
+    <annotations xmi:id="744517ef7fdae5e2bb4a4377a5b380e9" key="sap.afm.nodeOutputs">
+    </annotations>
+    <annotations xmi:id="ff32ad176e4bb268ea81fc3c2e8ad677" key="sap.afm.displayName" value="Data Target">
+    </annotations>
+    <inputs xmi:id="016a4c048340bd9ced1bb10a8ce1eafa" name="DataTarget">
+      <attributes xmi:id="eb4b9a11ba7e559778c36fabaa26316c" name="LoadDate" type="DATE" nullable="false">
+        <annotations xmi:id="c7427972e4d8c8bec6b1af19ba79ada0" key="sap.im.primaryKey" value="true"/>
+      </attributes>
+      <attributes xmi:id="c95fd01d3f38ef965e09d4c3d8174810" name="ServiceOrderID" type="INTEGER" nullable="false">
+        <annotations xmi:id="fdd89214dcb2872b06947adcb82a6cca" key="sap.im.primaryKey" value="true"/>
+      </attributes>
+      <attributes xmi:id="4147b622b82543023e0902ca5e0d5a6c" name="CustomerID" type="INTEGER" nullable="true">
+      </attributes>
+      <attributes xmi:id="bed3d52da6d44df2a7b3d2b4f8ae84c8" name="CustomerName" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="259702993851af73d796f6053d2ae544" name="Status" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="cbe27487d33464e866bc3862c43c89d2" name="Description" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="7a2161656aca959f4e8335bb5f15d5cc" name="ServiceProductID" type="INTEGER" nullable="true">
+      </attributes>
+      <attributes xmi:id="35b7a7705f0febae377de455f60c525d" name="ServiceProductDescription" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="3254bcd41ee7f579e807ea3607e0895c" name="ReqDeliveryDate" type="DATE" nullable="true">
+      </attributes>
+      <attributes xmi:id="4e69151be93f20511a2e0d18fbd4604e" name="GoLiveDate" type="DATE" nullable="true">
+      </attributes>
+      <attributes xmi:id="e032d94c62cb165a9a687be25be8db56" name="ServiceOrderGroup" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="d2240adc2f2b165f76569743b75e9c3c" name="Qty" type="DECIMAL" nullable="true" length="38">
+      </attributes>
+      <attributes xmi:id="2219b560e79090dd56f00dd503564bb5" name="UoM" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+    </inputs>
+  </nodes>
+</flowgraph:ContainerNode>

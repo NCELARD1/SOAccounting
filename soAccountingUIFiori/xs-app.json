@@ -1,0 +1,17 @@
+{
+	"welcomeFile": "index.html",
+	"authenticationMethod": "none",
+	"routes": [{
+		"source": "/CustomerListCRMISP_ConsolidatedSOs.xsodata/",
+		"destination": "soAccountingJS_be"
+	}, {
+		"source": "/CreateManualForecast.xsodata/",
+		"destination": "soAccountingJS_be"
+	}, {
+		"source": "/CreateManualForecastFlat.xsodata/",
+		"destination": "soAccountingJS_be"
+	}, {
+		"source": "/DisplayForecastTop3.xsodata/",
+		"destination": "soAccountingJS_be"
+	}]
+}

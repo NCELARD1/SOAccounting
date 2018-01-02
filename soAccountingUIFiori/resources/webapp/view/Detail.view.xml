@@ -1,0 +1,366 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:micro="sap.ui.comp.smartmicrochart" controllerName="com.nico.controller.Detail">
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
+		<semantic:content>
+			<ObjectHeader id="objectHeader" title="{CustomerName}" number="{ path: 'CustomerID', formatter: '.formatter.integerValue' }"/>
+			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://expense-report" tooltip="{i18n>detailIconTabBarInfo}">
+						<content>
+							<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" editable="true" layout="ResponsiveGridLayout" id="__form1111">
+								<sap.ui.layout.form:content>
+									<Toolbar id="summaryToolbar">
+										<Title id="summaryHeader" text="Account Summary"/>
+									</Toolbar>
+									<Table id="CustomerSummary" width="auto" class="sapUiResponsiveMargin" items="{ path: '/CRM_CustomerList', sorter: { path: 'CustomerName', descending: false } }" noDataText="No Data" busyIndicatorDelay="{detailView>/lineItemTableDelay}" growing="true" growingScrollToLoad="true" updateFinished="onUpdateFinished">
+										<columns>
+											<Column id="nameColumn">
+												<Text text="Period" id="nameColumnTitle"/>
+											</Column>
+											<Column id="forecastedDaysColumn" hAlign="End">
+												<Text text="Forecasted" id="forecastedDaysColumnTitle"/>
+											</Column>
+											<Column id="recordedDaysColumn" hAlign="End">
+												<Text text="Recorded" id="recordedDaysColumnTitle"/>
+											</Column>
+											<Column id="reaminingDaysColumn" hAlign="End">
+												<Text text="Remaining" id="remainingDaysColumnTitle"/>
+											</Column>
+										</columns>
+										<items>
+											<ColumnListItem>
+												<cells>
+													<ObjectIdentifier title="{DELIVERY_YEAR_D}" text="All Contracts"/>
+													<ObjectNumber number="{ path: 'FORECASTEDDAYSCORRECTED', formatter: '.formatter.numberUnit' }" unit="Days"/>
+													<ObjectNumber number="{ path: 'RECORDEDDAYSCORRECTED', formatter: '.formatter.numberUnit' }" unit="Days"/>
+													<ObjectNumber number="{ path: 'REMAININGDAYSCORRECTED', formatter: '.formatter.numberUnit' }" unit="Days"/>
+												</cells>
+											</ColumnListItem>
+										</items>
+									</Table>
+								</sap.ui.layout.form:content>
+							</sap.ui.layout.form:SimpleForm>
+							<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" editable="true" layout="ResponsiveGridLayout" id="__form0">
+								<sap.ui.layout.form:content>
+									<Toolbar id="lineItemsToolbar">
+										<Title id="lineItemsHeader" text="{detailView>/lineItemListTitle}"/>
+									</Toolbar>
+									<Table id="lineItemsList" width="auto" items="{CustomerOrders}" updateFinished="onListUpdateFinished" noDataText="{i18n>detailLineItemTableNoDataText}" busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin">
+										<headerToolbar/>
+										<columns>
+											<Column>
+												<Text text="{i18n>detailLineItemTableIDColumn}"/>
+											</Column>
+											<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Right">
+												<Text text="{i18n>detailLineItemTableUnitNumberColumnRec}"/>
+											</Column>
+										</columns>
+										<items>
+											<ColumnListItem type="Navigation" press="onPress">
+												<cells>
+													<ObjectIdentifier title="{CRMSOID}/{SALESDOCUMENTITEM_INT}" text="{Description}"/>
+													<ObjectNumber number="{ path: 'RECORDEDDAYSCORRECTED' }" state="{= ${REMAININGDAYSCORRECTED} &gt; 0 ? 'Error' : 'Success' }" unit="Days"/>
+												</cells>
+											</ColumnListItem>
+										</items>
+									</Table>
+								</sap.ui.layout.form:content>
+							</sap.ui.layout.form:SimpleForm>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter id="iconTabBarFilter2" icon="sap-icon://future" tooltip="{i18n>detailIconTabBarAttachments}">
+						<content>
+							<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" editable="true" layout="ResponsiveGridLayout" id="__form1">
+								<sap.ui.layout.form:content>
+									<sap.ui.core:Title text="Forecast" id="__title1"/>
+									<Label text="ContractID/ItemID" id="__label2"/>
+									<Input width="100%" id="__input3" value="{manualForecastFlat>/ContractID}"/>
+									<Input width="100%" id="__input4" value="{manualForecastFlat>/ItemID}"/>
+									<Label text="Forecast Date" id="__label5"/>
+									<DatePicker width="100%" id="__picker0" valueFormat="yyyy.MM.dd" value="{path: 'manualForecastFlat>/ForecastDate'}"/>
+									<Label text="Probability" id="__label93"/>
+									<ActionSelect selectedItem="Element sap.ui.core.ListItem#__item4" selectedKey="{manualForecast>/Probability}" selectedItemId="__item4" id="__select0">
+										<items>
+											<sap.ui.core:ListItem text="Committed" key="item1" id="__item4"/>
+											<sap.ui.core:ListItem text="Probable" key="item2" id="__item5"/>
+											<sap.ui.core:ListItem text="Upside" key="item3" id="__item6"/>
+										</items>
+									</ActionSelect>
+									<Input width="100%" id="__input5" value="{manualForecast>/DaysForecasted}" visible="False"/>
+									<Label text="" id="__label6" visible="False"/>
+									<Button type="Accept" width="100%" text="Submit Forecast" press="callUserService" ariaDescribedBy="defaultButtonDescription genericButtonDescription">
+									</Button>
+									<Label text="Month" id="__label4" visible="False"/>
+									<ActionSelect selectedItem="Element sap.ui.core.ListItem#__item5" selectedKey="{manualForecast>/Month}" selectedItemId="__month1" id="__select1" visible="False">
+										<items>
+											<sap.ui.core:ListItem text="January" key="monthitem1" id="__month1"/>
+											<sap.ui.core:ListItem text="February" key="monthitem2" id="__month2"/>
+											<sap.ui.core:ListItem text="March" key="monthitem3" id="__month3"/>
+											<sap.ui.core:ListItem text="April" key="monthitem4" id="__month4"/>
+											<sap.ui.core:ListItem text="May" key="monthitem5" id="__month5"/>
+											<sap.ui.core:ListItem text="June" key="monthitem6" id="__month6"/>
+											<sap.ui.core:ListItem text="July" key="monthitem7" id="__month7"/>
+											<sap.ui.core:ListItem text="August" key="monthitem8" id="__month8"/>
+											<sap.ui.core:ListItem text="September" key="monthitem9" id="__month9"/>
+											<sap.ui.core:ListItem text="October" key="monthitem10" id="__month10"/>
+											<sap.ui.core:ListItem text="November" key="monthitem11" id="__month11"/>
+											<sap.ui.core:ListItem text="December" key="monthitem12" id="__month12"/>
+										</items>
+									</ActionSelect>
+								</sap.ui.layout.form:content>
+							</sap.ui.layout.form:SimpleForm>
+							<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" editable="true" layout="ResponsiveGridLayout" id="__form5" labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false">
+								<sap.ui.layout.form:content>
+									<Panel>
+										<FlexBox renderType="Div" direction="Column">
+											<items>
+												<Button text="Month" type="Emphasized" class="sapUiSmallMarginEnd" width="170px">
+												</Button>
+												<Button text="January" type="Emphasized" class="sapUiSmallMarginEnd" width="170px">
+												</Button>
+												<Button text="February" type="Emphasized" class="sapUiSmallMarginEnd" width="170px">
+												</Button>
+												<Button text="March" type="Emphasized" class="sapUiSmallMarginEnd" width="170px">
+												</Button>
+												<Button text="April" type="Emphasized" class="sapUiSmallMarginEnd" width="170px">
+												</Button>												
+												<Button text="May " type="Emphasized" class="sapUiSmallMarginEnd" width="170px">
+												</Button>
+												<Button text="Jun " type="Emphasized" class="sapUiSmallMarginEnd" width="170px">
+												</Button>
+												<Button text="July " type="Emphasized" class="sapUiSmallMarginEnd" width="170px">
+												</Button>
+												<Button text="August" type="Emphasized" class="sapUiSmallMarginEnd" width="170px">
+												</Button>
+												<Button text="September" type="Emphasized" class="sapUiSmallMarginEnd" width="170px">
+												</Button>
+												<Button text="October" type="Emphasized" class="sapUiSmallMarginEnd" width="170px">
+												</Button>
+												<Button text="November" type="Emphasized" class="sapUiSmallMarginEnd" width="170px">
+												</Button>
+												<Button text="December" type="Emphasized" class="sapUiSmallMarginEnd" width="170px">
+												</Button>
+											</items>
+										</FlexBox>
+									</Panel>
+									<Panel>
+										<FlexBox renderType="Div" direction="Column">
+											<items>
+												<Button text="Committed" type="Emphasized" class="sapUiSmallMarginEnd" width="170px">
+												</Button>
+												<Input id="iComJan" value="{manualForecastFlat>/JanHigh}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+												<Input id="iComFeb" value="{manualForecastFlat>/FebHigh}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+												<Input id="iComMar" value="{manualForecastFlat>/MarHigh}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+												<Input id="iComApr" value="{manualForecastFlat>/AprHigh}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+												<Input id="iComMay" value="{manualForecastFlat>/MayHigh}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+												<Input id="iComJun" value="{manualForecastFlat>/JunHigh}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+												<Input id="iComJul" value="{manualForecastFlat>/JulHigh}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+												<Input id="iComAug" value="{manualForecastFlat>/AugHigh}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+												<Input id="iComSep" value="{manualForecastFlat>/SepHigh}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+												<Input id="iComOct" value="{manualForecastFlat>/OctHigh}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+												<Input id="iComNov" value="{manualForecastFlat>/NovHigh}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+												<Input id="iComDec" value="{manualForecastFlat>/DecHigh}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+											</items>
+										</FlexBox>
+									</Panel>
+									<Panel>										
+										<FlexBox renderType="Div" direction="Column">
+											<items>
+												<Button text="Probable" type="Emphasized" class="sapUiSmallMarginEnd" width="170px">
+												</Button>
+												<Input id="iProJan" value="{manualForecastFlat>/JanMed}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+												<Input id="iProFeb" value="{manualForecastFlat>/FebMed}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+												<Input id="iProMar" value="{manualForecastFlat>/MarMed}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+												<Input id="iProApr" value="{manualForecastFlat>/AprMed}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+												<Input id="iProMay" value="{manualForecastFlat>/MayMed}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+												<Input id="iProJun" value="{manualForecastFlat>/JunMed}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+												<Input id="iProJul" value="{manualForecastFlat>/JulMed}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+												<Input id="iProAug" value="{manualForecastFlat>/AugMed}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+												<Input id="iProSep" value="{manualForecastFlat>/SepMed}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+												<Input id="iProOct" value="{manualForecastFlat>/OctMed}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+												<Input id="iProNov" value="{manualForecastFlat>/NovMed}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+												<Input id="iProDec" value="{manualForecastFlat>/DecMed}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+											</items>
+										</FlexBox>
+									</Panel>
+									<Panel>										
+										<FlexBox renderType="Div" direction="Column">
+											<items>
+												<Button text="Upside" type="Emphasized" class="sapUiSmallMarginEnd" width="170px">
+												</Button>
+												<Input id="iUpsJan" value="{manualForecastFlat>/JanLow}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+												<Input id="iUpsFeb" value="{manualForecastFlat>/FebLow}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+												<Input id="iUpsMar" value="{manualForecastFlat>/MarLow}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+												<Input id="iUpsApr" value="{manualForecastFlat>/AprLow}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+												<Input id="iUpsMay" value="{manualForecastFlat>/MayLow}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+												<Input id="iUpsJun" value="{manualForecastFlat>/JunLow}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+												<Input id="iUpsJul" value="{manualForecastFlat>/JulLow}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+												<Input id="iUpsAug" value="{manualForecastFlat>/AugLow}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+												<Input id="iUpsSep" value="{manualForecastFlat>/SepLow}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+												<Input id="iUpsOct" value="{manualForecastFlat>/OctLow}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+												<Input id="iUpsNov" value="{manualForecastFlat>/NovLow}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+												<Input id="iUpsDec" value="{manualForecastFlat>/DecLow}" width="auto" class="sapUiSmallMarginEnd">
+													<layoutData>
+														<FlexItemData growFactor="1"/>
+													</layoutData>
+												</Input>
+											</items>
+										</FlexBox>
+									</Panel>
+								</sap.ui.layout.form:content>
+							</sap.ui.layout.form:SimpleForm>
+						</content>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</semantic:content>
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
+		</semantic:sendEmailAction>
+		<semantic:shareInJamAction>
+			<semantic:ShareInJamAction id="shareInJam" visible="{FLP>/isShareInJamActive}" press="onShareInJamPress"/>
+		</semantic:shareInJamAction>
+		<semantic:saveAsTileAction>
+			<footerbar:AddBookmarkButton id="shareTile" title="{detailView>/saveAsTileTitle}"/>
+		</semantic:saveAsTileAction>
+	</semantic:DetailPage>
+</mvc:View>

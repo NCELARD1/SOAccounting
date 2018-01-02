@@ -1,0 +1,5 @@
+service {
+	"VTTCRMCustomerList" as "CRM_CustomerList" navigates ("Customer_SO" as "CustomerOrders");
+	"VTTCRMISPConsolidatedSOs" as "CRMISP_ConsolidatedSOs"; 
+    association "Customer_SO" principal "CRM_CustomerList"("CustomerID") multiplicity "1" dependent "CRMISP_ConsolidatedSOs"("CRMCUSTOMERID") multiplicity "*"; 
+}  

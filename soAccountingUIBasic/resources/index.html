@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<head><meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<title>CRM ISP SOs List</title>
+<script src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+id="sap-ui-bootstrap" data-sap-ui-libs="sap.ui.commons, sap.ui.table"
+data-sap-ui-theme="sap_bluecrystal">
+</script>
+<script>
+var oModel = new sap.ui.model.odata.ODataModel("/CRMISP_ConsolidatedSOs.xsodata", true);
+var oTable = new sap.ui.table.Table ({ 
+title: "Consolidated CRM/ISP Service Orders Report",
+visibleRowCount: 20, 
+//id: "tinytab"
+id: "tinytab"
+});
+oTable.addColumn(new sap.ui.table.Column({ label: "Load Date", template: "LoadDate" }));
+oTable.addColumn(new sap.ui.table.Column({ label: "CUSTOMERID", template: "CRMCUSTOMERID" }));
+oTable.addColumn(new sap.ui.table.Column({ label: "CRM SO ID", template: "CRMSOID" }));
+oTable.addColumn(new sap.ui.table.Column({ label: "ISP SO ID", template: "ISPSOID" }));
+oTable.addColumn(new sap.ui.table.Column({ label: "SO Item", template: "SALESDOCUMENTITEM_INT" }));
+oTable.addColumn(new sap.ui.table.Column({ label: "Description", template: "Description" }));
+oTable.addColumn(new sap.ui.table.Column({ label: "Del Date", template: "RequestedDelDate" }));
+oTable.addColumn(new sap.ui.table.Column({ label: "End Date", template: "EndDate" }));
+oTable.addColumn(new sap.ui.table.Column({ label: "Del Month", template: "REQDELDATEMONTH" }));
+oTable.addColumn(new sap.ui.table.Column({ label: "Del Year", template: "DELIVERY_YEAR_D" }));
+oTable.addColumn(new sap.ui.table.Column({ label: "STATUS", template: "STATUS" }));
+oTable.addColumn(new sap.ui.table.Column({ label: "Tar Days", template: "TARGETDAYSCORRECTED" }));
+oTable.addColumn(new sap.ui.table.Column({ label: "Rec Days", template: "RECORDEDDAYSCORRECTED" }));
+oTable.setModel(oModel); oTable.bindRows("/CRMISP_ConsolidatedSOs"); oTable.placeAt("content");
+</script>
+</head>
+<body class='sapUiBody'> <div id='content'></div>
+</body>
+</html>

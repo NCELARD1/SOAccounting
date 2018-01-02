@@ -1,0 +1,92 @@
+ID: SOAccounting_HANAXSA
+_schema-version: '2.0'
+version: 0.0.1
+
+modules:
+ - name: soAccountingDB
+   type: hdb
+   path: soAccountingDB
+   requires:
+    - name: hdi-container
+
+
+ - name: MyFirstTest
+   type: html5
+   path: MyFirstTest
+
+
+ - name: SAPUI5Walkthrough
+   type: html5
+   path: SAPUI5Walkthrough
+
+
+ - name: soAccountingJS
+   type: nodejs
+   path: soAccountingJS
+   requires:
+      - name: soAccountingDB
+      - name: hdi-container
+   provides:
+    - name: soAccountingJS_api
+      properties:
+         service_url: "${default-url}"
+
+
+ - name: soAccountingUIBasic
+   type: html5
+   path: soAccountingUIBasic
+   requires:
+      - name: soAccountingJS_api
+        group: destinations
+        properties:
+          name: soAccountingJS_be
+          url: '~{service_url}'   
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ - name: soAccountingUIFiori
+   type: html5
+   path: soAccountingUIFiori
+   requires:
+    - name: soAccountingJS_api
+      group: destinations
+      properties:
+         name: soAccountingJS_be
+         url: ~{service_url}
+
+
+ 
+
+
+ - name: testTop3
+   type: html5
+   path: testTop3
+   requires:
+    - name: soAccountingJS_api
+      group: destinations
+      properties:
+         name: soAccountingJS_be
+         url: ~{service_url}
+
+resources:
+ - name: hdi-container
+   properties:
+      hdi-container-name: '${service-name}'
+   type: com.sap.xs.hdi-container

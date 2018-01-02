@@ -1,0 +1,8 @@
+{
+	"welcomeFile": "index.html",
+	"authenticationMethod": "none",
+	"routes": [{
+		"source": "^/CRMISP_ConsolidatedSOs.xsodata/.*$",
+		"destination": "soAccountingJS_be"
+	}]
+}

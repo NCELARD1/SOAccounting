@@ -1,0 +1,16 @@
+PROCEDURE "SOAccounting_HANAXSA.soAccountingDB.procedures::test_manualForecastCreateMethod" (out ex_error "SOAccounting_HANAXSA.soAccountingDB::Procedures.tt_errors")
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   --READS SQL DATA 
+   AS
+BEGIN
+   /*************************************
+       Write your procedure logic 
+   *************************************/
+   v_users = SELECT	"ForecastID", "ContractID",	"ItemID",	"ForecastDate",	"Month",	"Probability",	"DaysForecasted"
+			FROM "SOAccounting_HANAXSA.soAccountingDB::TEST_FORECAST.tblManualForecast";
+	
+	CALL "SOAccounting_HANAXSA.soAccountingDB.procedures::manualforecastCreateMethod"(IM_ROW => :v_users,EX_ERROR => :ex_error);
+
+END

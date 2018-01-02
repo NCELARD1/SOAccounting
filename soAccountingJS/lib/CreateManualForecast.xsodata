@@ -1,0 +1,8 @@
+service {
+   "SOAccounting_HANAXSA.soAccountingDB::FORECAST.tblManualForecast" as "Forecast" 
+     create using "SOAccounting_HANAXSA.soAccountingDB.procedures::manualforecastCreateMethod" ;
+     }
+
+settings {
+    metadata cache-control "max-age= 604800";
+}

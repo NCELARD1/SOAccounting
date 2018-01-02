@@ -1,0 +1,1216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" xmlns:Variable="http://www.sap.com/ndb/BiModelVariable.ecore" id="SOAccounting_HANAXSA.soAccountingDB.views::CRMISP_ConsolidatedSOs_Updated" applyPrivilegeType="NONE" dataCategory="DEFAULT" schemaVersion="3.0" defaultClient="$$client$$" outputViewType="Projection" cacheInvalidationPeriod="HOURLY" enforceSqlExecution="false">
+<descriptions defaultDescription="CCRMISP_ConsolidatedSOs_UpdatedRMISP_ConsolidatedSOs_Updated"/>
+<localVariables>
+  <variable id="DELIVERY_YEAR" parameter="true">
+    <descriptions defaultDescription="DELIVERY_YEAR (yyyy)"/>
+    <variableProperties datatype="INTEGER" mandatory="true">
+      <valueDomain type="empty"/>
+      <selection multiLine="false" type="Single"/>
+      <defaultRange lowValue="2017"/>
+    </variableProperties>
+  </variable>
+</localVariables>
+<variableMappings>
+  <mapping xsi:type="Variable:VariableMapping" dataSource="SOAccounting_HANAXSA.soAccountingDB.views::CRMISP_ConsolidatedSOs">
+    <targetVariable name="DELIVERY_YEAR" resourceUri="SOAccounting_HANAXSA.soAccountingDB.views::CRMISP_ConsolidatedSOs"/>
+    <localVariable>DELIVERY_YEAR</localVariable>
+  </mapping>
+  <mapping xsi:type="Variable:VariableMapping" dataSource="SOAccounting_HANAXSA.soAccountingDB.views::ISP_ZVZC_AllProcessedSOs">
+    <targetVariable name="DELIVERY_YEAR" resourceUri="SOAccounting_HANAXSA.soAccountingDB.views::ISP_ZVZC_AllProcessedSOs"/>
+    <localVariable>DELIVERY_YEAR</localVariable>
+  </mapping>
+</variableMappings>
+<dataSources>
+  <DataSource id="SOAccounting_HANAXSA.soAccountingDB.views::CRMISP_ConsolidatedSOs">
+    <resourceUri>SOAccounting_HANAXSA.soAccountingDB.views::CRMISP_ConsolidatedSOs</resourceUri>
+  </DataSource>
+  <DataSource id="SOAccounting_HANAXSA.soAccountingDB.views::ISP_ZSMSD_AllProcessedSOs">
+    <resourceUri>SOAccounting_HANAXSA.soAccountingDB.views::ISP_ZSMSD_AllProcessedSOs</resourceUri>
+  </DataSource>
+  <DataSource id="SOAccounting_HANAXSA.soAccountingDB::REFERENCE_DATA.tblLkpContractProperties">
+    <resourceUri>SOAccounting_HANAXSA.soAccountingDB::REFERENCE_DATA.tblLkpContractProperties</resourceUri>
+  </DataSource>
+  <DataSource id="SOAccounting_HANAXSA.soAccountingDB.views::ISP_ZVZC_AllProcessedSOs">
+    <resourceUri>SOAccounting_HANAXSA.soAccountingDB.views::ISP_ZVZC_AllProcessedSOs</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="CRMISP_ConsolidatedSOs">
+    <viewAttributes>
+      <viewAttribute id="LoadDate">
+        <descriptions defaultDescription="LoadDate"/>
+      </viewAttribute>
+      <viewAttribute id="CRMSOID">
+        <descriptions defaultDescription="CRMSOID"/>
+      </viewAttribute>
+      <viewAttribute id="SalesDocumentItem">
+        <descriptions defaultDescription="SalesDocumentItem"/>
+      </viewAttribute>
+      <viewAttribute id="Description">
+        <descriptions defaultDescription="Description"/>
+      </viewAttribute>
+      <viewAttribute id="RequestedDeliveryDate">
+        <descriptions defaultDescription="RequestedDeliveryDate"/>
+      </viewAttribute>
+      <viewAttribute id="CRMCUSTOMERID">
+        <descriptions defaultDescription="CRMCUSTOMERID"/>
+      </viewAttribute>
+      <viewAttribute id="ISPSOID">
+        <descriptions defaultDescription="ISPSOID"/>
+      </viewAttribute>
+      <viewAttribute id="STATUS">
+        <descriptions defaultDescription="STATUS"/>
+      </viewAttribute>
+      <viewAttribute id="REQDELDATEMONTHN">
+        <descriptions defaultDescription="REQDELDATEMONTHN"/>
+      </viewAttribute>
+      <viewAttribute id="REQDELDATEMONTH">
+        <descriptions defaultDescription="REQDELDATEMONTH"/>
+      </viewAttribute>
+      <viewAttribute id="GOLIVEDATE">
+        <descriptions defaultDescription="GOLIVEDATE"/>
+      </viewAttribute>
+      <viewAttribute id="ENDDATE">
+        <descriptions defaultDescription="ENDDATE"/>
+      </viewAttribute>
+      <viewAttribute id="REQDELIVERYYEAR">
+        <descriptions defaultDescription="REQDELIVERYYEAR"/>
+      </viewAttribute>
+      <viewAttribute id="CONTRACT">
+        <descriptions defaultDescription="CONTRACT"/>
+      </viewAttribute>
+      <viewAttribute id="CITEM">
+        <descriptions defaultDescription="CITEM"/>
+      </viewAttribute>
+      <viewAttribute id="SALESDOCUMENTITEM_INT">
+        <descriptions defaultDescription="SALESDOCUMENTITEM_INT"/>
+      </viewAttribute>
+      <viewAttribute id="TARGETDAYS">
+        <descriptions defaultDescription="TARGETDAYS"/>
+      </viewAttribute>
+      <viewAttribute id="RECORDEDDAYS">
+        <descriptions defaultDescription="RECORDEDDAYS"/>
+      </viewAttribute>
+      <viewAttribute id="FORECASTEDDAYS">
+        <descriptions defaultDescription="FORECASTEDDAYS"/>
+      </viewAttribute>
+      <viewAttribute id="REMAININGDAYS">
+        <descriptions defaultDescription="REMAININGDAYS"/>
+      </viewAttribute>
+      <viewAttribute id="TARGETDAYSCORRECTED">
+        <descriptions defaultDescription="TARGETDAYSCORRECTED"/>
+      </viewAttribute>
+      <viewAttribute id="RECORDEDDAYSCORRECTED">
+        <descriptions defaultDescription="RECORDEDDAYSCORRECTED"/>
+      </viewAttribute>
+      <viewAttribute id="FORECASTEDDAYSCORRECTED">
+        <descriptions defaultDescription="FORECASTEDDAYSCORRECTED"/>
+      </viewAttribute>
+      <viewAttribute id="REMAININGDAYSCORRECTED">
+        <descriptions defaultDescription="REMAININGDAYSCORRECTED"/>
+      </viewAttribute>
+      <viewAttribute id="TYPE">
+        <descriptions defaultDescription="TYPE"/>
+      </viewAttribute>
+      <viewAttribute id="CORRPREVYEAR">
+        <descriptions defaultDescription="CORRPREVYEAR"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="SOAccounting_HANAXSA.soAccountingDB.views::CRMISP_ConsolidatedSOs">
+      <mapping xsi:type="Calculation:AttributeMapping" target="LoadDate" source="LoadDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CRMSOID" source="CRMSOID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SalesDocumentItem" source="SalesDocumentItem"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Description" source="Description"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RequestedDeliveryDate" source="RequestedDeliveryDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CRMCUSTOMERID" source="CRMCUSTOMERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ISPSOID" source="ISPSOID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REQDELDATEMONTHN" source="REQDELDATEMONTHN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REQDELDATEMONTH" source="REQDELDATEMONTH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GOLIVEDATE" source="GOLIVEDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ENDDATE" source="ENDDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REQDELIVERYYEAR" source="REQDELIVERYYEAR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CONTRACT" source="CONTRACT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CITEM" source="CITEM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESDOCUMENTITEM_INT" source="SALESDOCUMENTITEM_INT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TARGETDAYS" source="TARGETDAYS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RECORDEDDAYS" source="RECORDEDDAYS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FORECASTEDDAYS" source="FORECASTEDDAYS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REMAININGDAYS" source="REMAININGDAYS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TARGETDAYSCORRECTED" source="TARGETDAYSCORRECTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RECORDEDDAYSCORRECTED" source="RECORDEDDAYSCORRECTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FORECASTEDDAYSCORRECTED" source="FORECASTEDDAYSCORRECTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REMAININGDAYSCORRECTED" source="REMAININGDAYSCORRECTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TYPE" source="TYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CORRPREVYEAR" source="CORRPREVYEAR"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="ISP_ZSMSD_SO_Contract">
+    <viewAttributes>
+      <viewAttribute id="ContractID">
+        <descriptions defaultDescription="ContractID"/>
+      </viewAttribute>
+      <viewAttribute id="ItemContract">
+        <descriptions defaultDescription="ItemContract"/>
+      </viewAttribute>
+      <viewAttribute id="SalesDocument">
+        <descriptions defaultDescription="SalesDocument"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="SALESDOCUMENT_INT" datatype="INTEGER" expressionLanguage="SQL">
+        <formula>TO_INT(&quot;SalesDocument&quot;)</formula>
+      </calculatedViewAttribute>
+    
+      <calculatedViewAttribute id="ITEMCONTRACT_C" datatype="VARCHAR" length="13" expressionLanguage="COLUMN_ENGINE">
+    
+        <formula>if (strlen(&quot;ItemContract&quot;) = 0, '0',&quot;ItemContract&quot;)</formula>
+    
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <restrictedViewAttributes/>
+    <input node="SOAccounting_HANAXSA.soAccountingDB.views::ISP_ZSMSD_AllProcessedSOs">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ContractID" source="ContractID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ItemContract" source="ItemContract"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SalesDocument" source="SalesDocument"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="CRMISP_Consolidated_Contract" joinType="fullOuter">
+    <viewAttributes>
+      <viewAttribute id="LoadDate">
+        <descriptions defaultDescription="LoadDate"/>
+      </viewAttribute>
+      <viewAttribute id="CRMSOID" aggregationType="sum">
+        <descriptions defaultDescription="CRMSOID"/>
+      </viewAttribute>
+      <viewAttribute id="SalesDocumentItem">
+        <descriptions defaultDescription="SalesDocumentItem"/>
+      </viewAttribute>
+      <viewAttribute id="Description">
+        <descriptions defaultDescription="Description"/>
+      </viewAttribute>
+      <viewAttribute id="RequestedDeliveryDate">
+        <descriptions defaultDescription="RequestedDeliveryDate"/>
+      </viewAttribute>
+      <viewAttribute id="CRMCUSTOMERID" aggregationType="sum">
+        <descriptions defaultDescription="CRMCUSTOMERID"/>
+      </viewAttribute>
+      <viewAttribute id="ISPSOID" aggregationType="sum">
+        <descriptions defaultDescription="ISPSOID"/>
+      </viewAttribute>
+      <viewAttribute id="STATUS">
+        <descriptions defaultDescription="STATUS"/>
+      </viewAttribute>
+      <viewAttribute id="REQDELDATEMONTHN" aggregationType="sum">
+        <descriptions defaultDescription="REQDELDATEMONTHN"/>
+      </viewAttribute>
+      <viewAttribute id="REQDELDATEMONTH">
+        <descriptions defaultDescription="REQDELDATEMONTH"/>
+      </viewAttribute>
+      <viewAttribute id="GOLIVEDATE">
+        <descriptions defaultDescription="GOLIVEDATE"/>
+      </viewAttribute>
+      <viewAttribute id="ENDDATE">
+        <descriptions defaultDescription="ENDDATE"/>
+      </viewAttribute>
+      <viewAttribute id="REQDELIVERYYEAR" aggregationType="sum">
+        <descriptions defaultDescription="REQDELIVERYYEAR"/>
+      </viewAttribute>
+      <viewAttribute id="SALESDOCUMENTITEM_INT" aggregationType="sum">
+        <descriptions defaultDescription="SALESDOCUMENTITEM_INT"/>
+      </viewAttribute>
+      <viewAttribute id="TARGETDAYS" aggregationType="sum">
+        <descriptions defaultDescription="TARGETDAYS"/>
+      </viewAttribute>
+      <viewAttribute id="RECORDEDDAYS" aggregationType="sum">
+        <descriptions defaultDescription="RECORDEDDAYS"/>
+      </viewAttribute>
+      <viewAttribute id="FORECASTEDDAYS" aggregationType="sum">
+        <descriptions defaultDescription="FORECASTEDDAYS"/>
+      </viewAttribute>
+      <viewAttribute id="REMAININGDAYS" aggregationType="sum">
+        <descriptions defaultDescription="REMAININGDAYS"/>
+      </viewAttribute>
+      <viewAttribute id="TARGETDAYSCORRECTED" aggregationType="sum">
+        <descriptions defaultDescription="TARGETDAYSCORRECTED"/>
+      </viewAttribute>
+      <viewAttribute id="RECORDEDDAYSCORRECTED" aggregationType="sum">
+        <descriptions defaultDescription="RECORDEDDAYSCORRECTED"/>
+      </viewAttribute>
+      <viewAttribute id="FORECASTEDDAYSCORRECTED" aggregationType="sum">
+        <descriptions defaultDescription="FORECASTEDDAYSCORRECTED"/>
+      </viewAttribute>
+      <viewAttribute id="REMAININGDAYSCORRECTED" aggregationType="sum">
+        <descriptions defaultDescription="REMAININGDAYSCORRECTED"/>
+      </viewAttribute>
+      <viewAttribute id="TYPE">
+        <descriptions defaultDescription="TYPE"/>
+      </viewAttribute>
+      <viewAttribute id="CORRPREVYEAR" aggregationType="sum">
+        <descriptions defaultDescription="CORRPREVYEAR"/>
+      </viewAttribute>
+      <viewAttribute id="CONTRACT" aggregationType="sum">
+        <descriptions defaultDescription="ContractID"/>
+      </viewAttribute>
+    
+      <viewAttribute id="ItemContract">
+        <descriptions defaultDescription="ItemContract"/>
+      </viewAttribute>
+      <viewAttribute id="CITEM" aggregationType="sum">
+        <descriptions defaultDescription="CITEM"/>
+      </viewAttribute>
+    
+      <viewAttribute id="ITEMCONTRACT_C">
+        <descriptions defaultDescription="ITEMCONTRACT_C"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CITEM_ADJUSTED" datatype="INTEGER" expressionLanguage="COLUMN_ENGINE">
+        <formula>if (&quot;TYPE&quot; = 'D', &quot;SALESDOCUMENTITEM_INT&quot;, INT(&quot;ITEMCONTRACT_C&quot;))</formula>
+      </calculatedViewAttribute>
+    
+      <calculatedViewAttribute id="CONTRACT_ADJUSTED" datatype="INTEGER" expressionLanguage="COLUMN_ENGINE">
+    
+        <formula>if (&quot;TYPE&quot; = 'D', &quot;CRMSOID&quot;, &quot;CONTRACT&quot;)</formula>
+    
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <restrictedViewAttributes/>
+    <input node="CRMISP_ConsolidatedSOs">
+      <mapping xsi:type="Calculation:AttributeMapping" target="LoadDate" source="LoadDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CRMSOID" source="CRMSOID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SalesDocumentItem" source="SalesDocumentItem"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Description" source="Description"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RequestedDeliveryDate" source="RequestedDeliveryDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CRMCUSTOMERID" source="CRMCUSTOMERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ISPSOID" source="ISPSOID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REQDELDATEMONTHN" source="REQDELDATEMONTHN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REQDELDATEMONTH" source="REQDELDATEMONTH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GOLIVEDATE" source="GOLIVEDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ENDDATE" source="ENDDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REQDELIVERYYEAR" source="REQDELIVERYYEAR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESDOCUMENTITEM_INT" source="SALESDOCUMENTITEM_INT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TARGETDAYS" source="TARGETDAYS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RECORDEDDAYS" source="RECORDEDDAYS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FORECASTEDDAYS" source="FORECASTEDDAYS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REMAININGDAYS" source="REMAININGDAYS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TARGETDAYSCORRECTED" source="TARGETDAYSCORRECTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RECORDEDDAYSCORRECTED" source="RECORDEDDAYSCORRECTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FORECASTEDDAYSCORRECTED" source="FORECASTEDDAYSCORRECTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REMAININGDAYSCORRECTED" source="REMAININGDAYSCORRECTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TYPE" source="TYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CORRPREVYEAR" source="CORRPREVYEAR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CITEM" source="CITEM"/>
+    </input>
+    <input node="ISP_ZSMSD_SO_Contract">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CONTRACT" source="ContractID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ItemContract" source="ItemContract"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ITEMCONTRACT_C" source="ITEMCONTRACT_C"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ISPSOID" source="SALESDOCUMENT_INT"/>
+    </input>
+    <joinAttribute name="ISPSOID"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="CRMISP_Cons_Contract_DayWeight" joinType="fullOuter" filterExpressionLanguage="COLUMN_ENGINE">
+    <viewAttributes>
+      <viewAttribute id="DayWeight" aggregationType="sum">
+        <descriptions defaultDescription="DayWeight"/>
+      </viewAttribute>
+      <viewAttribute id="CRMConversion" aggregationType="sum">
+        <descriptions defaultDescription="CRMConversion"/>
+      </viewAttribute>
+    
+      <viewAttribute id="LoadDate">
+        <descriptions defaultDescription="LoadDate"/>
+      </viewAttribute>
+      <viewAttribute id="CRMSOID" aggregationType="sum">
+        <descriptions defaultDescription="CRMSOID"/>
+      </viewAttribute>
+      <viewAttribute id="Description">
+        <descriptions defaultDescription="Description"/>
+      </viewAttribute>
+      <viewAttribute id="RequestedDeliveryDate">
+        <descriptions defaultDescription="RequestedDeliveryDate"/>
+      </viewAttribute>
+      <viewAttribute id="CRMCUSTOMERID" aggregationType="sum">
+        <descriptions defaultDescription="CRMCUSTOMERID"/>
+      </viewAttribute>
+      <viewAttribute id="ISPSOID" aggregationType="sum">
+        <descriptions defaultDescription="ISPSOID"/>
+      </viewAttribute>
+      <viewAttribute id="STATUS">
+        <descriptions defaultDescription="STATUS"/>
+      </viewAttribute>
+      <viewAttribute id="GOLIVEDATE">
+        <descriptions defaultDescription="GOLIVEDATE"/>
+      </viewAttribute>
+      <viewAttribute id="ENDDATE">
+        <descriptions defaultDescription="ENDDATE"/>
+      </viewAttribute>
+      <viewAttribute id="REQDELIVERYYEAR" aggregationType="sum">
+        <descriptions defaultDescription="REQDELIVERYYEAR"/>
+      </viewAttribute>
+      <viewAttribute id="SALESDOCUMENTITEM_INT" aggregationType="sum">
+        <descriptions defaultDescription="SALESDOCUMENTITEM_INT"/>
+      </viewAttribute>
+      <viewAttribute id="TARGETDAYS" aggregationType="sum">
+        <descriptions defaultDescription="TARGETDAYS"/>
+      </viewAttribute>
+      <viewAttribute id="RECORDEDDAYS" aggregationType="sum">
+        <descriptions defaultDescription="RECORDEDDAYS"/>
+      </viewAttribute>
+      <viewAttribute id="FORECASTEDDAYS" aggregationType="sum">
+        <descriptions defaultDescription="FORECASTEDDAYS"/>
+      </viewAttribute>
+      <viewAttribute id="REMAININGDAYS" aggregationType="sum">
+        <descriptions defaultDescription="REMAININGDAYS"/>
+      </viewAttribute>
+      <viewAttribute id="TARGETDAYSCORRECTED" aggregationType="sum">
+        <descriptions defaultDescription="TARGETDAYSCORRECTED"/>
+      </viewAttribute>
+      <viewAttribute id="RECORDEDDAYSCORRECTED" aggregationType="sum">
+        <descriptions defaultDescription="RECORDEDDAYSCORRECTED"/>
+      </viewAttribute>
+      <viewAttribute id="FORECASTEDDAYSCORRECTED" aggregationType="sum">
+        <descriptions defaultDescription="FORECASTEDDAYSCORRECTED"/>
+      </viewAttribute>
+      <viewAttribute id="REMAININGDAYSCORRECTED" aggregationType="sum">
+        <descriptions defaultDescription="REMAININGDAYSCORRECTED"/>
+      </viewAttribute>
+      <viewAttribute id="TYPE">
+        <descriptions defaultDescription="TYPE"/>
+      </viewAttribute>
+      <viewAttribute id="CORRPREVYEAR" aggregationType="sum">
+        <descriptions defaultDescription="CORRPREVYEAR"/>
+      </viewAttribute>
+      <viewAttribute id="CONTRACT" aggregationType="sum">
+        <descriptions defaultDescription="CONTRACT"/>
+      </viewAttribute>
+      <viewAttribute id="ItemContract">
+        <descriptions defaultDescription="ItemContract"/>
+      </viewAttribute>
+      <viewAttribute id="CITEM" aggregationType="sum">
+        <descriptions defaultDescription="CITEM"/>
+      </viewAttribute>
+      <viewAttribute id="CITEM_ADJUSTED" aggregationType="sum">
+        <descriptions defaultDescription="CITEM_ADJUSTED"/>
+      </viewAttribute>
+      <viewAttribute id="CITEM_ADJUSTED_1" aggregationType="sum">
+        <descriptions defaultDescription="CITEM_ADJUSTED_1"/>
+      </viewAttribute>
+      <viewAttribute id="CONTRACT_ADJUSTED" aggregationType="sum">
+        <descriptions defaultDescription="CONTRACT_ADJUSTED"/>
+      </viewAttribute>
+    
+      <viewAttribute id="ITEMCONTRACT_C">
+        <descriptions defaultDescription="ITEMCONTRACT_C"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="CRMISP_Consolidated_Contract">
+      <mapping xsi:type="Calculation:AttributeMapping" target="LoadDate" source="LoadDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CRMSOID" source="CRMSOID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Description" source="Description"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RequestedDeliveryDate" source="RequestedDeliveryDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CRMCUSTOMERID" source="CRMCUSTOMERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ISPSOID" source="ISPSOID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GOLIVEDATE" source="GOLIVEDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ENDDATE" source="ENDDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REQDELIVERYYEAR" source="REQDELIVERYYEAR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESDOCUMENTITEM_INT" source="SALESDOCUMENTITEM_INT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TARGETDAYS" source="TARGETDAYS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RECORDEDDAYS" source="RECORDEDDAYS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FORECASTEDDAYS" source="FORECASTEDDAYS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REMAININGDAYS" source="REMAININGDAYS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TARGETDAYSCORRECTED" source="TARGETDAYSCORRECTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RECORDEDDAYSCORRECTED" source="RECORDEDDAYSCORRECTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FORECASTEDDAYSCORRECTED" source="FORECASTEDDAYSCORRECTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REMAININGDAYSCORRECTED" source="REMAININGDAYSCORRECTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TYPE" source="TYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CORRPREVYEAR" source="CORRPREVYEAR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CONTRACT" source="CONTRACT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ItemContract" source="ItemContract"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CITEM" source="CITEM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CITEM_ADJUSTED_1" source="CITEM_ADJUSTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CONTRACT_ADJUSTED" source="CONTRACT_ADJUSTED"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="ITEMCONTRACT_C" source="ITEMCONTRACT_C"/>
+    </input>
+  
+    <input node="Lkp_Contract_Properties">
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="DayWeight" source="DayWeight"/>
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="CRMConversion" source="CRMConversion"/>
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="CITEM_ADJUSTED" source="ItemID"/>
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="CITEM_ADJUSTED_1" source="ItemID"/>
+  
+      <mapping xsi:type="Calculation:AttributeMapping" target="CONTRACT_ADJUSTED" source="ContractID"/>
+  
+    </input>
+    <filter>&quot;LoadDate&quot; != ''</filter>
+    <joinAttribute name="CITEM_ADJUSTED_1"/>
+    <joinAttribute name="CONTRACT_ADJUSTED"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Lkp_Contract_Properties">
+    <viewAttributes>
+      <viewAttribute id="DayWeight" aggregationType="sum">
+        <descriptions defaultDescription="DayWeight"/>
+      </viewAttribute>
+      <viewAttribute id="CRMConversion" aggregationType="sum">
+        <descriptions defaultDescription="CRMConversion"/>
+      </viewAttribute>
+      <viewAttribute id="ItemID" aggregationType="sum">
+        <descriptions defaultDescription="ItemID"/>
+      </viewAttribute>
+      <viewAttribute id="ContractID" aggregationType="sum">
+        <descriptions defaultDescription="ContractID"/>
+      </viewAttribute>
+      <viewAttribute id="DirectConsumption">
+        <descriptions defaultDescription="DirectConsumption"/>
+      </viewAttribute>
+      <viewAttribute id="ZS_MSD_Reporting">
+        <descriptions defaultDescription="ZS_MSD_Reporting"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="SOAccounting_HANAXSA.soAccountingDB::REFERENCE_DATA.tblLkpContractProperties">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CRMConversion" source="CRMConversion"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ContractID" source="ContractID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DayWeight" source="DayWeight"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DirectConsumption" source="DirectConsumption"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ItemID" source="ItemID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ZS_MSD_Reporting" source="ZS_MSD_Reporting"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Delivery_Month">
+    <viewAttributes>
+      <viewAttribute id="DayWeight" aggregationType="sum">
+        <descriptions defaultDescription="DayWeight"/>
+      </viewAttribute>
+      <viewAttribute id="CRMConversion" aggregationType="sum">
+        <descriptions defaultDescription="CRMConversion"/>
+      </viewAttribute>
+      <viewAttribute id="LoadDate">
+        <descriptions defaultDescription="LoadDate"/>
+      </viewAttribute>
+      <viewAttribute id="CRMSOID" aggregationType="sum">
+        <descriptions defaultDescription="CRMSOID"/>
+      </viewAttribute>
+      <viewAttribute id="Description">
+        <descriptions defaultDescription="Description"/>
+      </viewAttribute>
+      <viewAttribute id="RequestedDeliveryDate">
+        <descriptions defaultDescription="RequestedDeliveryDate"/>
+      </viewAttribute>
+      <viewAttribute id="CRMCUSTOMERID" aggregationType="sum">
+        <descriptions defaultDescription="CRMCUSTOMERID"/>
+      </viewAttribute>
+      <viewAttribute id="ISPSOID" aggregationType="sum">
+        <descriptions defaultDescription="ISPSOID"/>
+      </viewAttribute>
+      <viewAttribute id="STATUS">
+        <descriptions defaultDescription="STATUS"/>
+      </viewAttribute>
+      <viewAttribute id="GOLIVEDATE">
+        <descriptions defaultDescription="GOLIVEDATE"/>
+      </viewAttribute>
+      <viewAttribute id="ENDDATE">
+        <descriptions defaultDescription="ENDDATE"/>
+      </viewAttribute>
+      <viewAttribute id="REQDELIVERYYEAR" aggregationType="sum">
+        <descriptions defaultDescription="REQDELIVERYYEAR"/>
+      </viewAttribute>
+      <viewAttribute id="SALESDOCUMENTITEM_INT" aggregationType="sum">
+        <descriptions defaultDescription="SALESDOCUMENTITEM_INT"/>
+      </viewAttribute>
+      <viewAttribute id="TARGETDAYS" aggregationType="sum">
+        <descriptions defaultDescription="TARGETDAYS"/>
+      </viewAttribute>
+      <viewAttribute id="RECORDEDDAYS" aggregationType="sum">
+        <descriptions defaultDescription="RECORDEDDAYS"/>
+      </viewAttribute>
+      <viewAttribute id="FORECASTEDDAYS" aggregationType="sum">
+        <descriptions defaultDescription="FORECASTEDDAYS"/>
+      </viewAttribute>
+      <viewAttribute id="REMAININGDAYS" aggregationType="sum">
+        <descriptions defaultDescription="REMAININGDAYS"/>
+      </viewAttribute>
+      <viewAttribute id="TARGETDAYSCORRECTED" aggregationType="sum">
+        <descriptions defaultDescription="TARGETDAYSCORRECTED"/>
+      </viewAttribute>
+      <viewAttribute id="RECORDEDDAYSCORRECTED" aggregationType="sum">
+        <descriptions defaultDescription="RECORDEDDAYSCORRECTED"/>
+      </viewAttribute>
+      <viewAttribute id="FORECASTEDDAYSCORRECTED" aggregationType="sum">
+        <descriptions defaultDescription="FORECASTEDDAYSCORRECTED"/>
+      </viewAttribute>
+      <viewAttribute id="REMAININGDAYSCORRECTED" aggregationType="sum">
+        <descriptions defaultDescription="REMAININGDAYSCORRECTED"/>
+      </viewAttribute>
+      <viewAttribute id="TYPE">
+        <descriptions defaultDescription="TYPE"/>
+      </viewAttribute>
+      <viewAttribute id="CORRPREVYEAR" aggregationType="sum">
+        <descriptions defaultDescription="CORRPREVYEAR"/>
+      </viewAttribute>
+      <viewAttribute id="CONTRACT_ADJUSTED" aggregationType="sum">
+        <descriptions defaultDescription="CONTRACT_ADJUSTED"/>
+      </viewAttribute>
+      <viewAttribute id="ITEMCONTRACT_C">
+        <descriptions defaultDescription="ITEMCONTRACT_C"/>
+      </viewAttribute>
+      <viewAttribute id="CITEM_ADJUSTED" aggregationType="sum">
+        <descriptions defaultDescription="CITEM_ADJUSTED"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="REQDELDATEMONTHN" datatype="INTEGER" expressionLanguage="SQL">
+        <formula>MONTH(&quot;RequestedDeliveryDate&quot;)</formula>
+      </calculatedViewAttribute>
+    
+      <calculatedViewAttribute id="REQDELDATEMONTH" datatype="VARCHAR" length="100" expressionLanguage="COLUMN_ENGINE">
+    
+        <formula>If(&quot;TYPE&quot; = 'D','aaa-Direct Drawdown',MONTHNAME(&quot;RequestedDeliveryDate&quot;))</formula>
+    
+      </calculatedViewAttribute></calculatedViewAttributes>
+    <restrictedViewAttributes/>
+    <input node="CRMISP_Cons_Contract_DayWeight">
+      <mapping xsi:type="Calculation:AttributeMapping" target="DayWeight" source="DayWeight"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CRMConversion" source="CRMConversion"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LoadDate" source="LoadDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CRMSOID" source="CRMSOID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Description" source="Description"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RequestedDeliveryDate" source="RequestedDeliveryDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CRMCUSTOMERID" source="CRMCUSTOMERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ISPSOID" source="ISPSOID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GOLIVEDATE" source="GOLIVEDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ENDDATE" source="ENDDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REQDELIVERYYEAR" source="REQDELIVERYYEAR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESDOCUMENTITEM_INT" source="SALESDOCUMENTITEM_INT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TARGETDAYS" source="TARGETDAYS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RECORDEDDAYS" source="RECORDEDDAYS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FORECASTEDDAYS" source="FORECASTEDDAYS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REMAININGDAYS" source="REMAININGDAYS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TARGETDAYSCORRECTED" source="TARGETDAYSCORRECTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RECORDEDDAYSCORRECTED" source="RECORDEDDAYSCORRECTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FORECASTEDDAYSCORRECTED" source="FORECASTEDDAYSCORRECTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REMAININGDAYSCORRECTED" source="REMAININGDAYSCORRECTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TYPE" source="TYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CORRPREVYEAR" source="CORRPREVYEAR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CONTRACT_ADJUSTED" source="CONTRACT_ADJUSTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ITEMCONTRACT_C" source="ITEMCONTRACT_C"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CITEM_ADJUSTED" source="CITEM_ADJUSTED"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="StaffingList" filterExpressionLanguage="COLUMN_ENGINE">
+    <viewAttributes>
+      <viewAttribute id="LoadDate" aggregationType="max">
+        <descriptions defaultDescription="LoadDate"/>
+      </viewAttribute>
+      <viewAttribute id="SalesDocument">
+        <descriptions defaultDescription="SalesDocument"/>
+      </viewAttribute>
+      <viewAttribute id="SalesDocumentItem">
+        <descriptions defaultDescription="SalesDocumentItem"/>
+      </viewAttribute>
+      <viewAttribute id="EndDate" aggregationType="max">
+        <descriptions defaultDescription="EndDate"/>
+      </viewAttribute>
+      <viewAttribute id="EstimatedActivityDays" aggregationType="sum">
+        <descriptions defaultDescription="EstimatedActivityDays"/>
+      </viewAttribute>
+      <viewAttribute id="RecordedActivityDays" aggregationType="sum">
+        <descriptions defaultDescription="RecordedActivityDays"/>
+      </viewAttribute>
+      <viewAttribute id="StartDate" aggregationType="min">
+        <descriptions defaultDescription="StartDate"/>
+      </viewAttribute>
+    
+      <viewAttribute id="ENDDATE_YEAR" aggregationType="max">
+        <descriptions defaultDescription="ENDDATE_YEAR"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="SALESDOCUMENTITEM_INT" datatype="INTEGER" expressionLanguage="SQL">
+        <formula>TO_INT(&quot;SalesDocumentItem&quot;)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <restrictedViewAttributes/>
+    <input node="SOAccounting_HANAXSA.soAccountingDB.views::ISP_ZVZC_AllProcessedSOs">
+      <mapping xsi:type="Calculation:AttributeMapping" target="SalesDocument" source="SalesDocument"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LoadDate" source="LoadDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="EndDate" source="EndDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="EstimatedActivityDays" source="EstimatedActivityDays"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RecordedActivityDays" source="RecordedActivityDays"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SalesDocumentItem" source="SalesDocumentItem"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="StartDate" source="StartDate"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="ENDDATE_YEAR" source="ENDDATE_YEAR"/>
+    </input>
+    <filter>&quot;ENDDATE_YEAR&quot; = '$$DELIVERY_YEAR$$'</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="ForecastedDaysCorrection" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="LoadDate">
+        <descriptions defaultDescription="LoadDate"/>
+      </viewAttribute>
+      <viewAttribute id="CRMCUSTOMERID" aggregationType="sum">
+        <descriptions defaultDescription="CRMCUSTOMERID"/>
+      </viewAttribute>
+      <viewAttribute id="ISPSOID" aggregationType="sum">
+        <descriptions defaultDescription="ISPSOID"/>
+      </viewAttribute>
+      <viewAttribute id="CRMSOID" aggregationType="sum">
+        <descriptions defaultDescription="CRMSOID"/>
+      </viewAttribute>
+      <viewAttribute id="SALESDOCUMENTITEM_INT" aggregationType="sum">
+        <descriptions defaultDescription="SALESDOCUMENTITEM_INT"/>
+      </viewAttribute>
+      <viewAttribute id="Description">
+        <descriptions defaultDescription="Description"/>
+      </viewAttribute>
+      <viewAttribute id="RequestedDeliveryDate">
+        <descriptions defaultDescription="RequestedDeliveryDate"/>
+      </viewAttribute>
+      <viewAttribute id="STATUS">
+        <descriptions defaultDescription="STATUS"/>
+      </viewAttribute>
+      <viewAttribute id="REQDELDATEMONTHN" aggregationType="sum">
+        <descriptions defaultDescription="REQDELDATEMONTHN"/>
+      </viewAttribute>
+      <viewAttribute id="REQDELDATEMONTH">
+        <descriptions defaultDescription="REQDELDATEMONTH"/>
+      </viewAttribute>
+      <viewAttribute id="GOLIVEDATE">
+        <descriptions defaultDescription="GOLIVEDATE"/>
+      </viewAttribute>
+      <viewAttribute id="CONTRACT_ADJUSTED" aggregationType="sum">
+        <descriptions defaultDescription="CONTRACT_ADJUSTED"/>
+      </viewAttribute>
+      <viewAttribute id="CITEM_ADJUSTED" aggregationType="sum">
+        <descriptions defaultDescription="CITEM_ADJUSTED"/>
+      </viewAttribute>
+      <viewAttribute id="RecordedDays" aggregationType="sum">
+        <descriptions defaultDescription="RecordedActivityDays"/>
+      </viewAttribute>
+      <viewAttribute id="TargetDays" aggregationType="sum">
+        <descriptions defaultDescription="EstimatedActivityDays"/>
+      </viewAttribute>
+      <viewAttribute id="FORECASTEDDAYS" aggregationType="sum">
+        <descriptions defaultDescription="FORECASTEDDAYS"/>
+      </viewAttribute>
+      <viewAttribute id="TARGETDAYSCORRECTED" aggregationType="sum">
+        <descriptions defaultDescription="TARGETDAYSCORRECTED"/>
+      </viewAttribute>
+      <viewAttribute id="RECORDEDDAYSCORRECTED" aggregationType="sum">
+        <descriptions defaultDescription="RECORDEDDAYSCORRECTED"/>
+      </viewAttribute>
+      <viewAttribute id="FORECASTEDDAYSCORRECTED" aggregationType="sum">
+        <descriptions defaultDescription="FORECASTEDDAYSCORRECTED"/>
+      </viewAttribute>
+      <viewAttribute id="REMAININGDAYSCORRECTED" aggregationType="sum">
+        <descriptions defaultDescription="REMAININGDAYSCORRECTED"/>
+      </viewAttribute>
+      <viewAttribute id="TYPE">
+        <descriptions defaultDescription="TYPE"/>
+      </viewAttribute>
+      <viewAttribute id="CORRPREVYEAR" aggregationType="sum">
+        <descriptions defaultDescription="CORRPREVYEAR"/>
+      </viewAttribute>
+      <viewAttribute id="DayWeight" aggregationType="sum">
+        <descriptions defaultDescription="DayWeight"/>
+      </viewAttribute>
+      <viewAttribute id="CRMConversion" aggregationType="sum">
+        <descriptions defaultDescription="CRMConversion"/>
+      </viewAttribute>
+      <viewAttribute id="EndDate" aggregationType="max">
+        <descriptions defaultDescription="EndDate"/>
+      </viewAttribute>
+      <viewAttribute hidden="true" id="JOIN$ISPSOID$SalesDocument"/>
+      <viewAttribute hidden="true" id="JOIN$SALESDOCUMENTITEM_INT$SALESDOCUMENTITEM_INT"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="REMAININGDAYS" datatype="DOUBLE" expressionLanguage="SQL">
+        <formula>&quot;TargetDays&quot; - &quot;RecordedDays&quot;</formula>
+      </calculatedViewAttribute>
+    
+      <calculatedViewAttribute id="FORECASTEDDAYS2" datatype="DOUBLE" expressionLanguage="COLUMN_ENGINE">
+    
+        <formula>if (&quot;TYPE&quot; = 'D',&quot;TargetDays&quot;,&quot;FORECASTEDDAYS&quot;)</formula>
+    
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <restrictedViewAttributes/>
+    <input node="Delivery_Month">
+      <mapping xsi:type="Calculation:AttributeMapping" target="DayWeight" source="DayWeight"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CRMConversion" source="CRMConversion"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LoadDate" source="LoadDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CRMSOID" source="CRMSOID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Description" source="Description"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RequestedDeliveryDate" source="RequestedDeliveryDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CRMCUSTOMERID" source="CRMCUSTOMERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GOLIVEDATE" source="GOLIVEDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FORECASTEDDAYS" source="FORECASTEDDAYS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TARGETDAYSCORRECTED" source="TARGETDAYSCORRECTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RECORDEDDAYSCORRECTED" source="RECORDEDDAYSCORRECTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FORECASTEDDAYSCORRECTED" source="FORECASTEDDAYSCORRECTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REMAININGDAYSCORRECTED" source="REMAININGDAYSCORRECTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TYPE" source="TYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CORRPREVYEAR" source="CORRPREVYEAR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CONTRACT_ADJUSTED" source="CONTRACT_ADJUSTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CITEM_ADJUSTED" source="CITEM_ADJUSTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REQDELDATEMONTHN" source="REQDELDATEMONTHN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REQDELDATEMONTH" source="REQDELDATEMONTH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ISPSOID$SalesDocument" source="ISPSOID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$SALESDOCUMENTITEM_INT$SALESDOCUMENTITEM_INT" source="SALESDOCUMENTITEM_INT"/>
+    </input>
+    <input node="StaffingList">
+      <mapping xsi:type="Calculation:AttributeMapping" target="RecordedDays" source="RecordedActivityDays"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ISPSOID" source="SalesDocument"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESDOCUMENTITEM_INT" source="SALESDOCUMENTITEM_INT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TargetDays" source="EstimatedActivityDays"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="EndDate" source="EndDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ISPSOID$SalesDocument" source="SalesDocument"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$SALESDOCUMENTITEM_INT$SALESDOCUMENTITEM_INT" source="SALESDOCUMENTITEM_INT"/>
+    </input>
+    <joinAttribute name="JOIN$ISPSOID$SalesDocument"/>
+    <joinAttribute name="JOIN$SALESDOCUMENTITEM_INT$SALESDOCUMENTITEM_INT"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="WeightedDays">
+    <viewAttributes>
+      <viewAttribute id="LoadDate">
+        <descriptions defaultDescription="LoadDate"/>
+      </viewAttribute>
+      <viewAttribute id="CRMCUSTOMERID" aggregationType="sum">
+        <descriptions defaultDescription="CRMCUSTOMERID"/>
+      </viewAttribute>
+      <viewAttribute id="ISPSOID" aggregationType="sum">
+        <descriptions defaultDescription="ISPSOID"/>
+      </viewAttribute>
+      <viewAttribute id="CRMSOID" aggregationType="sum">
+        <descriptions defaultDescription="CRMSOID"/>
+      </viewAttribute>
+      <viewAttribute id="SALESDOCUMENTITEM_INT" aggregationType="sum">
+        <descriptions defaultDescription="SALESDOCUMENTITEM_INT"/>
+      </viewAttribute>
+      <viewAttribute id="Description">
+        <descriptions defaultDescription="Description"/>
+      </viewAttribute>
+      <viewAttribute id="RequestedDeliveryDate">
+        <descriptions defaultDescription="RequestedDeliveryDate"/>
+      </viewAttribute>
+      <viewAttribute id="STATUS">
+        <descriptions defaultDescription="STATUS"/>
+      </viewAttribute>
+      <viewAttribute id="REQDELDATEMONTHN" aggregationType="sum">
+        <descriptions defaultDescription="REQDELDATEMONTHN"/>
+      </viewAttribute>
+      <viewAttribute id="REQDELDATEMONTH">
+        <descriptions defaultDescription="REQDELDATEMONTH"/>
+      </viewAttribute>
+      <viewAttribute id="GOLIVEDATE">
+        <descriptions defaultDescription="GOLIVEDATE"/>
+      </viewAttribute>
+      <viewAttribute id="CONTRACT_ADJUSTED" aggregationType="sum">
+        <descriptions defaultDescription="CONTRACT_ADJUSTED"/>
+      </viewAttribute>
+      <viewAttribute id="CITEM_ADJUSTED" aggregationType="sum">
+        <descriptions defaultDescription="CITEM_ADJUSTED"/>
+      </viewAttribute>
+      <viewAttribute id="RecordedDays" aggregationType="sum">
+        <descriptions defaultDescription="RecordedDays"/>
+      </viewAttribute>
+      <viewAttribute id="TargetDays" aggregationType="sum">
+        <descriptions defaultDescription="TargetDays"/>
+      </viewAttribute>
+      <viewAttribute id="FORECASTEDDAYS" aggregationType="sum">
+        <descriptions defaultDescription="FORECASTEDDAYS"/>
+      </viewAttribute>
+      <viewAttribute id="TYPE">
+        <descriptions defaultDescription="TYPE"/>
+      </viewAttribute>
+      <viewAttribute id="CORRPREVYEAR" aggregationType="sum">
+        <descriptions defaultDescription="CORRPREVYEAR"/>
+      </viewAttribute>
+      <viewAttribute id="DayWeight" aggregationType="sum">
+        <descriptions defaultDescription="DayWeight"/>
+      </viewAttribute>
+      <viewAttribute id="CRMConversion" aggregationType="sum">
+        <descriptions defaultDescription="CRMConversion"/>
+      </viewAttribute>
+      <viewAttribute id="EndDate" aggregationType="max">
+        <descriptions defaultDescription="EndDate"/>
+      </viewAttribute>
+      <viewAttribute id="REMAININGDAYS" aggregationType="sum">
+        <descriptions defaultDescription="REMAININGDAYS"/>
+      </viewAttribute>
+      <viewAttribute id="FORECASTEDDAYS2" aggregationType="sum">
+        <descriptions defaultDescription="FORECASTEDDAYS2"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="TARGETDAYSCORRECTED" datatype="INTEGER" expressionLanguage="SQL">
+        <formula>TO_INT(&quot;TargetDays&quot;*&quot;DayWeight&quot;/&quot;CRMConversion&quot;)</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="REMAININGDAYSCORRECTED" datatype="INTEGER" expressionLanguage="SQL">
+        <formula>TO_INT(&quot;REMAININGDAYS&quot;*&quot;DayWeight&quot;/&quot;CRMConversion&quot;)</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="FORECASTEDDAYSCORRECTED" datatype="INTEGER" expressionLanguage="SQL">
+        <formula>TO_INT(&quot;FORECASTEDDAYS2&quot;*&quot;DayWeight&quot;/&quot;CRMConversion&quot;)</formula>
+      </calculatedViewAttribute>
+      <calculatedViewAttribute id="RECORDEDDAYSCORRECTED" datatype="INTEGER" expressionLanguage="SQL">
+        <formula>TO_INT(&quot;RecordedDays&quot;*&quot;DayWeight&quot;/&quot;CRMConversion&quot;)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <restrictedViewAttributes/>
+    <input node="ForecastedDaysCorrection">
+      <mapping xsi:type="Calculation:AttributeMapping" target="LoadDate" source="LoadDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CRMCUSTOMERID" source="CRMCUSTOMERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ISPSOID" source="ISPSOID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CRMSOID" source="CRMSOID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESDOCUMENTITEM_INT" source="SALESDOCUMENTITEM_INT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Description" source="Description"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RequestedDeliveryDate" source="RequestedDeliveryDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REQDELDATEMONTHN" source="REQDELDATEMONTHN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REQDELDATEMONTH" source="REQDELDATEMONTH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GOLIVEDATE" source="GOLIVEDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CONTRACT_ADJUSTED" source="CONTRACT_ADJUSTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CITEM_ADJUSTED" source="CITEM_ADJUSTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RecordedDays" source="RecordedDays"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TargetDays" source="TargetDays"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FORECASTEDDAYS" source="FORECASTEDDAYS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TYPE" source="TYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CORRPREVYEAR" source="CORRPREVYEAR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DayWeight" source="DayWeight"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CRMConversion" source="CRMConversion"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="EndDate" source="EndDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REMAININGDAYS" source="REMAININGDAYS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FORECASTEDDAYS2" source="FORECASTEDDAYS2"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Presentation">
+    <viewAttributes>
+      <viewAttribute id="LoadDate">
+        <descriptions defaultDescription="LoadDate"/>
+      </viewAttribute>
+      <viewAttribute id="CRMCUSTOMERID" aggregationType="sum">
+        <descriptions defaultDescription="CRMCUSTOMERID"/>
+      </viewAttribute>
+      <viewAttribute id="ISPSOID" aggregationType="sum">
+        <descriptions defaultDescription="ISPSOID"/>
+      </viewAttribute>
+      <viewAttribute id="CRMSOID" aggregationType="sum">
+        <descriptions defaultDescription="CRMSOID"/>
+      </viewAttribute>
+      <viewAttribute id="SALESDOCUMENTITEM_INT" aggregationType="sum">
+        <descriptions defaultDescription="SALESDOCUMENTITEM_INT"/>
+      </viewAttribute>
+      <viewAttribute id="Description">
+        <descriptions defaultDescription="Description"/>
+      </viewAttribute>
+      <viewAttribute id="RequestedDeliveryDate">
+        <descriptions defaultDescription="RequestedDeliveryDate"/>
+      </viewAttribute>
+      <viewAttribute id="STATUS">
+        <descriptions defaultDescription="STATUS"/>
+      </viewAttribute>
+      <viewAttribute id="REQDELDATEMONTHN" aggregationType="sum">
+        <descriptions defaultDescription="REQDELDATEMONTHN"/>
+      </viewAttribute>
+      <viewAttribute id="REQDELDATEMONTH">
+        <descriptions defaultDescription="REQDELDATEMONTH"/>
+      </viewAttribute>
+      <viewAttribute id="GOLIVEDATE">
+        <descriptions defaultDescription="GOLIVEDATE"/>
+      </viewAttribute>
+      <viewAttribute id="EndDate" aggregationType="max">
+        <descriptions defaultDescription="EndDate"/>
+      </viewAttribute>
+      <viewAttribute id="CONTRACT_ADJUSTED" aggregationType="sum">
+        <descriptions defaultDescription="CONTRACT_ADJUSTED"/>
+      </viewAttribute>
+      <viewAttribute id="CITEM_ADJUSTED" aggregationType="sum">
+        <descriptions defaultDescription="CITEM_ADJUSTED"/>
+      </viewAttribute>
+      <viewAttribute id="RecordedDays" aggregationType="sum">
+        <descriptions defaultDescription="RecordedDays"/>
+      </viewAttribute>
+      <viewAttribute id="TargetDays" aggregationType="sum">
+        <descriptions defaultDescription="TargetDays"/>
+      </viewAttribute>
+      <viewAttribute id="FORECASTEDDAYS" aggregationType="sum">
+        <descriptions defaultDescription="FORECASTEDDAYS2"/>
+      </viewAttribute>
+      <viewAttribute id="REMAININGDAYS" aggregationType="sum">
+        <descriptions defaultDescription="REMAININGDAYS"/>
+      </viewAttribute>
+      <viewAttribute id="TARGETDAYSCORRECTED" aggregationType="sum">
+        <descriptions defaultDescription="TARGETDAYSCORRECTED"/>
+      </viewAttribute>
+      <viewAttribute id="REMAININGDAYSCORRECTED" aggregationType="sum">
+        <descriptions defaultDescription="REMAININGDAYSCORRECTED"/>
+      </viewAttribute>
+      <viewAttribute id="FORECASTEDDAYSCORRECTED" aggregationType="sum">
+        <descriptions defaultDescription="FORECASTEDDAYSCORRECTED"/>
+      </viewAttribute>
+      <viewAttribute id="RECORDEDDAYSCORRECTED" aggregationType="sum">
+        <descriptions defaultDescription="RECORDEDDAYSCORRECTED"/>
+      </viewAttribute>
+    
+      <viewAttribute id="CORRPREVYEAR" aggregationType="sum">
+        <descriptions defaultDescription="CORRPREVYEAR"/>
+      </viewAttribute>
+      <viewAttribute id="TYPE">
+        <descriptions defaultDescription="TYPE"/>
+      </viewAttribute>
+      <viewAttribute id="DayWeight" aggregationType="sum">
+        <descriptions defaultDescription="DayWeight"/>
+      </viewAttribute>
+      <viewAttribute id="CRMConversion" aggregationType="sum">
+        <descriptions defaultDescription="CRMConversion"/>
+      </viewAttribute></viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="PERCENTAGECOMPLETE" datatype="INTEGER" expressionLanguage="COLUMN_ENGINE">
+        <formula>&quot;RECORDEDDAYSCORRECTED&quot;/&quot;TARGETDAYSCORRECTED&quot;*100</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <restrictedViewAttributes/>
+    <input node="WeightedDays">
+      <mapping xsi:type="Calculation:AttributeMapping" target="LoadDate" source="LoadDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CRMCUSTOMERID" source="CRMCUSTOMERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ISPSOID" source="ISPSOID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CRMSOID" source="CRMSOID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESDOCUMENTITEM_INT" source="SALESDOCUMENTITEM_INT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Description" source="Description"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RequestedDeliveryDate" source="RequestedDeliveryDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REQDELDATEMONTHN" source="REQDELDATEMONTHN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REQDELDATEMONTH" source="REQDELDATEMONTH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GOLIVEDATE" source="GOLIVEDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CONTRACT_ADJUSTED" source="CONTRACT_ADJUSTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CITEM_ADJUSTED" source="CITEM_ADJUSTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RecordedDays" source="RecordedDays"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TargetDays" source="TargetDays"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TYPE" source="TYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CORRPREVYEAR" source="CORRPREVYEAR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DayWeight" source="DayWeight"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CRMConversion" source="CRMConversion"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="EndDate" source="EndDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REMAININGDAYS" source="REMAININGDAYS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FORECASTEDDAYS" source="FORECASTEDDAYS2"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TARGETDAYSCORRECTED" source="TARGETDAYSCORRECTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REMAININGDAYSCORRECTED" source="REMAININGDAYSCORRECTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FORECASTEDDAYSCORRECTED" source="FORECASTEDDAYSCORRECTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RECORDEDDAYSCORRECTED" source="RECORDEDDAYSCORRECTED"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Presentation">
+  <attributes>
+    <attribute id="LoadDate" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LoadDate"/>
+      <keyMapping columnObjectName="Presentation" columnName="LoadDate"/>
+    </attribute>
+    <attribute id="CRMCUSTOMERID" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CRMCUSTOMERID"/>
+      <keyMapping columnObjectName="Presentation" columnName="CRMCUSTOMERID"/>
+    </attribute>
+    <attribute id="ISPSOID" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ISPSOID"/>
+      <keyMapping columnObjectName="Presentation" columnName="ISPSOID"/>
+    </attribute>
+    <attribute id="CRMSOID" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CRMSOID"/>
+      <keyMapping columnObjectName="Presentation" columnName="CRMSOID"/>
+    </attribute>
+    <attribute id="SALESDOCUMENTITEM_INT" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SALESDOCUMENTITEM_INT"/>
+      <keyMapping columnObjectName="Presentation" columnName="SALESDOCUMENTITEM_INT"/>
+    </attribute>
+    <attribute id="Description" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Description"/>
+      <keyMapping columnObjectName="Presentation" columnName="Description"/>
+    </attribute>
+    <attribute id="RequestedDeliveryDate" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="RequestedDeliveryDate"/>
+      <keyMapping columnObjectName="Presentation" columnName="RequestedDeliveryDate"/>
+    </attribute>
+    <attribute id="STATUS" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="STATUS"/>
+      <keyMapping columnObjectName="Presentation" columnName="STATUS"/>
+    </attribute>
+    <attribute id="REQDELDATEMONTHN" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="REQDELDATEMONTHN"/>
+      <keyMapping columnObjectName="Presentation" columnName="REQDELDATEMONTHN"/>
+    </attribute>
+    <attribute id="REQDELDATEMONTH" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="REQDELDATEMONTH"/>
+      <keyMapping columnObjectName="Presentation" columnName="REQDELDATEMONTH"/>
+    </attribute>
+    <attribute id="GOLIVEDATE" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="GOLIVEDATE"/>
+      <keyMapping columnObjectName="Presentation" columnName="GOLIVEDATE"/>
+    </attribute>
+    <attribute id="EndDate" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EndDate"/>
+      <keyMapping columnObjectName="Presentation" columnName="EndDate"/>
+    </attribute>
+    <attribute id="CONTRACT_ADJUSTED" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CONTRACT_ADJUSTED"/>
+      <keyMapping columnObjectName="Presentation" columnName="CONTRACT_ADJUSTED"/>
+    </attribute>
+    <attribute id="CITEM_ADJUSTED" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CITEM_ADJUSTED"/>
+      <keyMapping columnObjectName="Presentation" columnName="CITEM_ADJUSTED"/>
+    </attribute>
+    <attribute id="RecordedDays" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="RecordedDays"/>
+      <keyMapping columnObjectName="Presentation" columnName="RecordedDays"/>
+    </attribute>
+    <attribute id="TargetDays" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TargetDays"/>
+      <keyMapping columnObjectName="Presentation" columnName="TargetDays"/>
+    </attribute>
+    <attribute id="FORECASTEDDAYS" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FORECASTEDDAYS"/>
+      <keyMapping columnObjectName="Presentation" columnName="FORECASTEDDAYS"/>
+    </attribute>
+    <attribute id="REMAININGDAYS" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="REMAININGDAYS"/>
+      <keyMapping columnObjectName="Presentation" columnName="REMAININGDAYS"/>
+    </attribute>
+    <attribute id="TARGETDAYSCORRECTED" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TARGETDAYSCORRECTED"/>
+      <keyMapping columnObjectName="Presentation" columnName="TARGETDAYSCORRECTED"/>
+    </attribute>
+    <attribute id="REMAININGDAYSCORRECTED" order="20" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="REMAININGDAYSCORRECTED"/>
+      <keyMapping columnObjectName="Presentation" columnName="REMAININGDAYSCORRECTED"/>
+    </attribute>
+    <attribute id="FORECASTEDDAYSCORRECTED" order="21" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FORECASTEDDAYSCORRECTED"/>
+      <keyMapping columnObjectName="Presentation" columnName="FORECASTEDDAYSCORRECTED"/>
+    </attribute>
+    <attribute id="RECORDEDDAYSCORRECTED" order="22" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="RECORDEDDAYSCORRECTED"/>
+      <keyMapping columnObjectName="Presentation" columnName="RECORDEDDAYSCORRECTED"/>
+    </attribute>
+    <attribute id="CORRPREVYEAR" order="23" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CORRPREVYEAR"/>
+      <keyMapping columnObjectName="Presentation" columnName="CORRPREVYEAR"/>
+    </attribute>
+    <attribute id="TYPE" order="24" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TYPE"/>
+      <keyMapping columnObjectName="Presentation" columnName="TYPE"/>
+    </attribute>
+    <attribute id="DayWeight" order="25" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DayWeight"/>
+      <keyMapping columnObjectName="Presentation" columnName="DayWeight"/>
+    </attribute>
+    <attribute id="CRMConversion" order="26" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CRMConversion"/>
+      <keyMapping columnObjectName="Presentation" columnName="CRMConversion"/>
+    </attribute>
+  
+    <attribute id="PERCENTAGECOMPLETE" order="27" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PERCENTAGECOMPLETE"/>
+  
+      <keyMapping columnObjectName="Presentation" columnName="PERCENTAGECOMPLETE"/>
+  
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="322" y="112"/>
+    
+      <rectangleSize width="140"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="CRMISP_ConsolidatedSOs" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="892"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape expanded="true" modelObjectName="ISP_ZSMSD_SO_Contract" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="282" y="892"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape expanded="true" modelObjectName="CRMISP_Consolidated_Contract" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="115" y="772"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="CRMISP_ConsolidatedSOs" modelObjectNameSpace="CRMISP_Consolidated_Contract" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="259"/>
+    </shape>
+    <shape modelObjectName="ISP_ZSMSD_SO_Contract" modelObjectNameSpace="CRMISP_Consolidated_Contract" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape expanded="true" modelObjectName="CRMISP_Cons_Contract_DayWeight" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="306" y="652"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="CRMISP_Consolidated_Contract" modelObjectNameSpace="CRMISP_Cons_Contract_DayWeight" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="0" y="-127"/>
+      <rectangleSize width="892"/>
+    </shape>
+    <shape modelObjectName="Lkp_Contract_Properties" modelObjectNameSpace="CRMISP_Cons_Contract_DayWeight" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="-565" y="207"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Lkp_Contract_Properties" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="371" y="772"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Delivery_Month" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="369" y="547"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="StaffingList" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="179" y="547"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="ForecastedDaysCorrection" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="300" y="427"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="Delivery_Month" modelObjectNameSpace="ForecastedDaysCorrection" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="259"/>
+    </shape>
+    <shape modelObjectName="StaffingList" modelObjectNameSpace="ForecastedDaysCorrection" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape expanded="false" modelObjectName="WeightedDays" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="300" y="322"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Presentation" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="322" y="217"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

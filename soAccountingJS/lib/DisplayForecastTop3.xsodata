@@ -1,0 +1,3 @@
+service {
+"SOAccounting_HANAXSA.soAccountingDB.views::FORECAST_Top3" as "ForecastTop3" keys generate local "ID";
+}

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" xmlns:Variable="http://www.sap.com/ndb/BiModelVariable.ecore" id="SOAccounting_HANAXSA.soAccountingDB.views::TESTCRM_CustomerList" applyPrivilegeType="NONE" dataCategory="DEFAULT" schemaVersion="3.0" defaultClient="$$client$$" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="TESTCRM_CustomerList"/>
+<localVariables>
+  <variable id="DELIVERY_YEAR" parameter="true">
+    <descriptions defaultDescription="DELIVERY_YEAR (yyyy)"/>
+    <variableProperties datatype="INTEGER" mandatory="true">
+      <valueDomain type="empty"/>
+      <selection multiLine="false" type="Single"/>
+      <defaultRange lowValue="2017"/>
+    </variableProperties>
+  </variable>
+</localVariables>
+<variableMappings>
+  <mapping xsi:type="Variable:VariableMapping" dataSource="SOAccounting_HANAXSA.soAccountingDB.views::CRMISP_ConsolidatedSOs_Presentation">
+    <targetVariable name="DELIVERY_YEAR" resourceUri="SOAccounting_HANAXSA.soAccountingDB.views::CRMISP_ConsolidatedSOs_Presentation"/>
+    <localVariable>DELIVERY_YEAR</localVariable>
+  </mapping>
+</variableMappings>
+<dataSources>
+  <DataSource id="SOAccounting_HANAXSA.soAccountingDB::CRM.tblECCDAllServiceOrders">
+    <resourceUri>SOAccounting_HANAXSA.soAccountingDB::CRM.tblECCDAllServiceOrders</resourceUri>
+  </DataSource>
+  <DataSource id="SOAccounting_HANAXSA.soAccountingDB.views::CRMISP_ConsolidatedSOs_Presentation">
+    <resourceUri>SOAccounting_HANAXSA.soAccountingDB.views::CRMISP_ConsolidatedSOs_Presentation</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:AggregationView" id="CRMUniqueCustomers">
+    <viewAttributes>
+      <viewAttribute id="CustomerID">
+        <descriptions defaultDescription="CustomerID"/>
+      </viewAttribute>
+      <viewAttribute id="CustomerName">
+        <descriptions defaultDescription="CustomerName"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="SOAccounting_HANAXSA.soAccountingDB::CRM.tblECCDAllServiceOrders">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CustomerID" source="CustomerID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CustomerName" source="CustomerName"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="CustomerConsolidatedNumbers">
+    <viewAttributes>
+      <viewAttribute id="CRMCUSTOMERID">
+        <descriptions defaultDescription="CRMCUSTOMERID"/>
+      </viewAttribute>
+      <viewAttribute id="TARGETDAYSCORRECTED" aggregationType="sum">
+        <descriptions defaultDescription="TARGETDAYSCORRECTED"/>
+      </viewAttribute>
+      <viewAttribute id="FORECASTEDDAYSCORRECTED" aggregationType="sum">
+        <descriptions defaultDescription="FORECASTEDDAYSCORRECTED"/>
+      </viewAttribute>
+      <viewAttribute id="RECORDEDDAYSCORRECTED" aggregationType="sum">
+        <descriptions defaultDescription="RECORDEDDAYSCORRECTED"/>
+      </viewAttribute>
+      <viewAttribute id="REMAININGDAYSCORRECTED" aggregationType="sum">
+        <descriptions defaultDescription="REMAININGDAYSCORRECTED"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="SOAccounting_HANAXSA.soAccountingDB.views::CRMISP_ConsolidatedSOs_Presentation">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CRMCUSTOMERID" source="CRMCUSTOMERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TARGETDAYSCORRECTED" source="TARGETDAYSCORRECTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FORECASTEDDAYSCORRECTED" source="FORECASTEDDAYSCORRECTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RECORDEDDAYSCORRECTED" source="RECORDEDDAYSCORRECTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REMAININGDAYSCORRECTED" source="REMAININGDAYSCORRECTED"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="CustomerTotalNumbers" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="CustomerID" aggregationType="sum">
+        <descriptions defaultDescription="CustomerID"/>
+      </viewAttribute>
+      <viewAttribute id="CustomerName">
+        <descriptions defaultDescription="CustomerName"/>
+      </viewAttribute>
+      <viewAttribute id="TARGETDAYSCORRECTED" aggregationType="sum">
+        <descriptions defaultDescription="TARGETDAYSCORRECTED"/>
+      </viewAttribute>
+      <viewAttribute id="FORECASTEDDAYSCORRECTED" aggregationType="sum">
+        <descriptions defaultDescription="FORECASTEDDAYSCORRECTED"/>
+      </viewAttribute>
+      <viewAttribute id="RECORDEDDAYSCORRECTED" aggregationType="sum">
+        <descriptions defaultDescription="RECORDEDDAYSCORRECTED"/>
+      </viewAttribute>
+      <viewAttribute id="REMAININGDAYSCORRECTED" aggregationType="sum">
+        <descriptions defaultDescription="REMAININGDAYSCORRECTED"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="CRMUniqueCustomers">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CustomerID" source="CustomerID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CustomerName" source="CustomerName"/>
+    </input>
+    <input node="CustomerConsolidatedNumbers">
+      <mapping xsi:type="Calculation:AttributeMapping" target="TARGETDAYSCORRECTED" source="TARGETDAYSCORRECTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FORECASTEDDAYSCORRECTED" source="FORECASTEDDAYSCORRECTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RECORDEDDAYSCORRECTED" source="RECORDEDDAYSCORRECTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REMAININGDAYSCORRECTED" source="REMAININGDAYSCORRECTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CustomerID" source="CRMCUSTOMERID"/>
+    </input>
+    <joinAttribute name="CustomerID"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="CustomerTotalNumbers">
+  <attributes>
+    <attribute id="CustomerID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CustomerID"/>
+      <keyMapping columnObjectName="CustomerTotalNumbers" columnName="CustomerID"/>
+    </attribute>
+    <attribute id="CustomerName" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CustomerName"/>
+      <keyMapping columnObjectName="CustomerTotalNumbers" columnName="CustomerName"/>
+    </attribute>
+    <attribute id="TARGETDAYSCORRECTED" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TARGETDAYSCORRECTED"/>
+      <keyMapping columnObjectName="CustomerTotalNumbers" columnName="TARGETDAYSCORRECTED"/>
+    </attribute>
+    <attribute id="FORECASTEDDAYSCORRECTED" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FORECASTEDDAYSCORRECTED"/>
+      <keyMapping columnObjectName="CustomerTotalNumbers" columnName="FORECASTEDDAYSCORRECTED"/>
+    </attribute>
+    <attribute id="RECORDEDDAYSCORRECTED" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="RECORDEDDAYSCORRECTED"/>
+      <keyMapping columnObjectName="CustomerTotalNumbers" columnName="RECORDEDDAYSCORRECTED"/>
+    </attribute>
+    <attribute id="REMAININGDAYSCORRECTED" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="REMAININGDAYSCORRECTED"/>
+      <keyMapping columnObjectName="CustomerTotalNumbers" columnName="REMAININGDAYSCORRECTED"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="212" y="112"/>
+    
+      <rectangleSize width="140"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="CRMUniqueCustomers" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="91" y="337"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="CustomerConsolidatedNumbers" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="281" y="337"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="CustomerTotalNumbers" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="212" y="217"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="CRMUniqueCustomers" modelObjectNameSpace="CustomerTotalNumbers" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="CustomerConsolidatedNumbers" modelObjectNameSpace="CustomerTotalNumbers" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="259"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

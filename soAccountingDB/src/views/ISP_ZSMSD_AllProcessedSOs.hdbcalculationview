@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="SOAccounting_HANAXSA.soAccountingDB.views::ISP_ZSMSD_AllProcessedSOs" applyPrivilegeType="NONE" dataCategory="DEFAULT" schemaVersion="3.0" defaultClient="$$client$$" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="ISP_ZSMSD_AllProcessedSOs"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="SOAccounting_HANAXSA.soAccountingDB::ISP_MAXA.tblECCDAllServiceOrders">
+    <resourceUri>SOAccounting_HANAXSA.soAccountingDB::ISP_MAXA.tblECCDAllServiceOrders</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_1">
+    <viewAttributes>
+    
+      <viewAttribute id="ContractID">
+        <descriptions defaultDescription="ContractID"/>
+      </viewAttribute>
+      <viewAttribute id="ItemContract">
+        <descriptions defaultDescription="ItemContract"/>
+      </viewAttribute>
+      <viewAttribute id="SalesDocument">
+        <descriptions defaultDescription="SalesDocument"/>
+      </viewAttribute></viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="SOAccounting_HANAXSA.soAccountingDB::ISP_MAXA.tblECCDAllServiceOrders">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ContractID" source="ContractID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SalesDocument" source="SalesDocument"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ItemContract" source="ItemContract"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Aggregation_1">
+  <attributes>
+    <attribute id="ContractID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ContractID"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="ContractID"/>
+    </attribute>
+    <attribute id="ItemContract" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ItemContract"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="ItemContract"/>
+    </attribute>
+  
+    <attribute id="SalesDocument" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SalesDocument"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="SalesDocument"/>
+    </attribute></attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="212" y="112"/>
+    
+      <rectangleSize width="140"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Aggregation_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="197" y="212"/>
+      <rectangleSize height="30" width="140"/>
+    </shape></shapes>
+</layout>
+</Calculation:scenario>

@@ -1,0 +1,16 @@
+PROCEDURE "SOAccounting_HANAXSA.soAccountingDB.procedures::test_manualForecastFlatCreateMethod" (out ex_error "SOAccounting_HANAXSA.soAccountingDB::Procedures.tt_errors")
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   --READS SQL DATA 
+   AS
+BEGIN
+   /*************************************
+       Write your procedure logic 
+   *************************************/
+   v_users = SELECT "ForecastID", "ContractID", "ItemID" , "ForecastDate", "JanHigh", "FebHigh", "MarHigh", "AprHigh", "MayHigh", "JunHigh", "JulHigh", "AugHigh", "SepHigh", "OctHigh", "NovHigh", "DecHigh", "JanMed", "FebMed", "MarMed", "AprMed", "MayMed", "JunMed", "JulMed", "AugMed", "SepMed", "OctMed", "NovMed", "DecMed", "JanLow", "FebLow", "MarLow", "AprLow", "MayLow", "JunLow", "JulLow", "AugLow", "SepLow", "OctLow", "NovLow", "DecLow" 
+			FROM "SOAccounting_HANAXSA.soAccountingDB::TEST_FORECAST.tblManualForecastFlat";
+			
+	CALL "SOAccounting_HANAXSA.soAccountingDB.procedures::manualForecastFlatCreateMethod"(IM_ROW => :v_users,EX_ERROR => :ex_error);
+
+END

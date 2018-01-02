@@ -1,0 +1,760 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="SOAccounting_HANAXSA.soAccountingDB.views::CRM_AllProcessedSOs" applyPrivilegeType="NONE" dataCategory="DEFAULT" schemaVersion="3.0" defaultClient="$$client$$" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CRM">
+  <comment text="CRM Service Orders"/>
+</descriptions>
+<localVariables>
+  <variable id="DELIVERY_YEAR" parameter="true">
+    <descriptions defaultDescription="DELIVERY_YEAR (yyyy)"/>
+    <variableProperties datatype="INTEGER" mandatory="true">
+      <valueDomain type="empty"/>
+      <selection multiLine="false" type="Single"/>
+      <defaultRange lowValue="2017"/>
+    </variableProperties>
+  </variable>
+</localVariables>
+<variableMappings/>
+<dataSources>
+  <DataSource id="SOAccounting_HANAXSA.soAccountingDB::CRM.tblECCDAllServiceOrders">
+    <resourceUri>SOAccounting_HANAXSA.soAccountingDB::CRM.tblECCDAllServiceOrders</resourceUri>
+  </DataSource>
+  <DataSource id="CRMSOAggregate$$$$SOAccounting_HANAXSA.soAccountingDB::CRM.tblECCDAllServiceOrders$$">
+    <resourceUri>SOAccounting_HANAXSA.soAccountingDB::CRM.tblECCDAllServiceOrders</resourceUri>
+  </DataSource>
+  <DataSource id="SOAccounting_HANAXSA.soAccountingDB::ISP_MAXA.tblECCDAllServiceOrders">
+    <resourceUri>SOAccounting_HANAXSA.soAccountingDB::ISP_MAXA.tblECCDAllServiceOrders</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:AggregationView" id="SO_MaxLoadDate">
+    <viewAttributes>
+      <viewAttribute id="LoadDate" aggregationType="max">
+        <descriptions defaultDescription="LoadDate"/>
+      </viewAttribute>
+      <viewAttribute id="ServiceOrderID">
+        <descriptions defaultDescription="ServiceOrderID"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="SOAccounting_HANAXSA.soAccountingDB::CRM.tblECCDAllServiceOrders">
+      <mapping xsi:type="Calculation:AttributeMapping" target="LoadDate" source="LoadDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ServiceOrderID" source="ServiceOrderID"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="CRMSOAggregate">
+    <viewAttributes>
+      <viewAttribute id="LoadDate">
+        <descriptions defaultDescription="LoadDate"/>
+      </viewAttribute>
+      <viewAttribute id="ServiceOrderID" aggregationType="sum">
+        <descriptions defaultDescription="ServiceOrderID"/>
+      </viewAttribute>
+      <viewAttribute id="CustomerID" aggregationType="sum">
+        <descriptions defaultDescription="CustomerID"/>
+      </viewAttribute>
+      <viewAttribute id="CustomerName">
+        <descriptions defaultDescription="CustomerName"/>
+      </viewAttribute>
+      <viewAttribute id="Description">
+        <descriptions defaultDescription="Description"/>
+      </viewAttribute>
+      <viewAttribute id="GoLiveDate">
+        <descriptions defaultDescription="GoLiveDate"/>
+      </viewAttribute>
+      <viewAttribute id="Qty" aggregationType="sum">
+        <descriptions defaultDescription="Qty"/>
+      </viewAttribute>
+      <viewAttribute id="ReqDeliveryDate">
+        <descriptions defaultDescription="ReqDeliveryDate"/>
+      </viewAttribute>
+      <viewAttribute id="ServiceOrderGroup">
+        <descriptions defaultDescription="ServiceOrderGroup"/>
+      </viewAttribute>
+      <viewAttribute id="ServiceProductDescription">
+        <descriptions defaultDescription="ServiceProductDescription"/>
+      </viewAttribute>
+      <viewAttribute id="ServiceProductID" aggregationType="sum">
+        <descriptions defaultDescription="ServiceProductID"/>
+      </viewAttribute>
+      <viewAttribute id="Status">
+        <descriptions defaultDescription="Status"/>
+      </viewAttribute>
+      <viewAttribute id="UoM">
+        <descriptions defaultDescription="UoM"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="CRMSOAggregate$$$$SOAccounting_HANAXSA.soAccountingDB::CRM.tblECCDAllServiceOrders$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="LoadDate" source="LoadDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ServiceOrderID" source="ServiceOrderID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CustomerID" source="CustomerID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CustomerName" source="CustomerName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Description" source="Description"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GoLiveDate" source="GoLiveDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Qty" source="Qty"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ReqDeliveryDate" source="ReqDeliveryDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ServiceOrderGroup" source="ServiceOrderGroup"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ServiceProductDescription" source="ServiceProductDescription"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ServiceProductID" source="ServiceProductID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Status" source="Status"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="UoM" source="UoM"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="MaxLoadDateJoin" cardinality="C1_1" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="LoadDate">
+        <descriptions defaultDescription="LoadDate"/>
+      </viewAttribute>
+      <viewAttribute id="ServiceOrderID" aggregationType="sum">
+        <descriptions defaultDescription="ServiceOrderID"/>
+      </viewAttribute>
+      <viewAttribute id="CustomerID" aggregationType="sum">
+        <descriptions defaultDescription="CustomerID"/>
+      </viewAttribute>
+      <viewAttribute id="CustomerName">
+        <descriptions defaultDescription="CustomerName"/>
+      </viewAttribute>
+      <viewAttribute id="Description">
+        <descriptions defaultDescription="Description"/>
+      </viewAttribute>
+      <viewAttribute id="GoLiveDate">
+        <descriptions defaultDescription="GoLiveDate"/>
+      </viewAttribute>
+      <viewAttribute id="Qty" aggregationType="sum">
+        <descriptions defaultDescription="Qty"/>
+      </viewAttribute>
+      <viewAttribute id="ReqDeliveryDate">
+        <descriptions defaultDescription="ReqDeliveryDate"/>
+      </viewAttribute>
+      <viewAttribute id="ServiceOrderGroup">
+        <descriptions defaultDescription="ServiceOrderGroup"/>
+      </viewAttribute>
+      <viewAttribute id="ServiceProductDescription">
+        <descriptions defaultDescription="ServiceProductDescription"/>
+      </viewAttribute>
+      <viewAttribute id="ServiceProductID" aggregationType="sum">
+        <descriptions defaultDescription="ServiceProductID"/>
+      </viewAttribute>
+      <viewAttribute id="Status">
+        <descriptions defaultDescription="Status"/>
+      </viewAttribute>
+      <viewAttribute id="UoM">
+        <descriptions defaultDescription="UoM"/>
+      </viewAttribute>
+      <viewAttribute hidden="true" id="JOIN$LoadDate$LoadDate"/>
+      <viewAttribute hidden="true" id="JOIN$ServiceOrderID$ServiceOrderID"/>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="DELIVERY_YEAR" datatype="INTEGER" expressionLanguage="SQL">
+        <formula>YEAR(&quot;ReqDeliveryDate&quot;)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <restrictedViewAttributes/>
+    <input node="SO_MaxLoadDate">
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$LoadDate$LoadDate" source="LoadDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ServiceOrderID$ServiceOrderID" source="ServiceOrderID"/>
+    </input>
+    <input node="CRMSOAggregate">
+      <mapping xsi:type="Calculation:AttributeMapping" target="LoadDate" source="LoadDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ServiceOrderID" source="ServiceOrderID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CustomerID" source="CustomerID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CustomerName" source="CustomerName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Description" source="Description"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GoLiveDate" source="GoLiveDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Qty" source="Qty"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ReqDeliveryDate" source="ReqDeliveryDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ServiceOrderGroup" source="ServiceOrderGroup"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ServiceProductDescription" source="ServiceProductDescription"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ServiceProductID" source="ServiceProductID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Status" source="Status"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="UoM" source="UoM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$LoadDate$LoadDate" source="LoadDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ServiceOrderID$ServiceOrderID" source="ServiceOrderID"/>
+    </input>
+    <joinAttribute name="JOIN$LoadDate$LoadDate"/>
+    <joinAttribute name="JOIN$ServiceOrderID$ServiceOrderID"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="LoadDate">
+        <descriptions defaultDescription="LoadDate"/>
+      </viewAttribute>
+      <viewAttribute id="ServiceOrderID" aggregationType="sum">
+        <descriptions defaultDescription="ServiceOrderID"/>
+      </viewAttribute>
+      <viewAttribute id="CustomerID" aggregationType="sum">
+        <descriptions defaultDescription="CustomerID"/>
+      </viewAttribute>
+      <viewAttribute id="CustomerName">
+        <descriptions defaultDescription="CustomerName"/>
+      </viewAttribute>
+      <viewAttribute id="Description">
+        <descriptions defaultDescription="Description"/>
+      </viewAttribute>
+      <viewAttribute id="GoLiveDate">
+        <descriptions defaultDescription="GoLiveDate"/>
+      </viewAttribute>
+      <viewAttribute id="Qty" aggregationType="sum">
+        <descriptions defaultDescription="Qty"/>
+      </viewAttribute>
+      <viewAttribute id="ReqDeliveryDate">
+        <descriptions defaultDescription="ReqDeliveryDate"/>
+      </viewAttribute>
+      <viewAttribute id="ServiceOrderGroup">
+        <descriptions defaultDescription="ServiceOrderGroup"/>
+      </viewAttribute>
+      <viewAttribute id="ServiceProductDescription">
+        <descriptions defaultDescription="ServiceProductDescription"/>
+      </viewAttribute>
+      <viewAttribute id="ServiceProductID" aggregationType="sum">
+        <descriptions defaultDescription="ServiceProductID"/>
+      </viewAttribute>
+      <viewAttribute id="Status">
+        <descriptions defaultDescription="Status"/>
+      </viewAttribute>
+      <viewAttribute id="UoM">
+        <descriptions defaultDescription="UoM"/>
+      </viewAttribute>
+      <viewAttribute id="DELIVERY_YEAR" aggregationType="sum">
+        <descriptions defaultDescription="DELIVERY_YEAR"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="MaxLoadDateJoin">
+      <mapping xsi:type="Calculation:AttributeMapping" target="LoadDate" source="LoadDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ServiceOrderID" source="ServiceOrderID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CustomerID" source="CustomerID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CustomerName" source="CustomerName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Description" source="Description"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GoLiveDate" source="GoLiveDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Qty" source="Qty"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ReqDeliveryDate" source="ReqDeliveryDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ServiceOrderGroup" source="ServiceOrderGroup"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ServiceProductDescription" source="ServiceProductDescription"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ServiceProductID" source="ServiceProductID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Status" source="Status"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="UoM" source="UoM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DELIVERY_YEAR" source="DELIVERY_YEAR"/>
+    </input>
+    <filter>(&quot;Status&quot; != 'Cancelled') AND &quot;DELIVERY_YEAR&quot; = $$DELIVERY_YEAR$$</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_2">
+    <viewAttributes>
+      <viewAttribute id="LoadDate">
+        <descriptions defaultDescription="LoadDate"/>
+      </viewAttribute>
+      <viewAttribute id="ServiceOrderID">
+        <descriptions defaultDescription="ServiceOrderID"/>
+      </viewAttribute>
+      <viewAttribute id="CustomerID">
+        <descriptions defaultDescription="CustomerID"/>
+      </viewAttribute>
+      <viewAttribute id="CustomerName">
+        <descriptions defaultDescription="CustomerName"/>
+      </viewAttribute>
+      <viewAttribute id="Description">
+        <descriptions defaultDescription="Description"/>
+      </viewAttribute>
+      <viewAttribute id="GoLiveDate">
+        <descriptions defaultDescription="GoLiveDate"/>
+      </viewAttribute>
+      <viewAttribute id="Qty">
+        <descriptions defaultDescription="Qty"/>
+      </viewAttribute>
+      <viewAttribute id="ReqDeliveryDate">
+        <descriptions defaultDescription="ReqDeliveryDate"/>
+      </viewAttribute>
+      <viewAttribute id="ServiceOrderGroup">
+        <descriptions defaultDescription="ServiceOrderGroup"/>
+      </viewAttribute>
+      <viewAttribute id="ServiceProductDescription">
+        <descriptions defaultDescription="ServiceProductDescription"/>
+      </viewAttribute>
+      <viewAttribute id="ServiceProductID">
+        <descriptions defaultDescription="ServiceProductID"/>
+      </viewAttribute>
+      <viewAttribute id="Status">
+        <descriptions defaultDescription="Status"/>
+      </viewAttribute>
+      <viewAttribute id="UoM">
+        <descriptions defaultDescription="UoM"/>
+      </viewAttribute>
+      <viewAttribute id="DELIVERY_YEAR">
+        <descriptions defaultDescription="DELIVERY_YEAR"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="Projection_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="LoadDate" source="LoadDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ServiceOrderID" source="ServiceOrderID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CustomerID" source="CustomerID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CustomerName" source="CustomerName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Description" source="Description"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GoLiveDate" source="GoLiveDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Qty" source="Qty"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ReqDeliveryDate" source="ReqDeliveryDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ServiceOrderGroup" source="ServiceOrderGroup"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ServiceProductDescription" source="ServiceProductDescription"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ServiceProductID" source="ServiceProductID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Status" source="Status"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="UoM" source="UoM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DELIVERY_YEAR" source="DELIVERY_YEAR"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_2" cardinality="C1_1" joinType="leftOuter">
+    <viewAttributes>
+      <viewAttribute id="LoadDate">
+        <descriptions defaultDescription="LoadDate"/>
+      </viewAttribute>
+      <viewAttribute id="ServiceOrderID" aggregationType="sum">
+        <descriptions defaultDescription="ServiceOrderID"/>
+      </viewAttribute>
+      <viewAttribute id="CustomerID" aggregationType="sum">
+        <descriptions defaultDescription="CustomerID"/>
+      </viewAttribute>
+      <viewAttribute id="CustomerName">
+        <descriptions defaultDescription="CustomerName"/>
+      </viewAttribute>
+      <viewAttribute id="Description">
+        <descriptions defaultDescription="Description"/>
+      </viewAttribute>
+      <viewAttribute id="GoLiveDate">
+        <descriptions defaultDescription="GoLiveDate"/>
+      </viewAttribute>
+      <viewAttribute id="Qty" aggregationType="sum">
+        <descriptions defaultDescription="Qty"/>
+      </viewAttribute>
+      <viewAttribute id="ReqDeliveryDate">
+        <descriptions defaultDescription="ReqDeliveryDate"/>
+      </viewAttribute>
+      <viewAttribute id="ServiceOrderGroup">
+        <descriptions defaultDescription="ServiceOrderGroup"/>
+      </viewAttribute>
+      <viewAttribute id="ServiceProductDescription">
+        <descriptions defaultDescription="ServiceProductDescription"/>
+      </viewAttribute>
+      <viewAttribute id="ServiceProductID" aggregationType="sum">
+        <descriptions defaultDescription="ServiceProductID"/>
+      </viewAttribute>
+      <viewAttribute id="Status">
+        <descriptions defaultDescription="Status"/>
+      </viewAttribute>
+      <viewAttribute id="UoM">
+        <descriptions defaultDescription="UoM"/>
+      </viewAttribute>
+      <viewAttribute id="DELIVERY_YEAR" aggregationType="sum">
+        <descriptions defaultDescription="DELIVERY_YEAR"/>
+      </viewAttribute>
+      <viewAttribute id="SALESDOCUMENT_INT" aggregationType="sum">
+        <descriptions defaultDescription="SALESDOCUMENT_INT"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="Aggregation_2">
+      <mapping xsi:type="Calculation:AttributeMapping" target="LoadDate" source="LoadDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ServiceOrderID" source="ServiceOrderID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CustomerID" source="CustomerID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CustomerName" source="CustomerName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Description" source="Description"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GoLiveDate" source="GoLiveDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Qty" source="Qty"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ReqDeliveryDate" source="ReqDeliveryDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ServiceOrderGroup" source="ServiceOrderGroup"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ServiceProductDescription" source="ServiceProductDescription"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ServiceProductID" source="ServiceProductID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Status" source="Status"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="UoM" source="UoM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DELIVERY_YEAR" source="DELIVERY_YEAR"/>
+    </input>
+    <input node="ISPMAXASALESDOCUMENTINT">
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESDOCUMENT_INT" source="SALESDOCUMENT_INT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ServiceOrderID" source="SALESDOCUMENT_INT"/>
+    </input>
+    <joinAttribute name="ServiceOrderID"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="ISPMAXASALESDOCUMENTINT">
+    <viewAttributes>
+      <viewAttribute id="SalesDocument">
+        <descriptions defaultDescription="SalesDocument"/>
+      </viewAttribute>
+      <viewAttribute id="CatsQtyDirect" aggregationType="sum">
+        <descriptions defaultDescription="CatsQtyDirect"/>
+      </viewAttribute>
+      <viewAttribute id="CatsTypeEXPHRS">
+        <descriptions defaultDescription="CatsTypeEXPHRS"/>
+      </viewAttribute>
+      <viewAttribute id="ContractEndDate">
+        <descriptions defaultDescription="ContractEndDate"/>
+      </viewAttribute>
+      <viewAttribute id="ContractID" aggregationType="sum">
+        <descriptions defaultDescription="ContractID"/>
+      </viewAttribute>
+      <viewAttribute id="ContractStartDate">
+        <descriptions defaultDescription="ContractStartDate"/>
+      </viewAttribute>
+      <viewAttribute id="DateActExp">
+        <descriptions defaultDescription="DateActExp"/>
+      </viewAttribute>
+      <viewAttribute id="DateConsNo">
+        <descriptions defaultDescription="DateConsNo"/>
+      </viewAttribute>
+      <viewAttribute id="DeliveryDate">
+        <descriptions defaultDescription="DeliveryDate"/>
+      </viewAttribute>
+      <viewAttribute id="DeliveryLocation">
+        <descriptions defaultDescription="DeliveryLocation"/>
+      </viewAttribute>
+      <viewAttribute id="DescriptionActivityExpenses">
+        <descriptions defaultDescription="DescriptionActivityExpenses"/>
+      </viewAttribute>
+      <viewAttribute id="DescriptionConsolidated">
+        <descriptions defaultDescription="DescriptionConsolidated"/>
+      </viewAttribute>
+      <viewAttribute id="DescriptionContract">
+        <descriptions defaultDescription="DescriptionContract"/>
+      </viewAttribute>
+      <viewAttribute id="DescriptionService">
+        <descriptions defaultDescription="DescriptionService"/>
+      </viewAttribute>
+      <viewAttribute id="DisplayUnitMeasure">
+        <descriptions defaultDescription="DisplayUnitMeasure"/>
+      </viewAttribute>
+      <viewAttribute id="ItemContract">
+        <descriptions defaultDescription="ItemContract"/>
+      </viewAttribute>
+      <viewAttribute id="ItemService">
+        <descriptions defaultDescription="ItemService"/>
+      </viewAttribute>
+      <viewAttribute id="ItemText">
+        <descriptions defaultDescription="ItemText"/>
+      </viewAttribute>
+      <viewAttribute id="LoadDate">
+        <descriptions defaultDescription="LoadDate"/>
+      </viewAttribute>
+      <viewAttribute id="MaterialContrNo">
+        <descriptions defaultDescription="MaterialContrNo"/>
+      </viewAttribute>
+      <viewAttribute id="MaterialService">
+        <descriptions defaultDescription="MaterialService"/>
+      </viewAttribute>
+      <viewAttribute id="NameEmployeeApplicant">
+        <descriptions defaultDescription="NameEmployeeApplicant"/>
+      </viewAttribute>
+      <viewAttribute id="NoName">
+        <descriptions defaultDescription="NoName"/>
+      </viewAttribute>
+      <viewAttribute id="NoName1">
+        <descriptions defaultDescription="NoName1"/>
+      </viewAttribute>
+      <viewAttribute id="PersonelNumber">
+        <descriptions defaultDescription="PersonelNumber"/>
+      </viewAttribute>
+      <viewAttribute id="QuantityConsNo" aggregationType="sum">
+        <descriptions defaultDescription="QuantityConsNo"/>
+      </viewAttribute>
+      <viewAttribute id="QuantityService" aggregationType="sum">
+        <descriptions defaultDescription="QuantityService"/>
+      </viewAttribute>
+      <viewAttribute id="ServiceOrderGroup">
+        <descriptions defaultDescription="ServiceOrderGroup"/>
+      </viewAttribute>
+      <viewAttribute id="ShipToContract">
+        <descriptions defaultDescription="ShipToContract"/>
+      </viewAttribute>
+      <viewAttribute id="SoldToService">
+        <descriptions defaultDescription="SoldToService"/>
+      </viewAttribute>
+      <viewAttribute id="SubType1">
+        <descriptions defaultDescription="SubType1"/>
+      </viewAttribute>
+      <viewAttribute id="TargetQuantity" aggregationType="sum">
+        <descriptions defaultDescription="TargetQuantity"/>
+      </viewAttribute>
+      <viewAttribute id="TargetQuantityUoM">
+        <descriptions defaultDescription="TargetQuantityUoM"/>
+      </viewAttribute>
+      <viewAttribute id="TaskType">
+        <descriptions defaultDescription="TaskType"/>
+      </viewAttribute>
+      <viewAttribute id="TaskTypeDescription">
+        <descriptions defaultDescription="TaskTypeDescription"/>
+      </viewAttribute>
+      <viewAttribute id="UnitConsNo">
+        <descriptions defaultDescription="UnitConsNo"/>
+      </viewAttribute>
+      <viewAttribute id="UnitService">
+        <descriptions defaultDescription="UnitService"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="SALESDOCUMENT_INT" datatype="INTEGER" expressionLanguage="SQL">
+        <formula>TO_INT(&quot;SalesDocument&quot;)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <restrictedViewAttributes/>
+    <input node="SOAccounting_HANAXSA.soAccountingDB::ISP_MAXA.tblECCDAllServiceOrders">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CatsQtyDirect" source="CatsQtyDirect"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CatsTypeEXPHRS" source="CatsTypeEXPHRS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ContractEndDate" source="ContractEndDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ContractID" source="ContractID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ContractStartDate" source="ContractStartDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DateActExp" source="DateActExp"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DateConsNo" source="DateConsNo"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DeliveryDate" source="DeliveryDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DeliveryLocation" source="DeliveryLocation"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DescriptionActivityExpenses" source="DescriptionActivityExpenses"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DescriptionConsolidated" source="DescriptionConsolidated"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DescriptionContract" source="DescriptionContract"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DescriptionService" source="DescriptionService"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DisplayUnitMeasure" source="DisplayUnitMeasure"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ItemContract" source="ItemContract"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ItemService" source="ItemService"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ItemText" source="ItemText"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LoadDate" source="LoadDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MaterialContrNo" source="MaterialContrNo"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MaterialService" source="MaterialService"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NameEmployeeApplicant" source="NameEmployeeApplicant"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NoName" source="NoName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NoName1" source="NoName1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PersonelNumber" source="PersonelNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QuantityConsNo" source="QuantityConsNo"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="QuantityService" source="QuantityService"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SalesDocument" source="SalesDocument"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ServiceOrderGroup" source="ServiceOrderGroup"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShipToContract" source="ShipToContract"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SoldToService" source="SoldToService"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SubType1" source="SubType1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TargetQuantity" source="TargetQuantity"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TargetQuantityUoM" source="TargetQuantityUoM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TaskType" source="TaskType"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TaskTypeDescription" source="TaskTypeDescription"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="UnitConsNo" source="UnitConsNo"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="UnitService" source="UnitService"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="ReportingFilter">
+    <viewAttributes>
+      <viewAttribute id="LoadDate">
+        <descriptions defaultDescription="LoadDate"/>
+      </viewAttribute>
+      <viewAttribute id="ServiceOrderID" aggregationType="sum">
+        <descriptions defaultDescription="ServiceOrderID"/>
+      </viewAttribute>
+      <viewAttribute id="CustomerID" aggregationType="sum">
+        <descriptions defaultDescription="CustomerID"/>
+      </viewAttribute>
+      <viewAttribute id="CustomerName">
+        <descriptions defaultDescription="CustomerName"/>
+      </viewAttribute>
+      <viewAttribute id="Description">
+        <descriptions defaultDescription="Description"/>
+      </viewAttribute>
+      <viewAttribute id="GoLiveDate">
+        <descriptions defaultDescription="GoLiveDate"/>
+      </viewAttribute>
+      <viewAttribute id="Qty" aggregationType="sum">
+        <descriptions defaultDescription="Qty"/>
+      </viewAttribute>
+      <viewAttribute id="ReqDeliveryDate">
+        <descriptions defaultDescription="ReqDeliveryDate"/>
+      </viewAttribute>
+      <viewAttribute id="ServiceOrderGroup">
+        <descriptions defaultDescription="ServiceOrderGroup"/>
+      </viewAttribute>
+      <viewAttribute id="ServiceProductDescription">
+        <descriptions defaultDescription="ServiceProductDescription"/>
+      </viewAttribute>
+      <viewAttribute id="ServiceProductID" aggregationType="sum">
+        <descriptions defaultDescription="ServiceProductID"/>
+      </viewAttribute>
+      <viewAttribute id="Status">
+        <descriptions defaultDescription="Status"/>
+      </viewAttribute>
+      <viewAttribute id="UoM">
+        <descriptions defaultDescription="UoM"/>
+      </viewAttribute>
+      <viewAttribute id="DELIVERY_YEAR" aggregationType="sum">
+        <descriptions defaultDescription="DELIVERY_YEAR"/>
+      </viewAttribute>
+      <viewAttribute id="SALESDOCUMENT_INT" aggregationType="sum">
+        <descriptions defaultDescription="SALESDOCUMENT_INT"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="REPORTING_FILTER" datatype="TINYINT" expressionLanguage="COLUMN_ENGINE">
+        <formula>IF(&quot;Status&quot; = 'New' AND &quot;ServiceOrderGroup&quot; = 'Processed','0','1')</formula>
+      </calculatedViewAttribute>
+    
+      <calculatedViewAttribute id="Qty_Dbl" datatype="DOUBLE" expressionLanguage="SQL">
+    
+        <formula>&quot;Qty&quot;</formula>
+    
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <restrictedViewAttributes/>
+    <input node="Join_2">
+      <mapping xsi:type="Calculation:AttributeMapping" target="LoadDate" source="LoadDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ServiceOrderID" source="ServiceOrderID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CustomerID" source="CustomerID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CustomerName" source="CustomerName"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Description" source="Description"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GoLiveDate" source="GoLiveDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Qty" source="Qty"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ReqDeliveryDate" source="ReqDeliveryDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ServiceOrderGroup" source="ServiceOrderGroup"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ServiceProductDescription" source="ServiceProductDescription"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ServiceProductID" source="ServiceProductID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Status" source="Status"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="UoM" source="UoM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DELIVERY_YEAR" source="DELIVERY_YEAR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESDOCUMENT_INT" source="SALESDOCUMENT_INT"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="ReportingFilter">
+  <attributes>
+    <attribute id="LoadDate" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LoadDate"/>
+      <keyMapping columnObjectName="ReportingFilter" columnName="LoadDate"/>
+    </attribute>
+    <attribute id="ServiceOrderID" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ServiceOrderID"/>
+      <keyMapping columnObjectName="ReportingFilter" columnName="ServiceOrderID"/>
+    </attribute>
+    <attribute id="CustomerID" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CustomerID"/>
+      <keyMapping columnObjectName="ReportingFilter" columnName="CustomerID"/>
+    </attribute>
+    <attribute id="CustomerName" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CustomerName"/>
+      <keyMapping columnObjectName="ReportingFilter" columnName="CustomerName"/>
+    </attribute>
+    <attribute id="Description" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Description"/>
+      <keyMapping columnObjectName="ReportingFilter" columnName="Description"/>
+    </attribute>
+    <attribute id="GoLiveDate" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="GoLiveDate"/>
+      <keyMapping columnObjectName="ReportingFilter" columnName="GoLiveDate"/>
+    </attribute>
+    <attribute id="Qty" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Qty"/>
+      <keyMapping columnObjectName="ReportingFilter" columnName="Qty"/>
+    </attribute>
+    <attribute id="ReqDeliveryDate" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ReqDeliveryDate"/>
+      <keyMapping columnObjectName="ReportingFilter" columnName="ReqDeliveryDate"/>
+    </attribute>
+    <attribute id="ServiceOrderGroup" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ServiceOrderGroup"/>
+      <keyMapping columnObjectName="ReportingFilter" columnName="ServiceOrderGroup"/>
+    </attribute>
+    <attribute id="ServiceProductDescription" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ServiceProductDescription"/>
+      <keyMapping columnObjectName="ReportingFilter" columnName="ServiceProductDescription"/>
+    </attribute>
+    <attribute id="ServiceProductID" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ServiceProductID"/>
+      <keyMapping columnObjectName="ReportingFilter" columnName="ServiceProductID"/>
+    </attribute>
+    <attribute id="Status" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Status"/>
+      <keyMapping columnObjectName="ReportingFilter" columnName="Status"/>
+    </attribute>
+    <attribute id="UoM" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="UoM"/>
+      <keyMapping columnObjectName="ReportingFilter" columnName="UoM"/>
+    </attribute>
+    <attribute id="DELIVERY_YEAR" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DELIVERY_YEAR"/>
+      <keyMapping columnObjectName="ReportingFilter" columnName="DELIVERY_YEAR"/>
+    </attribute>
+    <attribute id="SALESDOCUMENT_INT" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SALESDOCUMENT_INT"/>
+      <keyMapping columnObjectName="ReportingFilter" columnName="SALESDOCUMENT_INT"/>
+    </attribute>
+    <attribute id="REPORTING_FILTER" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="REPORTING_FILTER"/>
+      <keyMapping columnObjectName="ReportingFilter" columnName="REPORTING_FILTER"/>
+    </attribute>
+  
+    <attribute id="Qty_Dbl" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Qty_Dbl"/>
+  
+      <keyMapping columnObjectName="ReportingFilter" columnName="Qty_Dbl"/>
+  
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="255" y="112"/>
+    
+      <rectangleSize width="140"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="SO_MaxLoadDate" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="92" y="772"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="CRMSOAggregate" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="302" y="772"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape expanded="true" modelObjectName="MaxLoadDateJoin" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="179" y="652"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="SO_MaxLoadDate" modelObjectNameSpace="MaxLoadDateJoin" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="CRMSOAggregate" modelObjectNameSpace="MaxLoadDateJoin" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="179" y="547"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Aggregation_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="146" y="442"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Join_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="251" y="322"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="Aggregation_2" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="14" y="9"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="ISPMAXASALESDOCUMENTINT" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="314" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape expanded="true" modelObjectName="ISPMAXASALESDOCUMENTINT" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="336" y="442"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="ReportingFilter" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="251" y="217"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

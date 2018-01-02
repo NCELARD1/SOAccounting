@@ -1,0 +1,21 @@
+PROCEDURE "SOAccounting_HANAXSA.soAccountingDB.procedures::CopyOftest_manualForecastFlatCreateMethod" (out ex_error "SOAccounting_HANAXSA.soAccountingDB::Procedures.tt_errors")
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   --READS SQL DATA 
+   AS
+BEGIN
+   /*************************************
+       Write your procedure logic 
+   *************************************/
+   v_users = SELECT "ForecastID", "ContractID", "ItemID" , "ForecastDate", "JanHigh", "FebHigh", "MarHigh", "AprHigh", "MayHigh", "JunHigh", "JulHigh", "AugHigh", "SepHigh", "OctHigh", "NovHigh", "DecHigh", "JanMed", "FebMed", "MarMed", "AprMed", "MayMed", "JunMed", "JulMed", "AugMed", "SepMed", "OctMed", "NovMed", "DecMed", "JanLow", "FebLow", "MarLow", "AprLow", "MayLow", "JunLow", "JulLow", "AugLow", "SepLow", "OctLow", "NovLow", "DecLow" 
+			FROM "SOAccounting_HANAXSA.soAccountingDB::TEST_FORECAST.tblManualForecastFlat";
+			
+/**			ex_error = select 500 as http_status_code, 
+               'Invalid contract '  as error_message, 
+                     'No Way! Contract field can not be empty' as detail from "SOAccounting_HANAXSA.soAccountingDB.synonyms::DUMMY";
+**/
+	
+	CALL "SOAccounting_HANAXSA.soAccountingDB.procedures::CopyOfmanualForecastFlatCreateMethod"(IM_ROW => :v_users,EX_ERROR => :ex_error);
+
+END

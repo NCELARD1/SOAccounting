@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="SOAccounting_HANAXSA.soAccountingDB.views::CRMISP_ConsolidatedSOs_AccountContractList" applyPrivilegeType="NONE" dataCategory="DEFAULT" schemaVersion="3.0" defaultClient="$$client$$" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CRMISP_ConsolidatedSOs_AccountContractList"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="SOAccounting_HANAXSA.soAccountingDB.views::CRMISP_ConsolidatedSOs_Presentation">
+    <resourceUri>SOAccounting_HANAXSA.soAccountingDB.views::CRMISP_ConsolidatedSOs_Presentation</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:AggregationView" id="Agg_Account_Contract">
+    <viewAttributes>
+      <viewAttribute id="CRMCUSTOMERID">
+        <descriptions defaultDescription="CRMCUSTOMERID"/>
+      </viewAttribute>
+      <viewAttribute id="CONTRACT_ADJUSTED">
+        <descriptions defaultDescription="CONTRACT_ADJUSTED"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="SOAccounting_HANAXSA.soAccountingDB.views::CRMISP_ConsolidatedSOs_Presentation">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CRMCUSTOMERID" source="CRMCUSTOMERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CONTRACT_ADJUSTED" source="CONTRACT_ADJUSTED"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Agg_Account_Contract">
+  <attributes>
+    <attribute id="CRMCUSTOMERID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CRMCUSTOMERID"/>
+      <keyMapping columnObjectName="Agg_Account_Contract" columnName="CRMCUSTOMERID"/>
+    </attribute>
+    <attribute id="CONTRACT_ADJUSTED" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CONTRACT_ADJUSTED"/>
+      <keyMapping columnObjectName="Agg_Account_Contract" columnName="CONTRACT_ADJUSTED"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Agg_Account_Contract" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="201"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
