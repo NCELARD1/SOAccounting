@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="SOAccounting_HANAXSA.soAccountingDB.views::CRMISP_ConsolidatedSOs_AccountContractItemList" applyPrivilegeType="NONE" dataCategory="DEFAULT" schemaVersion="3.0" defaultClient="$$client$$" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CRMISP_ConsolidatedSOs_AccountContractItemList"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="SOAccounting_HANAXSA.soAccountingDB.views::CRMISP_ConsolidatedSOs_Presentation">
+    <resourceUri>SOAccounting_HANAXSA.soAccountingDB.views::CRMISP_ConsolidatedSOs_Presentation</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:AggregationView" id="UniqueContractItems">
+    <viewAttributes>
+      <viewAttribute id="CONTRACT_ADJUSTED">
+        <descriptions defaultDescription="CONTRACT_ADJUSTED"/>
+      </viewAttribute>
+      <viewAttribute id="CITEM_ADJUSTED">
+        <descriptions defaultDescription="CITEM_ADJUSTED"/>
+      </viewAttribute>
+      <viewAttribute id="CRMCUSTOMERID">
+        <descriptions defaultDescription="CRMCUSTOMERID"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="SOAccounting_HANAXSA.soAccountingDB.views::CRMISP_ConsolidatedSOs_Presentation">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CONTRACT_ADJUSTED" source="CONTRACT_ADJUSTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CITEM_ADJUSTED" source="CITEM_ADJUSTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CRMCUSTOMERID" source="CRMCUSTOMERID"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="CONCAT">
+    <viewAttributes>
+      <viewAttribute id="CONTRACT_ADJUSTED">
+        <descriptions defaultDescription="CONTRACT_ADJUSTED"/>
+      </viewAttribute>
+      <viewAttribute id="CITEM_ADJUSTED">
+        <descriptions defaultDescription="CITEM_ADJUSTED"/>
+      </viewAttribute>
+      <viewAttribute id="CRMCUSTOMERID">
+        <descriptions defaultDescription="CRMCUSTOMERID"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="CONTRACT_ITEM_CONCAT" datatype="NVARCHAR" length="13" expressionLanguage="SQL">
+        <formula>CONCAT(TO_VARCHAR(&quot;CONTRACT_ADJUSTED&quot;),CONCAT('_' , TO_VARCHAR(&quot;CITEM_ADJUSTED&quot;)))</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <restrictedViewAttributes/>
+    <input node="UniqueContractItems">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CONTRACT_ADJUSTED" source="CONTRACT_ADJUSTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CITEM_ADJUSTED" source="CITEM_ADJUSTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CRMCUSTOMERID" source="CRMCUSTOMERID"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="CONCAT">
+  <attributes>
+    <attribute id="CONTRACT_ADJUSTED" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CONTRACT_ADJUSTED"/>
+      <keyMapping columnObjectName="CONCAT" columnName="CONTRACT_ADJUSTED"/>
+    </attribute>
+    <attribute id="CITEM_ADJUSTED" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CITEM_ADJUSTED"/>
+      <keyMapping columnObjectName="CONCAT" columnName="CITEM_ADJUSTED"/>
+    </attribute>
+    <attribute id="CRMCUSTOMERID" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CRMCUSTOMERID"/>
+      <keyMapping columnObjectName="CONCAT" columnName="CRMCUSTOMERID"/>
+    </attribute>
+    <attribute id="CONTRACT_ITEM_CONCAT" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CONTRACT_ITEM_CONCAT"/>
+      <keyMapping columnObjectName="CONCAT" columnName="CONTRACT_ITEM_CONCAT"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="UniqueContractItems" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="279"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="CONCAT" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="189"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
