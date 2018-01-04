@@ -1,5 +1,0 @@
-{
-  "welcomeFile": "index.html",
-  "authenticationMethod": "none",
-  "routes": [{ "source": "/DisplayForecastTop3.xsodata/", "destination": "soAccountingJS_be" }]
-}

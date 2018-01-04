@@ -10,14 +10,10 @@ modules:
     - name: hdi-container
 
 
- - name: MyFirstTest
-   type: html5
-   path: MyFirstTest
+ 
 
 
- - name: SAPUI5Walkthrough
-   type: html5
-   path: SAPUI5Walkthrough
+ 
 
 
  - name: soAccountingJS
@@ -75,15 +71,7 @@ modules:
  
 
 
- - name: testTop3
-   type: html5
-   path: testTop3
-   requires:
-    - name: soAccountingJS_api
-      group: destinations
-      properties:
-         name: soAccountingJS_be
-         url: ~{service_url}
+ 
 
 resources:
  - name: hdi-container

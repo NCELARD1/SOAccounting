@@ -1,7 +1,0 @@
-{
-	"welcomeFile": "webapp/test/mockServer.html",
-	"authenticationMethod": "none",
-	"routes": [
-
-]
-}

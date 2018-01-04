@@ -13,5 +13,8 @@
 	}, {
 		"source": "/DisplayForecastTop3.xsodata/",
 		"destination": "soAccountingJS_be"
+	}, {
+		"source": "/AccountContractItemList.xsodata/",
+		"destination": "soAccountingJS_be"
 	}]
 }
