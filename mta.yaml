@@ -28,15 +28,7 @@ modules:
          service_url: "${default-url}"
 
 
- - name: soAccountingUIBasic
-   type: html5
-   path: soAccountingUIBasic
-   requires:
-      - name: soAccountingJS_api
-        group: destinations
-        properties:
-          name: soAccountingJS_be
-          url: '~{service_url}'   
+    
 
 
  
@@ -66,6 +58,12 @@ modules:
       properties:
          name: soAccountingJS_be
          url: ~{service_url}
+
+
+ 
+
+
+ 
 
 
  

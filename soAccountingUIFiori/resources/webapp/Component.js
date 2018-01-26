@@ -33,6 +33,10 @@ sap.ui.define([
 
 				// create the views based on the url/hash
 				this.getRouter().initialize();
+				
+				// NJC 
+				sap.ui.getCore().AppContext = new Object();
+				sap.ui.getCore().AppContext.ComboBoxVal = "";
 			},
 
 			/**

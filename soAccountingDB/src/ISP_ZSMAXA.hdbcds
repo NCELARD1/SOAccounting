@@ -1,0 +1,43 @@
+namespace "SOAccounting_HANAXSA"."soAccountingDB";
+
+context ISP_ZSMAXA{
+    entity tblRawAllServiceOrders {
+        LoadDate                    : String(100);
+        ContractID                  : String(100);
+        NoName                      : String(100);
+        ItemContract                : String(100);
+        DescriptionContract         : String(100);
+        MaterialContrNo             : String(100);
+        DeliveryLocation            : String(100);
+        ItemText                    : String(100);
+        ContractStartDate           : String(100);
+        ContractEndDate             : String(100);
+        TargetQuantity              : String(100);
+        TargetQuantityUoM           : String(100);
+        ShipToContract              : String(100);
+        DescriptionConsolidated     : String(100);
+        QuantityConsNo              : String(100);
+        UnitConsNo                  : String(100);
+        DateConsNo                  : String(100);
+        SalesDocument               : String(100);
+        ServiceOrderGroup           : String(100);
+        ItemService                 : String(100);
+        SoldToService               : String(100);
+        MaterialService             : String(100);
+        DescriptionService          : String(100);
+        QuantityService             : String(100);
+        UnitService                 : String(100);
+        DeliveryDate                : String(100);
+        CatsQtyDirect               : String(100);
+        DisplayUnitMeasure          : String(100);
+        DateActExp                  : String(100);
+        PersonelNumber              : String(100);
+        NameEmployeeApplicant       : String(100);
+        TaskType                    : String(100);
+        TaskTypeDescription         : String(100);
+        SubType1                    : String(100);
+        CatsTypeEXPHRS              : String(100);
+        NoName1                     : String(100);
+        DescriptionActivityExpenses : String(100);
+    };
+};

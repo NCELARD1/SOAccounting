@@ -1,0 +1,57 @@
+namespace "SOAccounting_HANAXSA"."soAccountingDB";
+
+context FORECAST {
+    entity tblManualForecast {
+            ForecastID     : Integer;
+        key ContractID     : Integer;
+        key ItemID         : Integer;
+            ForecastDate   : LocalDate;
+        key Month          : String(50);
+            Probability    : String(50);
+            DaysForecasted : Double;
+    };
+
+    entity tblManualForecastFlat {
+            ForecastID     : Integer;
+        key ContractID     : Integer;
+        key ItemID         : Integer;
+            ContractItemID : String(30);
+        key ForecastDate   : String(20);
+            JanHigh        : Double;
+            FebHigh        : Double;
+            MarHigh        : Double;
+            AprHigh        : Double;
+            MayHigh        : Double;
+            JunHigh        : Double;
+            JulHigh        : Double;
+            AugHigh        : Double;
+            SepHigh        : Double;
+            OctHigh        : Double;
+            NovHigh        : Double;
+            DecHigh        : Double;
+            JanMed         : Double;
+            FebMed         : Double;
+            MarMed         : Double;
+            AprMed         : Double;
+            MayMed         : Double;
+            JunMed         : Double;
+            JulMed         : Double;
+            AugMed         : Double;
+            SepMed         : Double;
+            OctMed         : Double;
+            NovMed         : Double;
+            DecMed         : Double;
+            JanLow         : Double;
+            FebLow         : Double;
+            MarLow         : Double;
+            AprLow         : Double;
+            MayLow         : Double;
+            JunLow         : Double;
+            JulLow         : Double;
+            AugLow         : Double;
+            SepLow         : Double;
+            OctLow         : Double;
+            NovLow         : Double;
+            DecLow         : Double;
+    };
+};

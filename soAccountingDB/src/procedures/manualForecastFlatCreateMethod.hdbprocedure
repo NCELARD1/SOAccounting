@@ -13,6 +13,7 @@ BEGIN
 declare lv_forecast_id integer;
 declare lv_contract_id integer;
 declare lv_item_id integer;
+declare lv_contract_item_id string;
 declare lv_forecast_date string;
 declare lv_JanHigh double;
 declare lv_FebHigh double;
@@ -56,6 +57,7 @@ select
 "ForecastID", 
 "ContractID", 
 "ItemID", 
+"ContractItemID",
 "ForecastDate",
 "JanHigh",
 "FebHigh",
@@ -97,6 +99,7 @@ select
 lv_forecast_id, 
 lv_contract_id, 
 lv_item_id, 
+lv_contract_item_id,
 lv_forecast_date, 
 lv_JanHigh, 
 lv_FebHigh, 
@@ -145,8 +148,15 @@ if :lv_contract_id = 0 then
 
 else
                       
-   insert into "SOAccounting_HANAXSA.soAccountingDB::FORECAST.tblManualForecastFlat"  ("ForecastID","ContractID","ItemID","ForecastDate","JanHigh","FebHigh","MarHigh","AprHigh","MayHigh","JunHigh","JulHigh","AugHigh","SepHigh","OctHigh","NovHigh","DecHigh","JanMed","FebMed","MarMed","AprMed","MayMed","JunMed","JulMed","AugMed","SepMed","OctMed","NovMed","DecMed","JanLow","FebLow","MarLow","AprLow","MayLow","JunLow","JulLow","AugLow","SepLow","OctLow","NovLow","DecLow")
-             values ("SOAccounting_HANAXSA.soAccountingDB.sequences::manualForecastFlatSeqId".NEXTVAL, lv_contract_id,lv_item_id,lv_forecast_date,lv_JanHigh,lv_FebHigh,lv_MarHigh,lv_AprHigh,lv_MayHigh,lv_JunHigh,lv_JulHigh,lv_AugHigh,lv_SepHigh,lv_OctHigh,lv_NovHigh,lv_DecHigh,lv_JanMed,lv_FebMed,lv_MarMed,lv_AprMed,lv_MayMed,lv_JunMed,lv_JulMed,lv_AugMed,lv_SepMed,lv_OctMed,lv_NovMed,lv_DecMed,lv_JanLow,lv_FebLow,lv_MarLow,lv_AprLow,lv_MayLow,lv_JunLow,lv_JulLow,lv_AugLow,lv_SepLow,lv_OctLow,lv_NovLow,lv_DecLow); 
+   insert into "SOAccounting_HANAXSA.soAccountingDB::FORECAST.tblManualForecastFlat"  ("ForecastID","ContractID","ItemID","ContractItemID","ForecastDate","JanHigh","FebHigh","MarHigh","AprHigh","MayHigh","JunHigh","JulHigh","AugHigh","SepHigh","OctHigh","NovHigh","DecHigh","JanMed","FebMed","MarMed","AprMed","MayMed","JunMed","JulMed","AugMed","SepMed","OctMed","NovMed","DecMed","JanLow","FebLow","MarLow","AprLow","MayLow","JunLow","JulLow","AugLow","SepLow","OctLow","NovLow","DecLow")
+             values ("SOAccounting_HANAXSA.soAccountingDB.sequences::manualForecastFlatSeqId".NEXTVAL, lv_contract_id,lv_item_id,lv_contract_item_id,lv_forecast_date,lv_JanHigh,lv_FebHigh,lv_MarHigh,lv_AprHigh,lv_MayHigh,lv_JunHigh,lv_JulHigh,lv_AugHigh,lv_SepHigh,lv_OctHigh,lv_NovHigh,lv_DecHigh,lv_JanMed,lv_FebMed,lv_MarMed,lv_AprMed,lv_MayMed,lv_JunMed,lv_JulMed,lv_AugMed,lv_SepMed,lv_OctMed,lv_NovMed,lv_DecMed,lv_JanLow,lv_FebLow,lv_MarLow,lv_AprLow,lv_MayLow,lv_JunLow,lv_JulLow,lv_AugLow,lv_SepLow,lv_OctLow,lv_NovLow,lv_DecLow); 
 
+/*Update ContrcatID and ITEMID*/
+	UPDATE "SOAccounting_HANAXSA.soAccountingDB::FORECAST.tblManualForecastFlat" 
+    	SET "ContractID" = TO_INTEGER(SUBSTR_BEFORE (lv_contract_item_id,'_'))  where "ContractItemID" = lv_contract_item_id;
+    	
+	UPDATE "SOAccounting_HANAXSA.soAccountingDB::FORECAST.tblManualForecastFlat" 
+    	SET "ItemID" = TO_INTEGER(SUBSTR_AFTER (lv_contract_item_id,'_'))  where "ContractItemID" = lv_contract_item_id;    
+    	
 end if;  
 END

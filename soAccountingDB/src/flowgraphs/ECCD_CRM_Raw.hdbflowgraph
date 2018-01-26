@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<flowgraph:ContainerNode xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:flowgraph="http://www.sap.com/ndb/flowgraph/1.0" xmi:version="2.0" xmi:id="6d9819c358ddc8e9272a2240d162d097" name="ECCDCRMRaw" runtimeBehavior="BATCH_TASK">
+<flowgraph:ContainerNode xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:flowgraph="http://www.sap.com/ndb/flowgraph/1.0" xmi:version="2.0" xmi:id="6d9819c358ddc8e9272a2240d162d097" name="ECCD_CRM_Raw" runtimeBehavior="BATCH_TASK">
   <annotations key="sap.afm.layout" xmi:id="76ef5a7748a3c8d2bc8cfff45eda0043">
     <annotations xmi:id="6e737301ff5cbaec2dabb8164a034b1a" key="x" value="10">
     </annotations>
@@ -18,6 +18,8 @@
   <annotations xmi:id="7a921404c2ece1e84f3195a4d48dadd4" key="sap.afm.nodeInputs">
   </annotations>
   <annotations xmi:id="29c26963784064666dd743e80801fec5" key="sap.afm.nodeOutputs">
+  </annotations>
+  <annotations xmi:id="cee082c275ca363d6d69c67a75404217" key="sap.im.explicitTypeConversion">
   </annotations>
   <tableMappings xmi:id="94ecedfef0756437ab30b7bed2136167" source="dfacb8c4deea5ea5cfd04d0e747a0bc9" target="84864242fbda12149289b92dd34b2bd9">
     <attributeMappings xmi:id="964f2ced757a96bb879e4e5b99094ee2" source="afc0d5420f9b90d6f89919fd463f9c1f" target="c7d05810dde9a78e13622e3fe17c4cb7">

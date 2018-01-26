@@ -21,9 +21,6 @@
 					<Table id="ServiceOrderSummary" width="auto" class="sapUiResponsiveMargin" noDataText="No Data"
 						busyIndicatorDelay="{detailView>/lineItemTableDelay}" growing="true" growingScrollToLoad="true" updateFinished="onUpdateFinished">
 						<columns>
-							<Column id="nameColumn">
-								<Text text="Period" id="nameColumnTitle"/>
-							</Column>
 							<Column id="forecastedDaysColumn" hAlign="End">
 								<Text text="Forecasted" id="forecastedDaysColumnTitle"/>
 							</Column>
@@ -37,7 +34,6 @@
 						<items>
 							<ColumnListItem>
 								<cells>
-									<ObjectIdentifier title="{DELIVERY_YEAR_D}"/>
 									<ObjectNumber number="{ path: 'TARGETDAYSCORRECTED', formatter: '.formatter.numberUnit' }" unit="Days"/>
 									<ObjectNumber number="{ path: 'RECORDEDDAYSCORRECTED', formatter: '.formatter.numberUnit' }" unit="Days"/>
 									<ObjectNumber number="{ path: 'REMAININGDAYSCORRECTED', formatter: '.formatter.numberUnit' }" unit="Days"/>

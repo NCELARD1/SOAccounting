@@ -1,0 +1,23 @@
+namespace "SOAccounting_HANAXSA"."soAccountingDB";
+
+context ISP_ZVZC{
+    entity tblRawAllServiceOrders {
+        LoadDate                   : String(100);
+        SalesDocument              : String(100);
+        SalesDocumentItem          : String(100);
+        PersonelNumber             : String(100);
+        NameOfEmployeeOrApplicants : String(100);
+        CompanyCode                : String(100);
+        StartDate                  : String(100);
+        EndDate                    : String(100);
+        TaskWork                   : String(100);
+        TaskLevel                  : String(100);
+        TaskType                   : String(100);
+        EstimatedActivityDays      : String(100);
+        RecordedActivityDays       : String(100);
+        TravelTasklevel            : String(100);
+        EstimatedTravelHours       : String(100);
+        RecordedTravelHours        : String(100);
+        ShortNote                  : String(255);
+    };
+};

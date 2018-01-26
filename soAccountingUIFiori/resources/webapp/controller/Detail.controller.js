@@ -47,6 +47,7 @@ sap.ui.define([
 			var oLocalManualForecastFlatData = {
 				"ForecastID": 1,
 				"ContractID": 1,
+				"ContractItemID": "1_1",
 				"ItemID": 1,
 				"ForecastDate": "2017-01-01",
 				"JanHigh": 0,
@@ -90,12 +91,41 @@ sap.ui.define([
 			this.getView().setModel(this.oLocalManualForecastFlatModel, "manualForecastFlat");
 
 			//			this.oTop3ForecastModel = new sap.ui.model.json.JSONModel("top3");
+			//			this.oACIModel = new sap.ui.model.json.JSONModel();
+			//		this.oACIModel = this.getOwnerComponent().getModel("ACI");
+			//		var alpha = this.oACIModel.odata;
 
 			//			this.getView().setModel(this.oTop3ForecastModel, "top3View");
 
 			//			var oTable = this.getView().byId("DetailForecast");
 			//			var bpModel = this.getOwnerComponent().getModel("bpModel");
 			//			oTable.setModel(oTop3ForecastModel);
+
+			//			this.oACIModel = new sap.ui.model.json.JSONModel("ACI");
+
+			//			this.getView().setModel(this.oACIModel, "top3View");
+
+			//		var oCombo = this.getView().byId("__combi1");
+			//			var bpModel = this.getOwnerComponent().getModel("bpModel");
+			//		oCombo.setModel(this.oACIModel);
+
+			var oModel = new sap.ui.model.json.JSONModel();
+			// define data for that model
+			oModel.setData({
+				test: "Test",
+				enabled: true
+			});
+
+			// define a name for that model
+			sap.ui.getCore().setModel(oModel, "myModel");
+
+			this.getView().setModel(this.getOwnerComponent().getModel("ACI"), "ACI");
+
+			var data = {
+				languages: [{
+					"name": "German"
+				}]
+			};
 		},
 
 		/* =========================================================== */
@@ -167,19 +197,32 @@ sap.ui.define([
 			this._showObject(oEvent.getSource());
 		},
 
+		onComboChange: function(oEvent) {
+			sap.ui.getCore().AppContext.ComboBoxVal = oEvent.getParameter("selectedItem").getText();
+			var MyVariable2 = oEvent.getParameter("selectedItem").getBindingContext();
+			//			alert(sap.ui.getCore().AppContext.ComboBoxVal);
+			//			alert(MyVariable2);
+		},
+
 		onFilterSummary: function(sCustomerID) {
 
 			// build filter array
 			var aFilter = [];
-//			var sQuery = oEvent.getSource();
-//			if (sQuery) {
-				aFilter.push(new Filter("CustomerID", FilterOperator.Contains, "'" + sCustomerID + "'"));
-//			}
+			//			var sQuery = oEvent.getSource();
+			//			if (sQuery) {
+			aFilter.push(new Filter("CustomerID", FilterOperator.Contains, "'" + sCustomerID + "'"));
+			//			}
 
 			// filter binding
 			var oList = this.getView().byId("CustomerSummary");
 			var oBinding = oList.getBinding("items");
 			oBinding.filter(aFilter);
+		},
+
+		onNavBack: function() {
+			var oSplitApp = this.getView().getParent().getParent();
+			var oMaster = oSplitApp.getMasterPages()[0];
+			oSplitApp.toMaster(oMaster, "flip");
 		},
 
 		callUserService: function() {
@@ -198,6 +241,9 @@ sap.ui.define([
 			//	 var rest_url=this.getServiceUrl(oMode.getSelectedKey());
 
 			var oEntry = this.getView().getModel("manualForecastFlat").getData();
+			oEntry.ContractItemID = sap.ui.getCore().AppContext.ComboBoxVal;
+			//			var oCombo = this.getView().byId("ContractItemDropDown");
+			//			var aItem = oCombo.getSelectedItemID();
 			// validate that all fields (FName, LName and EmailId) are populated
 			if (oEntry && (!oEntry.ContractID || !oEntry.ItemID)) {
 				sap.ui.commons.MessageBox.alert(oThis.getView().getModel("i18n").getProperty("FORECASTENTRYVALIDATION"));
@@ -232,15 +278,98 @@ sap.ui.define([
 					'Accept': "application/json"
 				},
 				success: function() {
-					sap.ui.commons.MessageBox.alert("Success");
+				//	sap.ui.commons.MessageBox.alert("Success");
 					oThis.loadJobsTable();
-					oThis.resetUserModel();
+					//			oThis.resetUserModel();
 				},
 				error: function(error) {
-					sap.ui.commons.MessageBox.alert("Failure");
+				//	sap.ui.commons.MessageBox.alert("Failure");
 
 				}
 			});
+
+			var rest_url_foreUpd;
+			//	if (sKey === "nodejs") {
+			rest_url_foreUpd = "/UpdateVVTCustomerListManualForecast.xsjs/";
+			var myInterval = setInterval(jQuery.ajax({
+				url: rest_url_foreUpd,
+				method: 'POST',
+				dataType: 'json',
+				headers: {
+					'x-csrf-token': 'Fetch',
+					'Accept': "application/json"
+				},
+				success: function(data, textStatus, request) {
+					xsrf_token = request.getResponseHeader('x-csrf-token');
+					oThis.loadJobsTable();
+				},
+				error: function(error) {
+			/*		sap.ui.commons.MessageBox.alert(oThis.getView().getModel("i18n").getProperty("FOR_CRT_ERROR")); */
+					oThis.loadJobsTable();
+				}
+			}), 10000);
+			clearInterval(myInterval);
+		},
+
+		loadJobsTable: function() {
+			var oThis = this;
+			var oTable = oThis.byId("CustomerSummary");
+			var rest_url;
+			rest_url = "/CustomerListCRMISP_ConsolidatedSOs.xsodata/CRM_CustomerList/";
+
+			var myInterval = setInterval($.ajax({
+				type: "GET",
+				async: true,
+				url: rest_url,
+				contentType: "application/json",
+				dataType: 'json',
+				headers: {
+					'x-csrf-token': 'Fetch',
+					'Accept': "application/json"
+				},
+				success: function(data, textStatus, request) {
+
+					var oModelTable = new sap.ui.model.json.JSONModel();
+					data = data.d.results;
+					//data = data.value;
+
+					oModelTable.setData({
+						modelData: data
+					});
+
+					var oTemplate = new sap.m.ColumnListItem({
+						cells: [
+							new sap.m.ObjectIdentifier({
+								title: "{DELIVERY_YEAR_D}",
+								text: "All Contracts",
+								wrapping: false
+							}),
+							new sap.m.ObjectNumber({
+								number: "{MANUALFORECASTEDDAYS}",
+								unit: "Days",
+								wrapping: false
+							}),
+							new sap.m.ObjectNumber({
+								number: "{FORECASTEDDAYSCORRECTED}",
+								unit: "Days"
+							}),
+							new sap.m.ObjectNumber({
+								number: "{RECORDEDDAYSCORRECTED}",
+								unit: "Days"
+							})
+						]
+					});
+					oTable.setModel(oModelTable);
+					oTable.bindItems("/modelData",oTemplate);
+
+				},
+				error: function(error) {
+					sap.ui.commons.MessageBox.alert(oThis.getView().getModel("i18n").getProperty("TAB_NOT_UPDATED"));
+					oTable.bindItems("/");
+				}
+
+			}), 10000);
+			clearInterval(myInterval);
 		},
 
 		/* =========================================================== */

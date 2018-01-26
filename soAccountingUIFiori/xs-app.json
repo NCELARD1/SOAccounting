@@ -8,6 +8,9 @@
 		"source": "/CreateManualForecast.xsodata/",
 		"destination": "soAccountingJS_be"
 	}, {
+		"source": "/UpdateVVTCustomerListManualForecast.xsjs/",
+		"destination": "soAccountingJS_be"
+	}, {
 		"source": "/CreateManualForecastFlat.xsodata/",
 		"destination": "soAccountingJS_be"
 	}, {

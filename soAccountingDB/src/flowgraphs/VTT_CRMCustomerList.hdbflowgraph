@@ -42,12 +42,10 @@
     </annotations>
     <inputs xmi:id="f0d6aa0b1e34cc95699eea70bd5beb19" name="DataTarget">
       <attributes xmi:id="ac6f63d0148d9f0045acbd50df97fcdb" name="CustomerName" type="NVARCHAR" nullable="true" length="100">
-        <annotations xmi:id="14974b7f04616b10e64326d06eefc9cd" key="sap.im.primaryKey" value="false">
-        </annotations>
+        <annotations xmi:id="14974b7f04616b10e64326d06eefc9cd" key="sap.im.primaryKey" value="false"/>
       </attributes>
       <attributes xmi:id="6c482a83ee8fb9575f90d8aee0f0006d" name="CustomerID" type="INTEGER" nullable="true" length="10">
-        <annotations xmi:id="d2452181bb6cc09d403d24d73610a65c" key="sap.im.primaryKey" value="true">
-        </annotations>
+        <annotations xmi:id="d2452181bb6cc09d403d24d73610a65c" key="sap.im.primaryKey" value="true"/>
       </attributes>
       <attributes xmi:id="c8750b6594389d7a53661f8244293469" name="TARGETDAYSCORRECTED" type="INTEGER" nullable="true" length="10">
       </attributes>
@@ -58,6 +56,8 @@
       <attributes xmi:id="f4e51e0feaffee82710035594a0c840d" name="RECORDEDDAYSCORRECTED" type="INTEGER" nullable="true" length="10">
       </attributes>
       <attributes xmi:id="f574eb1c9e932143569a812db3c359f8" name="DELIVERY_YEAR_D" type="INTEGER" nullable="true" length="10">
+      </attributes>
+      <attributes xmi:id="73d15d2b8dbea45cbc5ebf0ff10f631d" name="MANUALFORECASTEDDAYS" type="INTEGER" nullable="true">
       </attributes>
     </inputs>
   </nodes>

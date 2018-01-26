@@ -28,6 +28,14 @@
 					"odataVersion": "2.0",
 					"localUri": "localService/metadataTop3.xml"
 				}
+			},
+			"accountContractItemService": {
+				"uri": "/AccountContractItemList.xsodata/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadataAccountContractItem.xml"
+				}
 			}			
 		},
 		"sourceTemplate": {
@@ -103,6 +111,14 @@
 			},
 			"top3": {
 				"dataSource": "forecastTop3Service",
+				"settings": {
+					"metadataUrlParams": {
+						"sap-documentation": "heading"
+					}
+				}
+			},
+			"ACI": {
+				"dataSource": "accountContractItemService",
 				"settings": {
 					"metadataUrlParams": {
 						"sap-documentation": "heading"

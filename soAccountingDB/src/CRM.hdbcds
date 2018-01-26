@@ -1,0 +1,19 @@
+namespace "SOAccounting_HANAXSA"."soAccountingDB";
+
+context CRM{
+    entity tblRawAllServiceOrders {
+        key LoadDate                  : String(100);
+        key ServiceOrderID            : String(100);
+            CustomerID                : String(100);
+            CustomerName              : String(100);
+            Status                    : String(100);
+            Description               : String(100);
+            ServiceProductID          : String(100);
+            ServiceProductDescription : String(100);
+            ReqDeliveryDate           : String(100);
+            GoLiveDate                : String(100);
+            ServiceOrderGroup         : String(100);
+            Qty                       : String(100);
+            UoM                       : String(100);
+    };
+};

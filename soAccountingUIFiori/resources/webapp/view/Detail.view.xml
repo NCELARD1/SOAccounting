@@ -19,20 +19,20 @@
 											<Column id="forecastedDaysColumn" hAlign="End">
 												<Text text="Forecasted" id="forecastedDaysColumnTitle"/>
 											</Column>
+											<Column id="bookedDaysColumn" hAlign="End">
+												<Text text="Booked" id="bookedDaysColumnTitle"/>
+											</Column>
 											<Column id="recordedDaysColumn" hAlign="End">
 												<Text text="Recorded" id="recordedDaysColumnTitle"/>
-											</Column>
-											<Column id="reaminingDaysColumn" hAlign="End">
-												<Text text="Remaining" id="remainingDaysColumnTitle"/>
 											</Column>
 										</columns>
 										<items>
 											<ColumnListItem>
 												<cells>
 													<ObjectIdentifier title="{DELIVERY_YEAR_D}" text="All Contracts"/>
+													<ObjectNumber number="{ path: 'MANUALFORECASTEDDAYS', formatter: '.formatter.numberUnit' }" unit="Days"/>
 													<ObjectNumber number="{ path: 'FORECASTEDDAYSCORRECTED', formatter: '.formatter.numberUnit' }" unit="Days"/>
 													<ObjectNumber number="{ path: 'RECORDEDDAYSCORRECTED', formatter: '.formatter.numberUnit' }" unit="Days"/>
-													<ObjectNumber number="{ path: 'REMAININGDAYSCORRECTED', formatter: '.formatter.numberUnit' }" unit="Days"/>
 												</cells>
 											</ColumnListItem>
 										</items>
@@ -72,23 +72,19 @@
 							<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" editable="true" layout="ResponsiveGridLayout" id="__form1">
 								<sap.ui.layout.form:content>
 									<sap.ui.core:Title text="Forecast" id="__title1"/>
-									<Label text="ContractID/ItemID" id="__label2"/>
-									<Input width="100%" id="__input3" value="{manualForecastFlat>/ContractID}"/>
-									<Input width="100%" id="__input4" value="{manualForecastFlat>/ItemID}"/>
-									<Label text="Forecast Date" id="__label5"/>
+									<Label text="Forecast Date" id="__label5" required="true"/>
 									<DatePicker width="100%" id="__picker0" valueFormat="yyyy.MM.dd" value="{path: 'manualForecastFlat>/ForecastDate'}"/>
-									<Label text="Probability" id="__label93"/>
-									<ActionSelect selectedItem="Element sap.ui.core.ListItem#__item4" selectedKey="{manualForecast>/Probability}" selectedItemId="__item4" id="__select0">
+									<Label text="ContractID/ItemID" id="__label93"/>
+									<ComboBox design="Bold" id="ContractItemDropDown" selectionChange="onComboChange" required="true" items="{path:'ACI>/AccountContractList',sorter:{path:'ACI&gt;CONTRACT_ITEM_CONCAT'}}" displaySecondaryValues="true">
 										<items>
-											<sap.ui.core:ListItem text="Committed" key="item1" id="__item4"/>
-											<sap.ui.core:ListItem text="Probable" key="item2" id="__item5"/>
-											<sap.ui.core:ListItem text="Upside" key="item3" id="__item6"/>
+											<sap.ui.core:ListItem key="{ACI>CONTRACTITEM_CONCAT}" additionalText="{ACI>CONTRACT_ITEM_CONCAT}" text="{ACI>CONTRACT_ITEM_CONCAT}"/>
 										</items>
-									</ActionSelect>
-									<Input width="100%" id="__input5" value="{manualForecast>/DaysForecasted}" visible="False"/>
+									</ComboBox>
+									<Label text="ContractID/ItemID" id="__label2"/>
+									<Input width="100%" id="__input3" value="{manualForecastFlat>/ContractID}" visible="False"/>
+									<Input width="100%" id="__input4" value="{manualForecastFlat>/ItemID}" visible="False"/>									
 									<Label text="" id="__label6" visible="False"/>
-									<Button type="Accept" width="100%" text="Submit Forecast" press="callUserService" ariaDescribedBy="defaultButtonDescription genericButtonDescription">
-									</Button>
+									<Button type="Accept" width="100%" text="Submit Forecast" press="callUserService" ariaDescribedBy="defaultButtonDescription genericButtonDescription"/>
 									<Label text="Month" id="__label4" visible="False"/>
 									<ActionSelect selectedItem="Element sap.ui.core.ListItem#__item5" selectedKey="{manualForecast>/Month}" selectedItemId="__month1" id="__select1" visible="False">
 										<items>
@@ -113,40 +109,26 @@
 									<Panel>
 										<FlexBox renderType="Div" direction="Column">
 											<items>
-												<Button text="Month" type="Emphasized" class="sapUiSmallMarginEnd" width="170px">
-												</Button>
-												<Button text="January" type="Emphasized" class="sapUiSmallMarginEnd" width="170px">
-												</Button>
-												<Button text="February" type="Emphasized" class="sapUiSmallMarginEnd" width="170px">
-												</Button>
-												<Button text="March" type="Emphasized" class="sapUiSmallMarginEnd" width="170px">
-												</Button>
-												<Button text="April" type="Emphasized" class="sapUiSmallMarginEnd" width="170px">
-												</Button>												
-												<Button text="May " type="Emphasized" class="sapUiSmallMarginEnd" width="170px">
-												</Button>
-												<Button text="Jun " type="Emphasized" class="sapUiSmallMarginEnd" width="170px">
-												</Button>
-												<Button text="July " type="Emphasized" class="sapUiSmallMarginEnd" width="170px">
-												</Button>
-												<Button text="August" type="Emphasized" class="sapUiSmallMarginEnd" width="170px">
-												</Button>
-												<Button text="September" type="Emphasized" class="sapUiSmallMarginEnd" width="170px">
-												</Button>
-												<Button text="October" type="Emphasized" class="sapUiSmallMarginEnd" width="170px">
-												</Button>
-												<Button text="November" type="Emphasized" class="sapUiSmallMarginEnd" width="170px">
-												</Button>
-												<Button text="December" type="Emphasized" class="sapUiSmallMarginEnd" width="170px">
-												</Button>
+												<Button text="Month" type="Emphasized" class="sapUiSmallMarginEnd" width="170px"/>
+												<Button text="January" type="Emphasized" class="sapUiSmallMarginEnd" width="170px"/>
+												<Button text="February" type="Emphasized" class="sapUiSmallMarginEnd" width="170px"/>
+												<Button text="March" type="Emphasized" class="sapUiSmallMarginEnd" width="170px"/>
+												<Button text="April" type="Emphasized" class="sapUiSmallMarginEnd" width="170px"/>
+												<Button text="May" type="Emphasized" class="sapUiSmallMarginEnd" width="170px"/>
+												<Button text="June" type="Emphasized" class="sapUiSmallMarginEnd" width="170px"/>
+												<Button text="July" type="Emphasized" class="sapUiSmallMarginEnd" width="170px"/>
+												<Button text="August" type="Emphasized" class="sapUiSmallMarginEnd" width="170px"/>
+												<Button text="September" type="Emphasized" class="sapUiSmallMarginEnd" width="170px"/>
+												<Button text="October" type="Emphasized" class="sapUiSmallMarginEnd" width="170px"/>
+												<Button text="November" type="Emphasized" class="sapUiSmallMarginEnd" width="170px"/>
+												<Button text="December" type="Emphasized" class="sapUiSmallMarginEnd" width="170px"/>
 											</items>
 										</FlexBox>
 									</Panel>
 									<Panel>
 										<FlexBox renderType="Div" direction="Column">
 											<items>
-												<Button text="Committed" type="Emphasized" class="sapUiSmallMarginEnd" width="170px">
-												</Button>
+												<Button text="Committed" type="Emphasized" class="sapUiSmallMarginEnd" width="170px"/>
 												<Input id="iComJan" value="{manualForecastFlat>/JanHigh}" width="auto" class="sapUiSmallMarginEnd">
 													<layoutData>
 														<FlexItemData growFactor="1"/>
@@ -210,11 +192,10 @@
 											</items>
 										</FlexBox>
 									</Panel>
-									<Panel>										
+									<Panel>
 										<FlexBox renderType="Div" direction="Column">
 											<items>
-												<Button text="Probable" type="Emphasized" class="sapUiSmallMarginEnd" width="170px">
-												</Button>
+												<Button text="Probable" type="Emphasized" class="sapUiSmallMarginEnd" width="170px"/>
 												<Input id="iProJan" value="{manualForecastFlat>/JanMed}" width="auto" class="sapUiSmallMarginEnd">
 													<layoutData>
 														<FlexItemData growFactor="1"/>
@@ -278,11 +259,10 @@
 											</items>
 										</FlexBox>
 									</Panel>
-									<Panel>										
+									<Panel>
 										<FlexBox renderType="Div" direction="Column">
 											<items>
-												<Button text="Upside" type="Emphasized" class="sapUiSmallMarginEnd" width="170px">
-												</Button>
+												<Button text="Upside" type="Emphasized" class="sapUiSmallMarginEnd" width="170px"/>
 												<Input id="iUpsJan" value="{manualForecastFlat>/JanLow}" width="auto" class="sapUiSmallMarginEnd">
 													<layoutData>
 														<FlexItemData growFactor="1"/>

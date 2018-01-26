@@ -1,0 +1,12 @@
+namespace "SOAccounting_HANAXSA"."soAccountingDB";
+
+context REFERENCE_DATA{
+    entity tblLkpContractProperties {
+        key ContractID        : Integer;
+        key ItemID            : Integer;
+            DayWeight         : Double;
+            CRMConversion     : Double;
+            DirectConsumption : String(100);
+            ZS_MSD_Reporting  : String(100);
+    };
+};

@@ -208,6 +208,7 @@ sap.ui.define([
 			onSelectionChange : function (oEvent) {
 				// get the list item, either from the listItem parameter or from the event's source itself (will depend on the device-dependent mode).
 				this._showDetail(oEvent.getParameter("listItem") || oEvent.getSource());
+			//	this._showDetail(oEvent.getParameter("listItem"));
 			},
 
 			/**
@@ -302,9 +303,12 @@ sap.ui.define([
 			 */
 			_showDetail : function (oItem) {
 				var bReplace = !Device.system.phone;
+			//	this.getRouter().navTo("object", {
+			//		objectId : oItem.getBindingContext().getProperty("CustomerID")
+			//	}, bReplace);
 				this.getRouter().navTo("object", {
 					objectId : oItem.getBindingContext().getProperty("CustomerID")
-				}, bReplace);
+				});
 			},
 
 			/**
