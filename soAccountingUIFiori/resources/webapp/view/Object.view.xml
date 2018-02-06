@@ -22,7 +22,7 @@
 						busyIndicatorDelay="{detailView>/lineItemTableDelay}" growing="true" growingScrollToLoad="true" updateFinished="onUpdateFinished">
 						<columns>
 							<Column id="forecastedDaysColumn" hAlign="End">
-								<Text text="Forecasted" id="forecastedDaysColumnTitle"/>
+								<Text text="Forecast" id="forecastedDaysColumnTitle"/>
 							</Column>
 							<Column id="recordedDaysColumn" hAlign="End">
 								<Text text="Recorded" id="recordedDaysColumnTitle"/>

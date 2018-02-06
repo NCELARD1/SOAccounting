@@ -17,7 +17,7 @@
 												<Text text="Period" id="nameColumnTitle"/>
 											</Column>
 											<Column id="forecastedDaysColumn" hAlign="End">
-												<Text text="Forecasted" id="forecastedDaysColumnTitle"/>
+												<Text text="Forecast" id="forecastedDaysColumnTitle"/>
 											</Column>
 											<Column id="bookedDaysColumn" hAlign="End">
 												<Text text="Booked" id="bookedDaysColumnTitle"/>
@@ -75,7 +75,7 @@
 									<Label text="Forecast Date" id="__label5" required="true"/>
 									<DatePicker width="100%" id="__picker0" valueFormat="yyyy.MM.dd" value="{path: 'manualForecastFlat>/ForecastDate'}"/>
 									<Label text="ContractID/ItemID" id="__label93"/>
-									<ComboBox design="Bold" id="ContractItemDropDown" selectionChange="onComboChange" required="true" items="{path:'ACI>/AccountContractList',sorter:{path:'ACI&gt;CONTRACT_ITEM_CONCAT'}}" displaySecondaryValues="true">
+									<ComboBox design="Bold" id="ContractItemDropDown" selectionChange="onComboChange" required="true" items="{path:'ACI>/AccountContractList'}" displaySecondaryValues="true">
 										<items>
 											<sap.ui.core:ListItem key="{ACI>CONTRACTITEM_CONCAT}" additionalText="{ACI>CONTRACT_ITEM_CONCAT}" text="{ACI>CONTRACT_ITEM_CONCAT}"/>
 										</items>

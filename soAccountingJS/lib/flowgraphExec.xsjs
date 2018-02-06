@@ -16,6 +16,9 @@ conn.commit();
 var fnInitialLoad4 = conn.loadProcedure("SOAccounting_HANAXSA.soAccountingDB.flowgraphs::VTT_CRMCustomerList_SP");
 var result4 = fnInitialLoad4();
 conn.commit();
+var fnInitialLoad5 = conn.loadProcedure("SOAccounting_HANAXSA.soAccountingDB.flowgraphs::TEST_LoadDummyCustomerSummary_SP");
+var result5 = fnInitialLoad5();
+conn.commit();
 conn.close();
 if (result && result.EX_ERROR != null) { return result.EX_ERROR;}
 else { return output; }

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flowgraph:ContainerNode xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:flowgraph="http://www.sap.com/ndb/flowgraph/1.0" xmi:id="ad01e89209de389c6f26bb70e8baff67" name="TEST_LoadDummyCustomerSummary" runtimeBehavior="BATCH_TASK">
+  <annotations key="sap.afm.layout" xmi:id="71d3dd538f89c797307f7b9a55bfe239">
+    <annotations xmi:id="ffc505e0d52b2c8d8fdda10bcddb98bc" key="x" value="10">
+    </annotations>
+    <annotations xmi:id="6837005586230a276970696e837da0e7" key="y" value="10">
+    </annotations>
+    <annotations xmi:id="c65f79ba2fb7a3515cec1fe60d93a2ce" key="width" value="100">
+    </annotations>
+    <annotations xmi:id="4759098df35d3c1c09b227817404b545" key="height" value="84">
+    </annotations>
+  </annotations>
+  <annotations xmi:id="51df9e26f905b053cb7eccc0229f2cf5" key="sap.afm.palette">
+    <annotations xmi:id="636cf4249c6489e16ebd5793feb2db89" key="additions" value="">
+    </annotations>
+  </annotations>
+  <annotations xmi:id="0fb3be68135ea2afa1c45f0de5ebd479" key="sap.afm.nodeType" value="ContainerNode">
+  </annotations>
+  <annotations xmi:id="0c74a6e384aec8e561061782469653d7" key="sap.afm.nodeInputs">
+  </annotations>
+  <annotations xmi:id="ad552134b3a88d9c9b36fa0393ebc081" key="sap.afm.nodeOutputs">
+  </annotations>
+  <tableMappings xmi:id="3d126f83002c1a88652dd02dea6be935" source="2dd7de6734bc4bb535cdf48ee3e7c938" target="37ad3faea32b21bbe300d66a104653e4">
+    <attributeMappings xmi:id="ad0fffe2a96d469e8a8173c8b7d9162f" source="5fc62f2a110948c533dfd049d644d346" target="cfba960d3a5f0618c5e4b5d0413a2735">
+    </attributeMappings>
+  </tableMappings>
+  <tableMappings xmi:id="466b5c8f4c027ee9110ab42e6d0350eb" source="69f30088f04e1bb99d908afa6eabb7ef" target="0d626c459434b54cd95f817ca5ab548d">
+    <attributeMappings xmi:id="8af7c2cccf4fdf3578408e6c06c0ab75" source="2f5492d2dd3268fab64be6dbafcf0a0a" target="5ecdeb244212e26aca1a57288f143c18">
+    </attributeMappings>
+    <attributeMappings xmi:id="30fb0c58b3694db9a1a77ae1c6499042" source="aa5ac99d5b4f34df7c9d0015fadb495b" target="f1b17bfaf5275185f1ef55735e07f34a">
+    </attributeMappings>
+    <attributeMappings xmi:id="24afa0b2b3a3f7b3f125fe58f5185e16" source="b4e1171ea99f589d8523d2d8bb1a03c1" target="78131194b2c6788a32270468de11070c">
+    </attributeMappings>
+    <attributeMappings xmi:id="d564dfb2d453626b5c07fcf771d15c21" source="eedf9148fe2d62311b29b65a2f93d738" target="24fd920a12cd65e5f46ecd321ab7d011">
+    </attributeMappings>
+    <attributeMappings xmi:id="18694ab59c7fc197dd66571e02e9b773" source="454314f3341aca0e7ac31126c18dc7b7" target="e91246ab061979394579de8b260c4bac">
+    </attributeMappings>
+    <attributeMappings xmi:id="3dbf73129c4347e4c0f1760be1c372f8" source="a1742aaa674f8e60b8b479ca47deecf0" target="f749fb14eb6819b7b34932e76b4bfc64">
+    </attributeMappings>
+    <attributeMappings xmi:id="714c80a47a6f4fa62749d5bdf29ddd0e" source="50b2ab930d36404de01a12ba1f892985" target="665ea89d35dd79d7deb272bce0193319">
+    </attributeMappings>
+    <attributeMappings xmi:id="ad5aec6702e9998a657d55c8231f62a6" source="93ddc00d41d4af1aae62fb577c7c30c7" target="73f3532f966803a1688428c9891b0052">
+    </attributeMappings>
+  </tableMappings>
+  <nodes xmi:id="88d983a7835a322e29db7750135b20c4" xsi:type="flowgraph:RowGenerationNode" name="RowGen" rowStart="1" rowCount="1">
+    <annotations key="sap.afm.layout" xmi:id="8773b98caffba6c1a6f842f01b6bb415">
+      <annotations xmi:id="c04c754652f8b09f2c26fa54081ce396" key="x" value="108">
+      </annotations>
+      <annotations xmi:id="6ec8fd51daebcccf874bdf270fe59656" key="y" value="104">
+      </annotations>
+      <annotations xmi:id="62af6873092f1756a1a6daa38bb1457e" key="width" value="120">
+      </annotations>
+      <annotations xmi:id="370f5ffcef7c153af041be3311ce6cf8" key="height" value="115">
+      </annotations>
+    </annotations>
+    <outputs xmi:id="2dd7de6734bc4bb535cdf48ee3e7c938" name="RowGen_OUT">
+      <attributes xmi:id="5fc62f2a110948c533dfd049d644d346" name="ROW_ID" type="INTEGER" nullable="false">
+      </attributes>
+    </outputs>
+  </nodes>
+  <nodes xmi:id="7034d43fc3119570f01e2b97754566fd" xsi:type="flowgraph:FilterNode" name="Projection">
+    <annotations key="sap.afm.layout" xmi:id="c95f9549386b8aceb5d319b8f88d3b21">
+      <annotations xmi:id="9a15a84e7f12cf2d4fb1e46c9ebbde3e" key="x" value="353">
+      </annotations>
+      <annotations xmi:id="872263d5ddd79ff90061cd7526eda62a" key="y" value="72">
+      </annotations>
+      <annotations xmi:id="164cc754068a8a899872f6ddd46ce179" key="width" value="120">
+      </annotations>
+      <annotations xmi:id="9599b204e42a09d6238e9cd6b464bea2" key="height" value="115">
+      </annotations>
+    </annotations>
+    <inputs xmi:id="37ad3faea32b21bbe300d66a104653e4" name="Projection_IN">
+      <attributes xmi:id="cfba960d3a5f0618c5e4b5d0413a2735" name="ROW_ID" type="INTEGER" nullable="false">
+      </attributes>
+    </inputs>
+    <outputs xmi:id="69f30088f04e1bb99d908afa6eabb7ef" name="Projection_OUT">
+      <attributes xmi:id="218ddc5f247d73951521acc4adc80111" name="ROW_ID" type="INTEGER" nullable="false" expression="&quot;ROW_ID&quot;">
+      </attributes>
+      <attributes xmi:id="2f5492d2dd3268fab64be6dbafcf0a0a" name="CustomerName" type="NVARCHAR" nullable="true" length="500" expression="&#x27;BAT&#x27;">
+      </attributes>
+      <attributes xmi:id="aa5ac99d5b4f34df7c9d0015fadb495b" name="CustomerID" type="INTEGER" nullable="true" expression="678394">
+      </attributes>
+      <attributes xmi:id="b4e1171ea99f589d8523d2d8bb1a03c1" name="TARGETDAYSCORRECTED" type="INTEGER" nullable="true" expression="3000">
+      </attributes>
+      <attributes xmi:id="eedf9148fe2d62311b29b65a2f93d738" name="REMAININGDAYSCORRECTED" type="INTEGER" nullable="true" expression="2000">
+      </attributes>
+      <attributes xmi:id="454314f3341aca0e7ac31126c18dc7b7" name="FORECASTEDDAYSCORRECTED" type="INTEGER" nullable="true" expression="3000">
+      </attributes>
+      <attributes xmi:id="a1742aaa674f8e60b8b479ca47deecf0" name="RECORDEDDAYSCORRECTED" type="INTEGER" nullable="true" expression="1000">
+      </attributes>
+      <attributes xmi:id="50b2ab930d36404de01a12ba1f892985" name="DELIVERY_YEAR_D" type="INTEGER" nullable="true" expression="2017">
+      </attributes>
+      <attributes xmi:id="93ddc00d41d4af1aae62fb577c7c30c7" name="MANUALFORECASTEDDAYS" type="INTEGER" nullable="true" expression="3100">
+      </attributes>
+    </outputs>
+  </nodes>
+  <nodes xmi:id="00c93250ae9dcd8f3fed4673b5e1b991" name="DataTarget" catalogObjectName="VTTCRMCustomerList" type="DATABASE_TABLE" xsi:type="flowgraph:DataNode" dataLayout="COLUMN">
+    <annotations key="sap.afm.layout" xmi:id="970354836ebd964b9727d11d3cb20b3d">
+      <annotations xmi:id="9805cd6c2e5e953a5d1b74b523aacd0f" key="x" value="596">
+      </annotations>
+      <annotations xmi:id="0d05a993260681dd69d019022a369ccf" key="y" value="187">
+      </annotations>
+      <annotations xmi:id="3ba4d4a01859cf7ae284d4c80fa77b1c" key="width" value="120">
+      </annotations>
+      <annotations xmi:id="f5213a15a07cf196b3c4d759bbe34d6e" key="height" value="115">
+      </annotations>
+    </annotations>
+    <annotations xmi:id="58635b537dab5d799af6082df67cda67" key="sap.afm.description">
+    </annotations>
+    <annotations xmi:id="cd8413468ee8fbd32ce6423d09128d7c" key="sap.afm.nodeType" value="DataNode">
+    </annotations>
+    <annotations xmi:id="def8af88d6086ef7985586576c0609e0" key="sap.afm.nodeInputs">
+    </annotations>
+    <annotations xmi:id="b65fd6b2e29e4cbb18f76e931e794617" key="sap.afm.nodeOutputs">
+    </annotations>
+    <annotations xmi:id="dd7189b68d53ff6599b0f8195408bada" key="sap.afm.displayName" value="Data Target">
+    </annotations>
+    <annotations xmi:id="8c14445f977dc1fe90a8cc15847a088d" key="columns" value="[{&quot;name&quot;:&quot;CustomerName&quot;,&quot;type&quot;:&quot;NVARCHAR&quot;,&quot;length&quot;:100,&quot;nullable&quot;:&quot;true&quot;},{&quot;name&quot;:&quot;CustomerID&quot;,&quot;type&quot;:&quot;INTEGER&quot;,&quot;length&quot;:10,&quot;nullable&quot;:&quot;false&quot;,&quot;primarykey&quot;:true},{&quot;name&quot;:&quot;TARGETDAYSCORRECTED&quot;,&quot;type&quot;:&quot;INTEGER&quot;,&quot;length&quot;:10,&quot;nullable&quot;:&quot;true&quot;},{&quot;name&quot;:&quot;REMAININGDAYSCORRECTED&quot;,&quot;type&quot;:&quot;INTEGER&quot;,&quot;length&quot;:10,&quot;nullable&quot;:&quot;true&quot;},{&quot;name&quot;:&quot;FORECASTEDDAYSCORRECTED&quot;,&quot;type&quot;:&quot;INTEGER&quot;,&quot;length&quot;:10,&quot;nullable&quot;:&quot;true&quot;},{&quot;name&quot;:&quot;RECORDEDDAYSCORRECTED&quot;,&quot;type&quot;:&quot;INTEGER&quot;,&quot;length&quot;:10,&quot;nullable&quot;:&quot;true&quot;},{&quot;name&quot;:&quot;DELIVERY_YEAR_D&quot;,&quot;type&quot;:&quot;INTEGER&quot;,&quot;length&quot;:10,&quot;nullable&quot;:&quot;true&quot;},{&quot;name&quot;:&quot;MANUALFORECASTEDDAYS&quot;,&quot;type&quot;:&quot;INTEGER&quot;,&quot;length&quot;:10,&quot;nullable&quot;:&quot;true&quot;}]">
+    </annotations>
+    <annotations xmi:id="7774b15f2e56640fe8d5b5a85c9b121f" key="sap.im.writerType" value="upsert">
+    </annotations>
+    <inputs xmi:id="0d626c459434b54cd95f817ca5ab548d" name="DataTarget">
+      <attributes xmi:id="5ecdeb244212e26aca1a57288f143c18" name="CustomerName" type="NVARCHAR" nullable="true" length="100">
+      </attributes>
+      <attributes xmi:id="f1b17bfaf5275185f1ef55735e07f34a" name="CustomerID" type="INTEGER" nullable="false" length="10">
+        <annotations xmi:id="deb19fb99a73b401778cf0521521854c" key="sap.im.primaryKey" value="true">
+        </annotations>
+      </attributes>
+      <attributes xmi:id="78131194b2c6788a32270468de11070c" name="TARGETDAYSCORRECTED" type="INTEGER" nullable="true" length="10">
+      </attributes>
+      <attributes xmi:id="24fd920a12cd65e5f46ecd321ab7d011" name="REMAININGDAYSCORRECTED" type="INTEGER" nullable="true" length="10">
+      </attributes>
+      <attributes xmi:id="e91246ab061979394579de8b260c4bac" name="FORECASTEDDAYSCORRECTED" type="INTEGER" nullable="true" length="10">
+      </attributes>
+      <attributes xmi:id="f749fb14eb6819b7b34932e76b4bfc64" name="RECORDEDDAYSCORRECTED" type="INTEGER" nullable="true" length="10">
+      </attributes>
+      <attributes xmi:id="665ea89d35dd79d7deb272bce0193319" name="DELIVERY_YEAR_D" type="INTEGER" nullable="true" length="10">
+      </attributes>
+      <attributes xmi:id="73f3532f966803a1688428c9891b0052" name="MANUALFORECASTEDDAYS" type="INTEGER" nullable="true" length="10">
+      </attributes>
+    </inputs>
+  </nodes>
+</flowgraph:ContainerNode>

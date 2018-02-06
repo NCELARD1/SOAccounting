@@ -20,11 +20,11 @@ sap.ui.define([
 		 */
 		groupUnitNumber : function (oResourceBundle) {
 			return function (oContext) {
-				var iPrice = oContext.getProperty("CustomerID"),
+				var iPrice = oContext.getProperty("RECORDEDDAYSCORRECTED"),
 					sKey,
 					sText;
 
-					if (iPrice <= 20) {
+					if (iPrice <= 1000) {
 						sKey = "LE20";
 						sText = oResourceBundle.getText("masterGroup1Header1");
 					} else {
