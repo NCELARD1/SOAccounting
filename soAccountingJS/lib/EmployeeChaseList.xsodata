@@ -1,0 +1,3 @@
+service {
+"SOAccounting_HANAXSA.soAccountingDB.views::CRMISP_ConsolidatedSOs_EmployeeChaseList" as "EmployeeChaseList" keys generate local "ID";
+}

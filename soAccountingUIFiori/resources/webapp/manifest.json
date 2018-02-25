@@ -36,6 +36,14 @@
 					"odataVersion": "2.0",
 					"localUri": "localService/metadataAccountContractItem.xml"
 				}
+			},
+			"employeeChaseListService": {
+				"uri": "/EmployeeChaseList.xsodata/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadataEmployeeChase.xml"
+				}
 			}			
 		},
 		"sourceTemplate": {
@@ -119,6 +127,14 @@
 			},
 			"ACI": {
 				"dataSource": "accountContractItemService",
+				"settings": {
+					"metadataUrlParams": {
+						"sap-documentation": "heading"
+					}
+				}
+			},
+			"ECL": {
+				"dataSource": "employeeChaseListService",
 				"settings": {
 					"metadataUrlParams": {
 						"sap-documentation": "heading"

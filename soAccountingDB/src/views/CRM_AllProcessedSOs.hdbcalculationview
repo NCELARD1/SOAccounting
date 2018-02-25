@@ -6,7 +6,7 @@
 <localVariables>
   <variable id="DELIVERY_YEAR" parameter="true">
     <descriptions defaultDescription="DELIVERY_YEAR (yyyy)"/>
-    <variableProperties datatype="INTEGER" mandatory="true">
+    <variableProperties datatype="INTEGER" mandatory="false">
       <valueDomain type="empty"/>
       <selection multiLine="false" type="Single"/>
       <defaultRange lowValue="2017"/>
@@ -612,7 +612,7 @@
       <mapping xsi:type="Calculation:AttributeMapping" target="Status" source="Status"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="UoM" source="UoM"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="DELIVERY_YEAR" source="DELIVERY_YEAR"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="SALESDOCUMENT_INT" source="SALESDOCUMENT_INT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESDOCUMENT_INT" source="ServiceOrderID"/>
     </input>
   </calculationView>
 </calculationViews>

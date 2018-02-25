@@ -204,6 +204,21 @@ sap.ui.define([
 			//			alert(MyVariable2);
 		},
 
+		onFilterEmployeeChaseList: function(sCustomerID) {
+
+			// build filter array
+			var aFilter = [];
+			//			var sQuery = oEvent.getSource();
+			//			if (sQuery) {
+			aFilter.push(new Filter("CRMCUSTOMERID", FilterOperator.Contains, "'" + sCustomerID + "'"));
+			//			}
+
+			// filter binding
+			var oList = this.getView().byId("EmployeeChaseList");
+			var oBinding = oList.getBinding("items");
+			oBinding.filter(aFilter);
+		},
+
 		onFilterSummary: function(sCustomerID) {
 
 			// build filter array
@@ -278,16 +293,18 @@ sap.ui.define([
 					'Accept': "application/json"
 				},
 				success: function() {
-				//	sap.ui.commons.MessageBox.alert("Success");
+					//	sap.ui.commons.MessageBox.alert("Success");
 					oThis.loadJobsTable();
-					//			oThis.resetUserModel();
+					oThis.resetUserModel();
+					oThis._onBindingChange();
 				},
 				error: function(error) {
-				//	sap.ui.commons.MessageBox.alert("Failure");
+					//	sap.ui.commons.MessageBox.alert("Failure");
 
 				}
 			});
 
+			//			window.location.reload();
 			var rest_url_foreUpd;
 			//	if (sKey === "nodejs") {
 			rest_url_foreUpd = "/UpdateVVTCustomerListManualForecast.xsjs/";
@@ -304,7 +321,7 @@ sap.ui.define([
 					oThis.loadJobsTable();
 				},
 				error: function(error) {
-			/*		sap.ui.commons.MessageBox.alert(oThis.getView().getModel("i18n").getProperty("FOR_CRT_ERROR")); */
+					/*		sap.ui.commons.MessageBox.alert(oThis.getView().getModel("i18n").getProperty("FOR_CRT_ERROR")); */
 					oThis.loadJobsTable();
 				}
 			}), 10000);
@@ -360,16 +377,42 @@ sap.ui.define([
 						]
 					});
 					oTable.setModel(oModelTable);
-					oTable.bindItems("/modelData",oTemplate);
+					oTable.bindItems("/modelData", oTemplate);
+					oThis._onBindingChange();
+					oThis.resetUserModel();
+					oTable.getModel().updateBindings();
+					//					window.location.reload();					
 
 				},
 				error: function(error) {
 					sap.ui.commons.MessageBox.alert(oThis.getView().getModel("i18n").getProperty("TAB_NOT_UPDATED"));
 					oTable.bindItems("/");
 				}
-
+				
 			}), 10000);
 			clearInterval(myInterval);
+			window.location.reload();
+		},
+
+		resetUserModel: function() {
+
+			var oLocalUserData = {
+				"DELIVERY_YEAR_D": "",
+				"MANUALFORECASTEDDAYS": "",
+				"FORECASTEDDAYSCORRECTED": "",
+				"RECORDEDDAYSCORRECTED": ""
+			};
+			this.getView().getModel("modelData").setData(oLocalUserData);
+		},
+
+		onIconSelectChanged: function(oEvent) {
+			var key = oEvent.getParameters().key;
+			if (key === '1') {
+//				alert("Click Test1");
+				this._onBindingChange();
+			} else if (key === '2') {
+//				alert("Click Test2");
+			}
 		},
 
 		/* =========================================================== */
@@ -462,6 +505,7 @@ sap.ui.define([
 			oViewModel.setProperty("/shareSendEmailMessage",
 				oResourceBundle.getText("shareSendEmailObjectMessage", [sObjectName, sObjectId, location.href]));
 			this.onFilterSummary(sObjectId);
+			this.onFilterEmployeeChaseList(sObjectId);
 		},
 
 		_onMetadataLoaded: function() {

@@ -19,5 +19,8 @@
 	}, {
 		"source": "/AccountContractItemList.xsodata/",
 		"destination": "soAccountingJS_be"
+	}, {
+		"source": "/EmployeeChaseList.xsodata/",
+		"destination": "soAccountingJS_be"
 	}]
 }

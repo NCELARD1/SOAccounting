@@ -309,7 +309,7 @@ sap.ui.define([
 				this.getRouter().navTo("object", {
 					objectId : oItem.getBindingContext().getProperty("CustomerID")
 				});
-				sap.m.MessageToast.show(oItem.getBindingContext().getProperty("CustomerID"));
+			//	sap.m.MessageToast.show(oItem.getBindingContext().getProperty("CustomerID"));
 			},
 
 			/**

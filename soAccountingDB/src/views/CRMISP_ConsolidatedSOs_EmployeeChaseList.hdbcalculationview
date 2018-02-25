@@ -1,0 +1,906 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="SOAccounting_HANAXSA.soAccountingDB.views::CRMISP_ConsolidatedSOs_EmployeeChaseList" applyPrivilegeType="NONE" dataCategory="DEFAULT" schemaVersion="3.0" defaultClient="$$client$$" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="CRMISP_ConsolidatedSOs_EmployeeChaseList"/>
+<localVariables>
+  <variable id="DELIVERY_YEAR" parameter="true">
+    <descriptions defaultDescription="DELIVERY_YEAR (yyyy)"/>
+    <variableProperties datatype="INTEGER" mandatory="true">
+      <valueDomain type="empty"/>
+      <selection multiLine="false" type="Single"/>
+      <defaultRange lowValue="2018"/>
+    </variableProperties>
+  </variable>
+</localVariables>
+<variableMappings/>
+<dataSources>
+  <DataSource id="SOAccounting_HANAXSA.soAccountingDB.views::CRMISP_ConsolidatedSOs_Presentation">
+    <resourceUri>SOAccounting_HANAXSA.soAccountingDB.views::CRMISP_ConsolidatedSOs_Presentation</resourceUri>
+  </DataSource>
+  <DataSource id="SOAccounting_HANAXSA.soAccountingDB::ISP_ZVZC.tblECCDAllServiceOrders">
+    <resourceUri>SOAccounting_HANAXSA.soAccountingDB::ISP_ZVZC.tblECCDAllServiceOrders</resourceUri>
+  </DataSource>
+  <DataSource id="ZVZCRawTable_copy$$$$SOAccounting_HANAXSA.soAccountingDB::ISP_ZVZC.tblECCDAllServiceOrders$$">
+    <resourceUri>SOAccounting_HANAXSA.soAccountingDB::ISP_ZVZC.tblECCDAllServiceOrders</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="PresentationView">
+    <viewAttributes>
+      <viewAttribute id="CONTRACT_ADJUSTED">
+        <descriptions defaultDescription="CONTRACT_ADJUSTED"/>
+      </viewAttribute>
+      <viewAttribute id="CRMCUSTOMERID">
+        <descriptions defaultDescription="CRMCUSTOMERID"/>
+      </viewAttribute>
+      <viewAttribute id="LoadDate">
+        <descriptions defaultDescription="LoadDate"/>
+      </viewAttribute>
+      <viewAttribute id="ISPSOID">
+        <descriptions defaultDescription="ISPSOID"/>
+      </viewAttribute>
+      <viewAttribute id="CRMSOID">
+        <descriptions defaultDescription="CRMSOID"/>
+      </viewAttribute>
+      <viewAttribute id="SALESDOCUMENTITEM_INT">
+        <descriptions defaultDescription="SALESDOCUMENTITEM_INT"/>
+      </viewAttribute>
+      <viewAttribute id="Description">
+        <descriptions defaultDescription="Description"/>
+      </viewAttribute>
+      <viewAttribute id="RequestedDeliveryDate">
+        <descriptions defaultDescription="RequestedDeliveryDate"/>
+      </viewAttribute>
+      <viewAttribute id="STATUS">
+        <descriptions defaultDescription="STATUS"/>
+      </viewAttribute>
+      <viewAttribute id="REQDELDATEMONTHN">
+        <descriptions defaultDescription="REQDELDATEMONTHN"/>
+      </viewAttribute>
+      <viewAttribute id="REQDELDATEMONTH">
+        <descriptions defaultDescription="REQDELDATEMONTH"/>
+      </viewAttribute>
+      <viewAttribute id="GOLIVEDATE">
+        <descriptions defaultDescription="GOLIVEDATE"/>
+      </viewAttribute>
+      <viewAttribute id="EndDate">
+        <descriptions defaultDescription="EndDate"/>
+      </viewAttribute>
+      <viewAttribute id="CITEM_ADJUSTED">
+        <descriptions defaultDescription="CITEM_ADJUSTED"/>
+      </viewAttribute>
+      <viewAttribute id="RecordedDays">
+        <descriptions defaultDescription="RecordedDays"/>
+      </viewAttribute>
+      <viewAttribute id="TargetDays">
+        <descriptions defaultDescription="TargetDays"/>
+      </viewAttribute>
+      <viewAttribute id="FORECASTEDDAYS">
+        <descriptions defaultDescription="FORECASTEDDAYS"/>
+      </viewAttribute>
+      <viewAttribute id="REMAININGDAYS">
+        <descriptions defaultDescription="REMAININGDAYS"/>
+      </viewAttribute>
+      <viewAttribute id="TARGETDAYSCORRECTED">
+        <descriptions defaultDescription="TARGETDAYSCORRECTED"/>
+      </viewAttribute>
+      <viewAttribute id="REMAININGDAYSCORRECTED">
+        <descriptions defaultDescription="REMAININGDAYSCORRECTED"/>
+      </viewAttribute>
+      <viewAttribute id="FORECASTEDDAYSCORRECTED">
+        <descriptions defaultDescription="FORECASTEDDAYSCORRECTED"/>
+      </viewAttribute>
+      <viewAttribute id="RECORDEDDAYSCORRECTED">
+        <descriptions defaultDescription="RECORDEDDAYSCORRECTED"/>
+      </viewAttribute>
+      <viewAttribute id="CORRPREVYEAR">
+        <descriptions defaultDescription="CORRPREVYEAR"/>
+      </viewAttribute>
+      <viewAttribute id="TYPE">
+        <descriptions defaultDescription="TYPE"/>
+      </viewAttribute>
+      <viewAttribute id="DayWeight">
+        <descriptions defaultDescription="DayWeight"/>
+      </viewAttribute>
+      <viewAttribute id="CRMConversion">
+        <descriptions defaultDescription="CRMConversion"/>
+      </viewAttribute>
+      <viewAttribute id="DELIVERY_YEAR_D">
+        <descriptions defaultDescription="DELIVERY_YEAR_D"/>
+      </viewAttribute>
+      <viewAttribute id="PERCENTAGECOMPLETE">
+        <descriptions defaultDescription="PERCENTAGECOMPLETE"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="SOAccounting_HANAXSA.soAccountingDB.views::CRMISP_ConsolidatedSOs_Presentation">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CONTRACT_ADJUSTED" source="CONTRACT_ADJUSTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CRMCUSTOMERID" source="CRMCUSTOMERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LoadDate" source="LoadDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ISPSOID" source="ISPSOID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CRMSOID" source="CRMSOID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESDOCUMENTITEM_INT" source="SALESDOCUMENTITEM_INT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Description" source="Description"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RequestedDeliveryDate" source="RequestedDeliveryDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REQDELDATEMONTHN" source="REQDELDATEMONTHN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REQDELDATEMONTH" source="REQDELDATEMONTH"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="GOLIVEDATE" source="GOLIVEDATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="EndDate" source="EndDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CITEM_ADJUSTED" source="CITEM_ADJUSTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RecordedDays" source="RecordedDays"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TargetDays" source="TargetDays"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FORECASTEDDAYS" source="FORECASTEDDAYS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REMAININGDAYS" source="REMAININGDAYS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TARGETDAYSCORRECTED" source="TARGETDAYSCORRECTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REMAININGDAYSCORRECTED" source="REMAININGDAYSCORRECTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FORECASTEDDAYSCORRECTED" source="FORECASTEDDAYSCORRECTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RECORDEDDAYSCORRECTED" source="RECORDEDDAYSCORRECTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CORRPREVYEAR" source="CORRPREVYEAR"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TYPE" source="TYPE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DayWeight" source="DayWeight"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CRMConversion" source="CRMConversion"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DELIVERY_YEAR_D" source="DELIVERY_YEAR_D"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PERCENTAGECOMPLETE" source="PERCENTAGECOMPLETE"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="ZVZCRawTable" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="CompanyCode">
+        <descriptions defaultDescription="CompanyCode"/>
+      </viewAttribute>
+      <viewAttribute id="EndDate">
+        <descriptions defaultDescription="EndDate"/>
+      </viewAttribute>
+      <viewAttribute id="EstimatedActivityDays" aggregationType="sum">
+        <descriptions defaultDescription="EstimatedActivityDays"/>
+      </viewAttribute>
+      <viewAttribute id="EstimatedTravelHours">
+        <descriptions defaultDescription="EstimatedTravelHours"/>
+      </viewAttribute>
+      <viewAttribute id="LoadDate">
+        <descriptions defaultDescription="LoadDate"/>
+      </viewAttribute>
+      <viewAttribute id="NameOfEmployeeOrApplicants">
+        <descriptions defaultDescription="NameOfEmployeeOrApplicants"/>
+      </viewAttribute>
+      <viewAttribute id="PersonelNumber">
+        <descriptions defaultDescription="PersonelNumber"/>
+      </viewAttribute>
+      <viewAttribute id="RecordedActivityDays" aggregationType="sum">
+        <descriptions defaultDescription="RecordedActivityDays"/>
+      </viewAttribute>
+      <viewAttribute id="RecordedTravelHours">
+        <descriptions defaultDescription="RecordedTravelHours"/>
+      </viewAttribute>
+      <viewAttribute id="SalesDocument" aggregationType="sum">
+        <descriptions defaultDescription="SalesDocument"/>
+      </viewAttribute>
+      <viewAttribute id="SalesDocumentItem">
+        <descriptions defaultDescription="SalesDocumentItem"/>
+      </viewAttribute>
+      <viewAttribute id="ShortNote">
+        <descriptions defaultDescription="ShortNote"/>
+      </viewAttribute>
+      <viewAttribute id="StartDate">
+        <descriptions defaultDescription="StartDate"/>
+      </viewAttribute>
+      <viewAttribute id="TaskLevel">
+        <descriptions defaultDescription="TaskLevel"/>
+      </viewAttribute>
+      <viewAttribute id="TaskType">
+        <descriptions defaultDescription="TaskType"/>
+      </viewAttribute>
+      <viewAttribute id="TaskWork">
+        <descriptions defaultDescription="TaskWork"/>
+      </viewAttribute>
+      <viewAttribute id="TravelTasklevel">
+        <descriptions defaultDescription="TravelTasklevel"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="SALESDOCUMENTITEM_INT" datatype="INTEGER" expressionLanguage="SQL">
+        <formula>TO_INT(&quot;SalesDocumentItem&quot;)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <restrictedViewAttributes/>
+    <input node="SOAccounting_HANAXSA.soAccountingDB::ISP_ZVZC.tblECCDAllServiceOrders">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CompanyCode" source="CompanyCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="EndDate" source="EndDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="EstimatedActivityDays" source="EstimatedActivityDays"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="EstimatedTravelHours" source="EstimatedTravelHours"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LoadDate" source="LoadDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NameOfEmployeeOrApplicants" source="NameOfEmployeeOrApplicants"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PersonelNumber" source="PersonelNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RecordedActivityDays" source="RecordedActivityDays"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RecordedTravelHours" source="RecordedTravelHours"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SalesDocument" source="SalesDocument"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SalesDocumentItem" source="SalesDocumentItem"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShortNote" source="ShortNote"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="StartDate" source="StartDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TaskLevel" source="TaskLevel"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TaskType" source="TaskType"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TaskWork" source="TaskWork"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TravelTasklevel" source="TravelTasklevel"/>
+    </input>
+    <filter>&quot;EstimatedActivityDays&quot; != &quot;RecordedActivityDays&quot;</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="CONTRACT_ADJUSTED" aggregationType="sum">
+        <descriptions defaultDescription="CONTRACT_ADJUSTED"/>
+      </viewAttribute>
+      <viewAttribute id="CRMCUSTOMERID" aggregationType="sum">
+        <descriptions defaultDescription="CRMCUSTOMERID"/>
+      </viewAttribute>
+      <viewAttribute id="CRMSOID" aggregationType="sum">
+        <descriptions defaultDescription="CRMSOID"/>
+      </viewAttribute>
+      <viewAttribute id="SALESDOCUMENTITEM_INT" aggregationType="sum">
+        <descriptions defaultDescription="SALESDOCUMENTITEM_INT"/>
+      </viewAttribute>
+      <viewAttribute id="Description">
+        <descriptions defaultDescription="Description"/>
+      </viewAttribute>
+      <viewAttribute id="STATUS">
+        <descriptions defaultDescription="STATUS"/>
+      </viewAttribute>
+      <viewAttribute id="REQDELDATEMONTHN" aggregationType="sum">
+        <descriptions defaultDescription="REQDELDATEMONTHN"/>
+      </viewAttribute>
+      <viewAttribute id="EndDate">
+        <descriptions defaultDescription="EndDate"/>
+      </viewAttribute>
+      <viewAttribute id="CITEM_ADJUSTED" aggregationType="sum">
+        <descriptions defaultDescription="CITEM_ADJUSTED"/>
+      </viewAttribute>
+      <viewAttribute id="DayWeight" aggregationType="sum">
+        <descriptions defaultDescription="DayWeight"/>
+      </viewAttribute>
+      <viewAttribute id="DELIVERY_YEAR_D" aggregationType="sum">
+        <descriptions defaultDescription="DELIVERY_YEAR_D"/>
+      </viewAttribute>
+      <viewAttribute id="CompanyCode">
+        <descriptions defaultDescription="CompanyCode"/>
+      </viewAttribute>
+      <viewAttribute id="EndDate_1">
+        <descriptions defaultDescription="EndDate_1"/>
+      </viewAttribute>
+      <viewAttribute id="EstimatedActivityDays" aggregationType="sum">
+        <descriptions defaultDescription="EstimatedActivityDays"/>
+      </viewAttribute>
+      <viewAttribute id="EstimatedTravelHours">
+        <descriptions defaultDescription="EstimatedTravelHours"/>
+      </viewAttribute>
+      <viewAttribute id="LoadDate">
+        <descriptions defaultDescription="LoadDate"/>
+      </viewAttribute>
+      <viewAttribute id="NameOfEmployeeOrApplicants">
+        <descriptions defaultDescription="NameOfEmployeeOrApplicants"/>
+      </viewAttribute>
+      <viewAttribute id="PersonelNumber">
+        <descriptions defaultDescription="PersonelNumber"/>
+      </viewAttribute>
+      <viewAttribute id="RecordedActivityDays" aggregationType="sum">
+        <descriptions defaultDescription="RecordedActivityDays"/>
+      </viewAttribute>
+      <viewAttribute id="RecordedTravelHours">
+        <descriptions defaultDescription="RecordedTravelHours"/>
+      </viewAttribute>
+      <viewAttribute id="SalesDocument" aggregationType="sum">
+        <descriptions defaultDescription="SalesDocument"/>
+      </viewAttribute>
+      <viewAttribute id="SalesDocumentItem">
+        <descriptions defaultDescription="SalesDocumentItem"/>
+      </viewAttribute>
+      <viewAttribute id="ShortNote">
+        <descriptions defaultDescription="ShortNote"/>
+      </viewAttribute>
+      <viewAttribute id="StartDate">
+        <descriptions defaultDescription="StartDate"/>
+      </viewAttribute>
+      <viewAttribute id="TaskLevel">
+        <descriptions defaultDescription="TaskLevel"/>
+      </viewAttribute>
+      <viewAttribute id="TaskType">
+        <descriptions defaultDescription="TaskType"/>
+      </viewAttribute>
+      <viewAttribute id="TaskWork">
+        <descriptions defaultDescription="TaskWork"/>
+      </viewAttribute>
+      <viewAttribute id="TravelTasklevel">
+        <descriptions defaultDescription="TravelTasklevel"/>
+      </viewAttribute>
+      <viewAttribute id="SALESDOCUMENTITEM_INT_1" aggregationType="sum">
+        <descriptions defaultDescription="SALESDOCUMENTITEM_INT_1"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="ENDDATE_YEAR" datatype="INTEGER" expressionLanguage="SQL">
+        <formula>YEAR(&quot;EndDate_1&quot;)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <restrictedViewAttributes/>
+    <input node="PresentationView">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CONTRACT_ADJUSTED" source="CONTRACT_ADJUSTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CRMCUSTOMERID" source="CRMCUSTOMERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CRMSOID" source="CRMSOID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESDOCUMENTITEM_INT" source="SALESDOCUMENTITEM_INT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Description" source="Description"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REQDELDATEMONTHN" source="REQDELDATEMONTHN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="EndDate" source="EndDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CITEM_ADJUSTED" source="CITEM_ADJUSTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DayWeight" source="DayWeight"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DELIVERY_YEAR_D" source="DELIVERY_YEAR_D"/>
+    </input>
+    <input node="Join_2">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CompanyCode" source="CompanyCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="EndDate_1" source="EndDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="EstimatedActivityDays" source="EstimatedActivityDays"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="EstimatedTravelHours" source="EstimatedTravelHours"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LoadDate" source="LoadDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NameOfEmployeeOrApplicants" source="NameOfEmployeeOrApplicants"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PersonelNumber" source="PersonelNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RecordedActivityDays" source="RecordedActivityDays"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RecordedTravelHours" source="RecordedTravelHours"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SalesDocument" source="SalesDocument"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SalesDocumentItem" source="SalesDocumentItem"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShortNote" source="ShortNote"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="StartDate" source="StartDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TaskLevel" source="TaskLevel"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TaskType" source="TaskType"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TaskWork" source="TaskWork"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TravelTasklevel" source="TravelTasklevel"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESDOCUMENTITEM_INT_1" source="SALESDOCUMENTITEM_INT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CRMSOID" source="SalesDocument"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESDOCUMENTITEM_INT" source="SALESDOCUMENTITEM_INT"/>
+    </input>
+    <joinAttribute name="CRMSOID"/>
+    <joinAttribute name="SALESDOCUMENTITEM_INT"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_2" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="CompanyCode">
+        <descriptions defaultDescription="CompanyCode"/>
+      </viewAttribute>
+      <viewAttribute id="EndDate">
+        <descriptions defaultDescription="EndDate"/>
+      </viewAttribute>
+      <viewAttribute id="EstimatedActivityDays" aggregationType="sum">
+        <descriptions defaultDescription="EstimatedActivityDays"/>
+      </viewAttribute>
+      <viewAttribute id="EstimatedTravelHours">
+        <descriptions defaultDescription="EstimatedTravelHours"/>
+      </viewAttribute>
+      <viewAttribute id="LoadDate">
+        <descriptions defaultDescription="LoadDate"/>
+      </viewAttribute>
+      <viewAttribute id="NameOfEmployeeOrApplicants">
+        <descriptions defaultDescription="NameOfEmployeeOrApplicants"/>
+      </viewAttribute>
+      <viewAttribute id="PersonelNumber">
+        <descriptions defaultDescription="PersonelNumber"/>
+      </viewAttribute>
+      <viewAttribute id="RecordedActivityDays" aggregationType="sum">
+        <descriptions defaultDescription="RecordedActivityDays"/>
+      </viewAttribute>
+      <viewAttribute id="RecordedTravelHours">
+        <descriptions defaultDescription="RecordedTravelHours"/>
+      </viewAttribute>
+      <viewAttribute id="SalesDocument" aggregationType="sum">
+        <descriptions defaultDescription="SalesDocument"/>
+      </viewAttribute>
+      <viewAttribute id="SalesDocumentItem">
+        <descriptions defaultDescription="SalesDocumentItem"/>
+      </viewAttribute>
+      <viewAttribute id="ShortNote">
+        <descriptions defaultDescription="ShortNote"/>
+      </viewAttribute>
+      <viewAttribute id="StartDate">
+        <descriptions defaultDescription="StartDate"/>
+      </viewAttribute>
+      <viewAttribute id="TaskLevel">
+        <descriptions defaultDescription="TaskLevel"/>
+      </viewAttribute>
+      <viewAttribute id="TaskType">
+        <descriptions defaultDescription="TaskType"/>
+      </viewAttribute>
+      <viewAttribute id="TaskWork">
+        <descriptions defaultDescription="TaskWork"/>
+      </viewAttribute>
+      <viewAttribute id="TravelTasklevel">
+        <descriptions defaultDescription="TravelTasklevel"/>
+      </viewAttribute>
+      <viewAttribute id="SALESDOCUMENTITEM_INT" aggregationType="sum">
+        <descriptions defaultDescription="SALESDOCUMENTITEM_INT"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="ZVZCRawTable_copy">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CompanyCode" source="CompanyCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="EndDate" source="EndDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="EstimatedActivityDays" source="EstimatedActivityDays"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="EstimatedTravelHours" source="EstimatedTravelHours"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LoadDate" source="LoadDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NameOfEmployeeOrApplicants" source="NameOfEmployeeOrApplicants"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PersonelNumber" source="PersonelNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RecordedActivityDays" source="RecordedActivityDays"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RecordedTravelHours" source="RecordedTravelHours"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SalesDocument" source="SalesDocument"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SalesDocumentItem" source="SalesDocumentItem"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShortNote" source="ShortNote"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="StartDate" source="StartDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TaskLevel" source="TaskLevel"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TaskType" source="TaskType"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TaskWork" source="TaskWork"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TravelTasklevel" source="TravelTasklevel"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESDOCUMENTITEM_INT" source="SALESDOCUMENTITEM_INT"/>
+    </input>
+    <input node="ZVZCMaxLoadDate">
+      <mapping xsi:type="Calculation:AttributeMapping" target="SalesDocument" source="SalesDocument"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SalesDocumentItem" source="SalesDocumentItem"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESDOCUMENTITEM_INT" source="SALESDOCUMENTITEM_INT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PersonelNumber" source="PersonelNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NameOfEmployeeOrApplicants" source="NameOfEmployeeOrApplicants"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LoadDate" source="LoadDate"/>
+    </input>
+    <joinAttribute name="SalesDocument"/>
+    <joinAttribute name="SalesDocumentItem"/>
+    <joinAttribute name="SALESDOCUMENTITEM_INT"/>
+    <joinAttribute name="PersonelNumber"/>
+    <joinAttribute name="NameOfEmployeeOrApplicants"/>
+    <joinAttribute name="LoadDate"/>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="ZVZCRawTable_copy" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="CompanyCode">
+        <descriptions defaultDescription="CompanyCode"/>
+      </viewAttribute>
+      <viewAttribute id="EndDate">
+        <descriptions defaultDescription="EndDate"/>
+      </viewAttribute>
+      <viewAttribute id="EstimatedActivityDays" aggregationType="sum">
+        <descriptions defaultDescription="EstimatedActivityDays"/>
+      </viewAttribute>
+      <viewAttribute id="EstimatedTravelHours">
+        <descriptions defaultDescription="EstimatedTravelHours"/>
+      </viewAttribute>
+      <viewAttribute id="LoadDate">
+        <descriptions defaultDescription="LoadDate"/>
+      </viewAttribute>
+      <viewAttribute id="NameOfEmployeeOrApplicants">
+        <descriptions defaultDescription="NameOfEmployeeOrApplicants"/>
+      </viewAttribute>
+      <viewAttribute id="PersonelNumber">
+        <descriptions defaultDescription="PersonelNumber"/>
+      </viewAttribute>
+      <viewAttribute id="RecordedActivityDays" aggregationType="sum">
+        <descriptions defaultDescription="RecordedActivityDays"/>
+      </viewAttribute>
+      <viewAttribute id="RecordedTravelHours">
+        <descriptions defaultDescription="RecordedTravelHours"/>
+      </viewAttribute>
+      <viewAttribute id="SalesDocument" aggregationType="sum">
+        <descriptions defaultDescription="SalesDocument"/>
+      </viewAttribute>
+      <viewAttribute id="SalesDocumentItem">
+        <descriptions defaultDescription="SalesDocumentItem"/>
+      </viewAttribute>
+      <viewAttribute id="ShortNote">
+        <descriptions defaultDescription="ShortNote"/>
+      </viewAttribute>
+      <viewAttribute id="StartDate">
+        <descriptions defaultDescription="StartDate"/>
+      </viewAttribute>
+      <viewAttribute id="TaskLevel">
+        <descriptions defaultDescription="TaskLevel"/>
+      </viewAttribute>
+      <viewAttribute id="TaskType">
+        <descriptions defaultDescription="TaskType"/>
+      </viewAttribute>
+      <viewAttribute id="TaskWork">
+        <descriptions defaultDescription="TaskWork"/>
+      </viewAttribute>
+      <viewAttribute id="TravelTasklevel">
+        <descriptions defaultDescription="TravelTasklevel"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="SALESDOCUMENTITEM_INT" datatype="INTEGER" expressionLanguage="SQL">
+        <formula>TO_INT(&quot;SalesDocumentItem&quot;)</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <restrictedViewAttributes/>
+    <input emptyUnionBehavior="undefined" node="ZVZCRawTable_copy$$$$SOAccounting_HANAXSA.soAccountingDB::ISP_ZVZC.tblECCDAllServiceOrders$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CompanyCode" source="CompanyCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="EndDate" source="EndDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="EstimatedActivityDays" source="EstimatedActivityDays"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="EstimatedTravelHours" source="EstimatedTravelHours"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LoadDate" source="LoadDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NameOfEmployeeOrApplicants" source="NameOfEmployeeOrApplicants"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PersonelNumber" source="PersonelNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RecordedActivityDays" source="RecordedActivityDays"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RecordedTravelHours" source="RecordedTravelHours"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SalesDocument" source="SalesDocument"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SalesDocumentItem" source="SalesDocumentItem"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShortNote" source="ShortNote"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="StartDate" source="StartDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TaskLevel" source="TaskLevel"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TaskType" source="TaskType"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TaskWork" source="TaskWork"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TravelTasklevel" source="TravelTasklevel"/>
+    </input>
+    <filter>&quot;EstimatedActivityDays&quot; != &quot;RecordedActivityDays&quot;</filter>
+  </calculationView>
+  <calculationView xsi:type="Calculation:AggregationView" id="ZVZCMaxLoadDate">
+    <viewAttributes>
+      <viewAttribute id="SalesDocument">
+        <descriptions defaultDescription="SalesDocument"/>
+      </viewAttribute>
+      <viewAttribute id="SalesDocumentItem">
+        <descriptions defaultDescription="SalesDocumentItem"/>
+      </viewAttribute>
+      <viewAttribute id="SALESDOCUMENTITEM_INT">
+        <descriptions defaultDescription="SALESDOCUMENTITEM_INT"/>
+      </viewAttribute>
+      <viewAttribute id="PersonelNumber">
+        <descriptions defaultDescription="PersonelNumber"/>
+      </viewAttribute>
+      <viewAttribute id="NameOfEmployeeOrApplicants">
+        <descriptions defaultDescription="NameOfEmployeeOrApplicants"/>
+      </viewAttribute>
+      <viewAttribute id="LoadDate" aggregationType="max">
+        <descriptions defaultDescription="LoadDate"/>
+      </viewAttribute></viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="ZVZCRawTable">
+      <mapping xsi:type="Calculation:AttributeMapping" target="LoadDate" source="LoadDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NameOfEmployeeOrApplicants" source="NameOfEmployeeOrApplicants"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PersonelNumber" source="PersonelNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SalesDocument" source="SalesDocument"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SalesDocumentItem" source="SalesDocumentItem"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESDOCUMENTITEM_INT" source="SALESDOCUMENTITEM_INT"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="DELIVERY_YEAR" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="CONTRACT_ADJUSTED" aggregationType="sum">
+        <descriptions defaultDescription="CONTRACT_ADJUSTED"/>
+      </viewAttribute>
+      <viewAttribute id="CRMCUSTOMERID" aggregationType="sum">
+        <descriptions defaultDescription="CRMCUSTOMERID"/>
+      </viewAttribute>
+      <viewAttribute id="CRMSOID" aggregationType="sum">
+        <descriptions defaultDescription="CRMSOID"/>
+      </viewAttribute>
+      <viewAttribute id="SALESDOCUMENTITEM_INT" aggregationType="sum">
+        <descriptions defaultDescription="SALESDOCUMENTITEM_INT"/>
+      </viewAttribute>
+      <viewAttribute id="Description">
+        <descriptions defaultDescription="Description"/>
+      </viewAttribute>
+      <viewAttribute id="STATUS">
+        <descriptions defaultDescription="STATUS"/>
+      </viewAttribute>
+      <viewAttribute id="REQDELDATEMONTHN" aggregationType="sum">
+        <descriptions defaultDescription="REQDELDATEMONTHN"/>
+      </viewAttribute>
+      <viewAttribute id="EndDate">
+        <descriptions defaultDescription="EndDate"/>
+      </viewAttribute>
+      <viewAttribute id="CITEM_ADJUSTED" aggregationType="sum">
+        <descriptions defaultDescription="CITEM_ADJUSTED"/>
+      </viewAttribute>
+      <viewAttribute id="DayWeight" aggregationType="sum">
+        <descriptions defaultDescription="DayWeight"/>
+      </viewAttribute>
+      <viewAttribute id="DELIVERY_YEAR_D" aggregationType="sum">
+        <descriptions defaultDescription="DELIVERY_YEAR_D"/>
+      </viewAttribute>
+      <viewAttribute id="CompanyCode">
+        <descriptions defaultDescription="CompanyCode"/>
+      </viewAttribute>
+      <viewAttribute id="EndDate_1">
+        <descriptions defaultDescription="EndDate_1"/>
+      </viewAttribute>
+      <viewAttribute id="EstimatedActivityDays" aggregationType="sum">
+        <descriptions defaultDescription="EstimatedActivityDays"/>
+      </viewAttribute>
+      <viewAttribute id="EstimatedTravelHours">
+        <descriptions defaultDescription="EstimatedTravelHours"/>
+      </viewAttribute>
+      <viewAttribute id="LoadDate">
+        <descriptions defaultDescription="LoadDate"/>
+      </viewAttribute>
+      <viewAttribute id="NameOfEmployeeOrApplicants">
+        <descriptions defaultDescription="NameOfEmployeeOrApplicants"/>
+      </viewAttribute>
+      <viewAttribute id="PersonelNumber">
+        <descriptions defaultDescription="PersonelNumber"/>
+      </viewAttribute>
+      <viewAttribute id="RecordedActivityDays" aggregationType="sum">
+        <descriptions defaultDescription="RecordedActivityDays"/>
+      </viewAttribute>
+      <viewAttribute id="RecordedTravelHours">
+        <descriptions defaultDescription="RecordedTravelHours"/>
+      </viewAttribute>
+      <viewAttribute id="SalesDocument" aggregationType="sum">
+        <descriptions defaultDescription="SalesDocument"/>
+      </viewAttribute>
+      <viewAttribute id="SalesDocumentItem">
+        <descriptions defaultDescription="SalesDocumentItem"/>
+      </viewAttribute>
+      <viewAttribute id="ShortNote">
+        <descriptions defaultDescription="ShortNote"/>
+      </viewAttribute>
+      <viewAttribute id="StartDate">
+        <descriptions defaultDescription="StartDate"/>
+      </viewAttribute>
+      <viewAttribute id="TaskLevel">
+        <descriptions defaultDescription="TaskLevel"/>
+      </viewAttribute>
+      <viewAttribute id="TaskType">
+        <descriptions defaultDescription="TaskType"/>
+      </viewAttribute>
+      <viewAttribute id="TaskWork">
+        <descriptions defaultDescription="TaskWork"/>
+      </viewAttribute>
+      <viewAttribute id="TravelTasklevel">
+        <descriptions defaultDescription="TravelTasklevel"/>
+      </viewAttribute>
+      <viewAttribute id="SALESDOCUMENTITEM_INT_1" aggregationType="sum">
+        <descriptions defaultDescription="SALESDOCUMENTITEM_INT_1"/>
+      </viewAttribute>
+    
+      <viewAttribute id="ENDDATE_YEAR">
+        <descriptions defaultDescription="ENDDATE_YEAR"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="REMAININGDAYS" datatype="INTEGER" expressionLanguage="SQL">
+        <formula>&quot;EstimatedActivityDays&quot; - &quot;RecordedActivityDays&quot;</formula>
+      </calculatedViewAttribute>
+    
+      <calculatedViewAttribute id="ENDDATE_COMPLETE" datatype="INTEGER" expressionLanguage="COLUMN_ENGINE">
+    
+        <formula>if(&quot;EndDate_1&quot; &gt; now(),0,1)</formula>
+    
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <restrictedViewAttributes/>
+    <input node="Join_1">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CONTRACT_ADJUSTED" source="CONTRACT_ADJUSTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CRMCUSTOMERID" source="CRMCUSTOMERID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CRMSOID" source="CRMSOID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESDOCUMENTITEM_INT" source="SALESDOCUMENTITEM_INT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="Description" source="Description"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="STATUS" source="STATUS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="REQDELDATEMONTHN" source="REQDELDATEMONTHN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="EndDate" source="EndDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CITEM_ADJUSTED" source="CITEM_ADJUSTED"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DayWeight" source="DayWeight"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DELIVERY_YEAR_D" source="DELIVERY_YEAR_D"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CompanyCode" source="CompanyCode"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="EndDate_1" source="EndDate_1"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="EstimatedActivityDays" source="EstimatedActivityDays"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="EstimatedTravelHours" source="EstimatedTravelHours"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LoadDate" source="LoadDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NameOfEmployeeOrApplicants" source="NameOfEmployeeOrApplicants"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PersonelNumber" source="PersonelNumber"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RecordedActivityDays" source="RecordedActivityDays"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="RecordedTravelHours" source="RecordedTravelHours"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SalesDocument" source="SalesDocument"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SalesDocumentItem" source="SalesDocumentItem"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ShortNote" source="ShortNote"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="StartDate" source="StartDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TaskLevel" source="TaskLevel"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TaskType" source="TaskType"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TaskWork" source="TaskWork"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TravelTasklevel" source="TravelTasklevel"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SALESDOCUMENTITEM_INT_1" source="SALESDOCUMENTITEM_INT_1"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="ENDDATE_YEAR" source="ENDDATE_YEAR"/>
+    </input>
+    <filter>&quot;DELIVERY_YEAR_D&quot; = $$DELIVERY_YEAR$$ and &quot;ENDDATE_YEAR&quot; = $$DELIVERY_YEAR$$</filter>
+  </calculationView>
+</calculationViews>
+<logicalModel id="DELIVERY_YEAR">
+  <attributes>
+    <attribute id="CONTRACT_ADJUSTED" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CONTRACT_ADJUSTED"/>
+      <keyMapping columnObjectName="DELIVERY_YEAR" columnName="CONTRACT_ADJUSTED"/>
+    </attribute>
+    <attribute id="CRMCUSTOMERID" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CRMCUSTOMERID"/>
+      <keyMapping columnObjectName="DELIVERY_YEAR" columnName="CRMCUSTOMERID"/>
+    </attribute>
+    <attribute id="CRMSOID" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CRMSOID"/>
+      <keyMapping columnObjectName="DELIVERY_YEAR" columnName="CRMSOID"/>
+    </attribute>
+    <attribute id="SALESDOCUMENTITEM_INT" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SALESDOCUMENTITEM_INT"/>
+      <keyMapping columnObjectName="DELIVERY_YEAR" columnName="SALESDOCUMENTITEM_INT"/>
+    </attribute>
+    <attribute id="Description" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Description"/>
+      <keyMapping columnObjectName="DELIVERY_YEAR" columnName="Description"/>
+    </attribute>
+    <attribute id="STATUS" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="STATUS"/>
+      <keyMapping columnObjectName="DELIVERY_YEAR" columnName="STATUS"/>
+    </attribute>
+    <attribute id="REQDELDATEMONTHN" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="REQDELDATEMONTHN"/>
+      <keyMapping columnObjectName="DELIVERY_YEAR" columnName="REQDELDATEMONTHN"/>
+    </attribute>
+    <attribute id="EndDate" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EndDate"/>
+      <keyMapping columnObjectName="DELIVERY_YEAR" columnName="EndDate"/>
+    </attribute>
+    <attribute id="CITEM_ADJUSTED" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CITEM_ADJUSTED"/>
+      <keyMapping columnObjectName="DELIVERY_YEAR" columnName="CITEM_ADJUSTED"/>
+    </attribute>
+    <attribute id="DayWeight" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DayWeight"/>
+      <keyMapping columnObjectName="DELIVERY_YEAR" columnName="DayWeight"/>
+    </attribute>
+    <attribute id="DELIVERY_YEAR_D" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DELIVERY_YEAR_D"/>
+      <keyMapping columnObjectName="DELIVERY_YEAR" columnName="DELIVERY_YEAR_D"/>
+    </attribute>
+    <attribute id="CompanyCode" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CompanyCode"/>
+      <keyMapping columnObjectName="DELIVERY_YEAR" columnName="CompanyCode"/>
+    </attribute>
+    <attribute id="EndDate_1" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EndDate_1"/>
+      <keyMapping columnObjectName="DELIVERY_YEAR" columnName="EndDate_1"/>
+    </attribute>
+    <attribute id="EstimatedActivityDays" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EstimatedActivityDays"/>
+      <keyMapping columnObjectName="DELIVERY_YEAR" columnName="EstimatedActivityDays"/>
+    </attribute>
+    <attribute id="EstimatedTravelHours" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="EstimatedTravelHours"/>
+      <keyMapping columnObjectName="DELIVERY_YEAR" columnName="EstimatedTravelHours"/>
+    </attribute>
+    <attribute id="LoadDate" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LoadDate"/>
+      <keyMapping columnObjectName="DELIVERY_YEAR" columnName="LoadDate"/>
+    </attribute>
+    <attribute id="NameOfEmployeeOrApplicants" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NameOfEmployeeOrApplicants"/>
+      <keyMapping columnObjectName="DELIVERY_YEAR" columnName="NameOfEmployeeOrApplicants"/>
+    </attribute>
+    <attribute id="PersonelNumber" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PersonelNumber"/>
+      <keyMapping columnObjectName="DELIVERY_YEAR" columnName="PersonelNumber"/>
+    </attribute>
+    <attribute id="RecordedActivityDays" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="RecordedActivityDays"/>
+      <keyMapping columnObjectName="DELIVERY_YEAR" columnName="RecordedActivityDays"/>
+    </attribute>
+    <attribute id="RecordedTravelHours" order="20" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="RecordedTravelHours"/>
+      <keyMapping columnObjectName="DELIVERY_YEAR" columnName="RecordedTravelHours"/>
+    </attribute>
+    <attribute id="SalesDocument" order="21" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SalesDocument"/>
+      <keyMapping columnObjectName="DELIVERY_YEAR" columnName="SalesDocument"/>
+    </attribute>
+    <attribute id="SalesDocumentItem" order="22" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SalesDocumentItem"/>
+      <keyMapping columnObjectName="DELIVERY_YEAR" columnName="SalesDocumentItem"/>
+    </attribute>
+    <attribute id="ShortNote" order="23" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ShortNote"/>
+      <keyMapping columnObjectName="DELIVERY_YEAR" columnName="ShortNote"/>
+    </attribute>
+    <attribute id="StartDate" order="24" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="StartDate"/>
+      <keyMapping columnObjectName="DELIVERY_YEAR" columnName="StartDate"/>
+    </attribute>
+    <attribute id="TaskLevel" order="25" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TaskLevel"/>
+      <keyMapping columnObjectName="DELIVERY_YEAR" columnName="TaskLevel"/>
+    </attribute>
+    <attribute id="TaskType" order="26" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TaskType"/>
+      <keyMapping columnObjectName="DELIVERY_YEAR" columnName="TaskType"/>
+    </attribute>
+    <attribute id="TaskWork" order="27" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TaskWork"/>
+      <keyMapping columnObjectName="DELIVERY_YEAR" columnName="TaskWork"/>
+    </attribute>
+    <attribute id="TravelTasklevel" order="28" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TravelTasklevel"/>
+      <keyMapping columnObjectName="DELIVERY_YEAR" columnName="TravelTasklevel"/>
+    </attribute>
+    <attribute id="SALESDOCUMENTITEM_INT_1" order="29" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SALESDOCUMENTITEM_INT_1"/>
+      <keyMapping columnObjectName="DELIVERY_YEAR" columnName="SALESDOCUMENTITEM_INT_1"/>
+    </attribute>
+  
+    <attribute id="ENDDATE_YEAR" order="30" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ENDDATE_YEAR"/>
+  
+      <keyMapping columnObjectName="DELIVERY_YEAR" columnName="ENDDATE_YEAR"/>
+  
+    </attribute>
+  
+    <attribute id="REMAININGDAYS" order="31" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="REMAININGDAYS"/>
+  
+      <keyMapping columnObjectName="DELIVERY_YEAR" columnName="REMAININGDAYS"/>
+  
+    </attribute>
+    <attribute id="ENDDATE_COMPLETE" order="32" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ENDDATE_COMPLETE"/>
+      <keyMapping columnObjectName="DELIVERY_YEAR" columnName="ENDDATE_COMPLETE"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="PresentationView" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="11" y="420"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape expanded="true" modelObjectName="ZVZCRawTable" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="346" y="537"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="282"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="PresentationView" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="18" y="15"/>
+      <rectangleSize width="259"/>
+    </shape>
+    <shape modelObjectName="Join_2" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="318" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_2" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="206" y="365"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="ZVZCRawTable_copy" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="ZVZCMaxLoadDate" modelObjectNameSpace="Join_2" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="ZVZCRawTable_copy" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="160" y="540"/>
+      <rectangleSize width="140"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="ZVZCMaxLoadDate" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="341" y="459"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="DELIVERY_YEAR" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="198"/>
+      <rectangleSize height="30" width="140"/>
+    </shape></shapes>
+</layout>
+</Calculation:scenario>

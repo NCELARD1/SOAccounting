@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="SOAccounting_HANAXSA.soAccountingDB.views::FORECAST_LatestByLineItem" applyPrivilegeType="NONE" dataCategory="DEFAULT" schemaVersion="3.0" defaultClient="$$client$$" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="FORECAST_LatestByLineItem"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="SOAccounting_HANAXSA.soAccountingDB::FORECAST.tblManualForecastFlat">
+    <resourceUri>SOAccounting_HANAXSA.soAccountingDB::FORECAST.tblManualForecastFlat</resourceUri>
+  </DataSource>
+  <DataSource id="RAW_FORECAST$$$$SOAccounting_HANAXSA.soAccountingDB::FORECAST.tblManualForecastFlat$$">
+    <resourceUri>SOAccounting_HANAXSA.soAccountingDB::FORECAST.tblManualForecastFlat</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:AggregationView" id="MaxDate">
+    <viewAttributes>
+      <viewAttribute id="ForecastDate" aggregationType="max">
+        <descriptions defaultDescription="ForecastDate"/>
+      </viewAttribute>
+    
+      <viewAttribute id="ContractItemID">
+        <descriptions defaultDescription="ContractItemID"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="SOAccounting_HANAXSA.soAccountingDB::FORECAST.tblManualForecastFlat">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ForecastDate" source="ForecastDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ContractItemID" source="ContractItemID"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:ProjectionView" id="RAW_FORECAST">
+    <viewAttributes>
+      <viewAttribute id="ContractID" aggregationType="sum">
+        <descriptions defaultDescription="ContractID"/>
+      </viewAttribute>
+      <viewAttribute id="ContractItemID">
+        <descriptions defaultDescription="ContractItemID"/>
+      </viewAttribute>
+      <viewAttribute id="ItemID" aggregationType="sum">
+        <descriptions defaultDescription="ItemID"/>
+      </viewAttribute>
+      <viewAttribute id="ForecastDate">
+        <descriptions defaultDescription="ForecastDate"/>
+      </viewAttribute>
+      <viewAttribute id="ForecastID" aggregationType="sum">
+        <descriptions defaultDescription="ForecastID"/>
+      </viewAttribute>
+      <viewAttribute id="AprHigh" aggregationType="sum">
+        <descriptions defaultDescription="AprHigh"/>
+      </viewAttribute>
+      <viewAttribute id="AprLow" aggregationType="sum">
+        <descriptions defaultDescription="AprLow"/>
+      </viewAttribute>
+      <viewAttribute id="AprMed" aggregationType="sum">
+        <descriptions defaultDescription="AprMed"/>
+      </viewAttribute>
+      <viewAttribute id="AugHigh" aggregationType="sum">
+        <descriptions defaultDescription="AugHigh"/>
+      </viewAttribute>
+      <viewAttribute id="AugLow" aggregationType="sum">
+        <descriptions defaultDescription="AugLow"/>
+      </viewAttribute>
+      <viewAttribute id="AugMed" aggregationType="sum">
+        <descriptions defaultDescription="AugMed"/>
+      </viewAttribute>
+      <viewAttribute id="DecHigh" aggregationType="sum">
+        <descriptions defaultDescription="DecHigh"/>
+      </viewAttribute>
+      <viewAttribute id="DecLow" aggregationType="sum">
+        <descriptions defaultDescription="DecLow"/>
+      </viewAttribute>
+      <viewAttribute id="DecMed" aggregationType="sum">
+        <descriptions defaultDescription="DecMed"/>
+      </viewAttribute>
+      <viewAttribute id="FebHigh" aggregationType="sum">
+        <descriptions defaultDescription="FebHigh"/>
+      </viewAttribute>
+      <viewAttribute id="FebLow" aggregationType="sum">
+        <descriptions defaultDescription="FebLow"/>
+      </viewAttribute>
+      <viewAttribute id="FebMed" aggregationType="sum">
+        <descriptions defaultDescription="FebMed"/>
+      </viewAttribute>
+      <viewAttribute id="JanHigh" aggregationType="sum">
+        <descriptions defaultDescription="JanHigh"/>
+      </viewAttribute>
+      <viewAttribute id="JanLow" aggregationType="sum">
+        <descriptions defaultDescription="JanLow"/>
+      </viewAttribute>
+      <viewAttribute id="JanMed" aggregationType="sum">
+        <descriptions defaultDescription="JanMed"/>
+      </viewAttribute>
+      <viewAttribute id="JulHigh" aggregationType="sum">
+        <descriptions defaultDescription="JulHigh"/>
+      </viewAttribute>
+      <viewAttribute id="JulLow" aggregationType="sum">
+        <descriptions defaultDescription="JulLow"/>
+      </viewAttribute>
+      <viewAttribute id="JulMed" aggregationType="sum">
+        <descriptions defaultDescription="JulMed"/>
+      </viewAttribute>
+      <viewAttribute id="JunHigh" aggregationType="sum">
+        <descriptions defaultDescription="JunHigh"/>
+      </viewAttribute>
+      <viewAttribute id="JunLow" aggregationType="sum">
+        <descriptions defaultDescription="JunLow"/>
+      </viewAttribute>
+      <viewAttribute id="JunMed" aggregationType="sum">
+        <descriptions defaultDescription="JunMed"/>
+      </viewAttribute>
+      <viewAttribute id="MarHigh" aggregationType="sum">
+        <descriptions defaultDescription="MarHigh"/>
+      </viewAttribute>
+      <viewAttribute id="MarLow" aggregationType="sum">
+        <descriptions defaultDescription="MarLow"/>
+      </viewAttribute>
+      <viewAttribute id="MarMed" aggregationType="sum">
+        <descriptions defaultDescription="MarMed"/>
+      </viewAttribute>
+      <viewAttribute id="MayHigh" aggregationType="sum">
+        <descriptions defaultDescription="MayHigh"/>
+      </viewAttribute>
+      <viewAttribute id="MayLow" aggregationType="sum">
+        <descriptions defaultDescription="MayLow"/>
+      </viewAttribute>
+      <viewAttribute id="MayMed" aggregationType="sum">
+        <descriptions defaultDescription="MayMed"/>
+      </viewAttribute>
+      <viewAttribute id="NovHigh" aggregationType="sum">
+        <descriptions defaultDescription="NovHigh"/>
+      </viewAttribute>
+      <viewAttribute id="NovLow" aggregationType="sum">
+        <descriptions defaultDescription="NovLow"/>
+      </viewAttribute>
+      <viewAttribute id="NovMed" aggregationType="sum">
+        <descriptions defaultDescription="NovMed"/>
+      </viewAttribute>
+      <viewAttribute id="OctHigh" aggregationType="sum">
+        <descriptions defaultDescription="OctHigh"/>
+      </viewAttribute>
+      <viewAttribute id="OctLow" aggregationType="sum">
+        <descriptions defaultDescription="OctLow"/>
+      </viewAttribute>
+      <viewAttribute id="OctMed" aggregationType="sum">
+        <descriptions defaultDescription="OctMed"/>
+      </viewAttribute>
+      <viewAttribute id="SepHigh" aggregationType="sum">
+        <descriptions defaultDescription="SepHigh"/>
+      </viewAttribute>
+      <viewAttribute id="SepLow" aggregationType="sum">
+        <descriptions defaultDescription="SepLow"/>
+      </viewAttribute>
+      <viewAttribute id="SepMed" aggregationType="sum">
+        <descriptions defaultDescription="SepMed"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="RAW_FORECAST$$$$SOAccounting_HANAXSA.soAccountingDB::FORECAST.tblManualForecastFlat$$">
+      <mapping xsi:type="Calculation:AttributeMapping" target="AprHigh" source="AprHigh"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AprLow" source="AprLow"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AprMed" source="AprMed"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AugHigh" source="AugHigh"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AugLow" source="AugLow"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AugMed" source="AugMed"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ContractID" source="ContractID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ContractItemID" source="ContractItemID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DecHigh" source="DecHigh"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DecLow" source="DecLow"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DecMed" source="DecMed"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FebHigh" source="FebHigh"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FebLow" source="FebLow"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FebMed" source="FebMed"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ForecastDate" source="ForecastDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ForecastID" source="ForecastID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ItemID" source="ItemID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JanHigh" source="JanHigh"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JanLow" source="JanLow"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JanMed" source="JanMed"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JulHigh" source="JulHigh"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JulLow" source="JulLow"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JulMed" source="JulMed"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JunHigh" source="JunHigh"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JunLow" source="JunLow"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JunMed" source="JunMed"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MarHigh" source="MarHigh"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MarLow" source="MarLow"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MarMed" source="MarMed"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MayHigh" source="MayHigh"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MayLow" source="MayLow"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MayMed" source="MayMed"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NovHigh" source="NovHigh"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NovLow" source="NovLow"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NovMed" source="NovMed"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OctHigh" source="OctHigh"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OctLow" source="OctLow"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OctMed" source="OctMed"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SepHigh" source="SepHigh"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SepLow" source="SepLow"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SepMed" source="SepMed"/>
+    </input>
+  </calculationView>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="ContractID" aggregationType="sum">
+        <descriptions defaultDescription="ContractID"/>
+      </viewAttribute>
+      <viewAttribute id="ContractItemID">
+        <descriptions defaultDescription="ContractItemID"/>
+      </viewAttribute>
+      <viewAttribute id="ItemID" aggregationType="sum">
+        <descriptions defaultDescription="ItemID"/>
+      </viewAttribute>
+      <viewAttribute id="ForecastDate">
+        <descriptions defaultDescription="ForecastDate"/>
+      </viewAttribute>
+      <viewAttribute id="ForecastID" aggregationType="sum">
+        <descriptions defaultDescription="ForecastID"/>
+      </viewAttribute>
+      <viewAttribute id="AprHigh" aggregationType="sum">
+        <descriptions defaultDescription="AprHigh"/>
+      </viewAttribute>
+      <viewAttribute id="AprLow" aggregationType="sum">
+        <descriptions defaultDescription="AprLow"/>
+      </viewAttribute>
+      <viewAttribute id="AprMed" aggregationType="sum">
+        <descriptions defaultDescription="AprMed"/>
+      </viewAttribute>
+      <viewAttribute id="AugHigh" aggregationType="sum">
+        <descriptions defaultDescription="AugHigh"/>
+      </viewAttribute>
+      <viewAttribute id="AugLow" aggregationType="sum">
+        <descriptions defaultDescription="AugLow"/>
+      </viewAttribute>
+      <viewAttribute id="AugMed" aggregationType="sum">
+        <descriptions defaultDescription="AugMed"/>
+      </viewAttribute>
+      <viewAttribute id="DecHigh" aggregationType="sum">
+        <descriptions defaultDescription="DecHigh"/>
+      </viewAttribute>
+      <viewAttribute id="DecLow" aggregationType="sum">
+        <descriptions defaultDescription="DecLow"/>
+      </viewAttribute>
+      <viewAttribute id="DecMed" aggregationType="sum">
+        <descriptions defaultDescription="DecMed"/>
+      </viewAttribute>
+      <viewAttribute id="FebHigh" aggregationType="sum">
+        <descriptions defaultDescription="FebHigh"/>
+      </viewAttribute>
+      <viewAttribute id="FebLow" aggregationType="sum">
+        <descriptions defaultDescription="FebLow"/>
+      </viewAttribute>
+      <viewAttribute id="FebMed" aggregationType="sum">
+        <descriptions defaultDescription="FebMed"/>
+      </viewAttribute>
+      <viewAttribute id="JanHigh" aggregationType="sum">
+        <descriptions defaultDescription="JanHigh"/>
+      </viewAttribute>
+      <viewAttribute id="JanLow" aggregationType="sum">
+        <descriptions defaultDescription="JanLow"/>
+      </viewAttribute>
+      <viewAttribute id="JanMed" aggregationType="sum">
+        <descriptions defaultDescription="JanMed"/>
+      </viewAttribute>
+      <viewAttribute id="JulHigh" aggregationType="sum">
+        <descriptions defaultDescription="JulHigh"/>
+      </viewAttribute>
+      <viewAttribute id="JulLow" aggregationType="sum">
+        <descriptions defaultDescription="JulLow"/>
+      </viewAttribute>
+      <viewAttribute id="JulMed" aggregationType="sum">
+        <descriptions defaultDescription="JulMed"/>
+      </viewAttribute>
+      <viewAttribute id="JunHigh" aggregationType="sum">
+        <descriptions defaultDescription="JunHigh"/>
+      </viewAttribute>
+      <viewAttribute id="JunLow" aggregationType="sum">
+        <descriptions defaultDescription="JunLow"/>
+      </viewAttribute>
+      <viewAttribute id="JunMed" aggregationType="sum">
+        <descriptions defaultDescription="JunMed"/>
+      </viewAttribute>
+      <viewAttribute id="MarHigh" aggregationType="sum">
+        <descriptions defaultDescription="MarHigh"/>
+      </viewAttribute>
+      <viewAttribute id="MarLow" aggregationType="sum">
+        <descriptions defaultDescription="MarLow"/>
+      </viewAttribute>
+      <viewAttribute id="MarMed" aggregationType="sum">
+        <descriptions defaultDescription="MarMed"/>
+      </viewAttribute>
+      <viewAttribute id="MayHigh" aggregationType="sum">
+        <descriptions defaultDescription="MayHigh"/>
+      </viewAttribute>
+      <viewAttribute id="MayLow" aggregationType="sum">
+        <descriptions defaultDescription="MayLow"/>
+      </viewAttribute>
+      <viewAttribute id="MayMed" aggregationType="sum">
+        <descriptions defaultDescription="MayMed"/>
+      </viewAttribute>
+      <viewAttribute id="NovHigh" aggregationType="sum">
+        <descriptions defaultDescription="NovHigh"/>
+      </viewAttribute>
+      <viewAttribute id="NovLow" aggregationType="sum">
+        <descriptions defaultDescription="NovLow"/>
+      </viewAttribute>
+      <viewAttribute id="NovMed" aggregationType="sum">
+        <descriptions defaultDescription="NovMed"/>
+      </viewAttribute>
+      <viewAttribute id="OctHigh" aggregationType="sum">
+        <descriptions defaultDescription="OctHigh"/>
+      </viewAttribute>
+      <viewAttribute id="OctLow" aggregationType="sum">
+        <descriptions defaultDescription="OctLow"/>
+      </viewAttribute>
+      <viewAttribute id="OctMed" aggregationType="sum">
+        <descriptions defaultDescription="OctMed"/>
+      </viewAttribute>
+      <viewAttribute id="SepHigh" aggregationType="sum">
+        <descriptions defaultDescription="SepHigh"/>
+      </viewAttribute>
+      <viewAttribute id="SepLow" aggregationType="sum">
+        <descriptions defaultDescription="SepLow"/>
+      </viewAttribute>
+      <viewAttribute id="SepMed" aggregationType="sum">
+        <descriptions defaultDescription="SepMed"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="RAW_FORECAST">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ContractID" source="ContractID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ContractItemID" source="ContractItemID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ItemID" source="ItemID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ForecastDate" source="ForecastDate"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ForecastID" source="ForecastID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AprHigh" source="AprHigh"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AprLow" source="AprLow"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AprMed" source="AprMed"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AugHigh" source="AugHigh"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AugLow" source="AugLow"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="AugMed" source="AugMed"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DecHigh" source="DecHigh"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DecLow" source="DecLow"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DecMed" source="DecMed"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FebHigh" source="FebHigh"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FebLow" source="FebLow"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="FebMed" source="FebMed"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JanHigh" source="JanHigh"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JanLow" source="JanLow"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JanMed" source="JanMed"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JulHigh" source="JulHigh"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JulLow" source="JulLow"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JulMed" source="JulMed"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JunHigh" source="JunHigh"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JunLow" source="JunLow"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JunMed" source="JunMed"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MarHigh" source="MarHigh"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MarLow" source="MarLow"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MarMed" source="MarMed"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MayHigh" source="MayHigh"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MayLow" source="MayLow"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MayMed" source="MayMed"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NovHigh" source="NovHigh"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NovLow" source="NovLow"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NovMed" source="NovMed"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OctHigh" source="OctHigh"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OctLow" source="OctLow"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="OctMed" source="OctMed"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SepHigh" source="SepHigh"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SepLow" source="SepLow"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="SepMed" source="SepMed"/>
+    </input>
+    <input node="MaxDate">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ContractItemID" source="ContractItemID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ForecastDate" source="ForecastDate"/>
+    </input>
+    <joinAttribute name="ContractItemID"/>
+    <joinAttribute name="ForecastDate"/>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Join_1">
+  <attributes>
+    <attribute id="ContractID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ContractID"/>
+      <keyMapping columnObjectName="Join_1" columnName="ContractID"/>
+    </attribute>
+    <attribute id="ContractItemID" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ContractItemID"/>
+      <keyMapping columnObjectName="Join_1" columnName="ContractItemID"/>
+    </attribute>
+    <attribute id="ItemID" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ItemID"/>
+      <keyMapping columnObjectName="Join_1" columnName="ItemID"/>
+    </attribute>
+    <attribute id="ForecastDate" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ForecastDate"/>
+      <keyMapping columnObjectName="Join_1" columnName="ForecastDate"/>
+    </attribute>
+    <attribute id="ForecastID" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ForecastID"/>
+      <keyMapping columnObjectName="Join_1" columnName="ForecastID"/>
+    </attribute>
+    <attribute id="AprHigh" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="AprHigh"/>
+      <keyMapping columnObjectName="Join_1" columnName="AprHigh"/>
+    </attribute>
+    <attribute id="AprLow" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="AprLow"/>
+      <keyMapping columnObjectName="Join_1" columnName="AprLow"/>
+    </attribute>
+    <attribute id="AprMed" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="AprMed"/>
+      <keyMapping columnObjectName="Join_1" columnName="AprMed"/>
+    </attribute>
+    <attribute id="AugHigh" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="AugHigh"/>
+      <keyMapping columnObjectName="Join_1" columnName="AugHigh"/>
+    </attribute>
+    <attribute id="AugLow" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="AugLow"/>
+      <keyMapping columnObjectName="Join_1" columnName="AugLow"/>
+    </attribute>
+    <attribute id="AugMed" order="11" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="AugMed"/>
+      <keyMapping columnObjectName="Join_1" columnName="AugMed"/>
+    </attribute>
+    <attribute id="DecHigh" order="12" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DecHigh"/>
+      <keyMapping columnObjectName="Join_1" columnName="DecHigh"/>
+    </attribute>
+    <attribute id="DecLow" order="13" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DecLow"/>
+      <keyMapping columnObjectName="Join_1" columnName="DecLow"/>
+    </attribute>
+    <attribute id="DecMed" order="14" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DecMed"/>
+      <keyMapping columnObjectName="Join_1" columnName="DecMed"/>
+    </attribute>
+    <attribute id="FebHigh" order="15" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FebHigh"/>
+      <keyMapping columnObjectName="Join_1" columnName="FebHigh"/>
+    </attribute>
+    <attribute id="FebLow" order="16" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FebLow"/>
+      <keyMapping columnObjectName="Join_1" columnName="FebLow"/>
+    </attribute>
+    <attribute id="FebMed" order="17" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="FebMed"/>
+      <keyMapping columnObjectName="Join_1" columnName="FebMed"/>
+    </attribute>
+    <attribute id="JanHigh" order="18" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="JanHigh"/>
+      <keyMapping columnObjectName="Join_1" columnName="JanHigh"/>
+    </attribute>
+    <attribute id="JanLow" order="19" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="JanLow"/>
+      <keyMapping columnObjectName="Join_1" columnName="JanLow"/>
+    </attribute>
+    <attribute id="JanMed" order="20" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="JanMed"/>
+      <keyMapping columnObjectName="Join_1" columnName="JanMed"/>
+    </attribute>
+    <attribute id="JulHigh" order="21" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="JulHigh"/>
+      <keyMapping columnObjectName="Join_1" columnName="JulHigh"/>
+    </attribute>
+    <attribute id="JulLow" order="22" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="JulLow"/>
+      <keyMapping columnObjectName="Join_1" columnName="JulLow"/>
+    </attribute>
+    <attribute id="JulMed" order="23" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="JulMed"/>
+      <keyMapping columnObjectName="Join_1" columnName="JulMed"/>
+    </attribute>
+    <attribute id="JunHigh" order="24" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="JunHigh"/>
+      <keyMapping columnObjectName="Join_1" columnName="JunHigh"/>
+    </attribute>
+    <attribute id="JunLow" order="25" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="JunLow"/>
+      <keyMapping columnObjectName="Join_1" columnName="JunLow"/>
+    </attribute>
+    <attribute id="JunMed" order="26" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="JunMed"/>
+      <keyMapping columnObjectName="Join_1" columnName="JunMed"/>
+    </attribute>
+    <attribute id="MarHigh" order="27" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MarHigh"/>
+      <keyMapping columnObjectName="Join_1" columnName="MarHigh"/>
+    </attribute>
+    <attribute id="MarLow" order="28" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MarLow"/>
+      <keyMapping columnObjectName="Join_1" columnName="MarLow"/>
+    </attribute>
+    <attribute id="MarMed" order="29" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MarMed"/>
+      <keyMapping columnObjectName="Join_1" columnName="MarMed"/>
+    </attribute>
+    <attribute id="MayHigh" order="30" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MayHigh"/>
+      <keyMapping columnObjectName="Join_1" columnName="MayHigh"/>
+    </attribute>
+    <attribute id="MayLow" order="31" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MayLow"/>
+      <keyMapping columnObjectName="Join_1" columnName="MayLow"/>
+    </attribute>
+    <attribute id="MayMed" order="32" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MayMed"/>
+      <keyMapping columnObjectName="Join_1" columnName="MayMed"/>
+    </attribute>
+    <attribute id="NovHigh" order="33" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NovHigh"/>
+      <keyMapping columnObjectName="Join_1" columnName="NovHigh"/>
+    </attribute>
+    <attribute id="NovLow" order="34" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NovLow"/>
+      <keyMapping columnObjectName="Join_1" columnName="NovLow"/>
+    </attribute>
+    <attribute id="NovMed" order="35" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="NovMed"/>
+      <keyMapping columnObjectName="Join_1" columnName="NovMed"/>
+    </attribute>
+    <attribute id="OctHigh" order="36" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="OctHigh"/>
+      <keyMapping columnObjectName="Join_1" columnName="OctHigh"/>
+    </attribute>
+    <attribute id="OctLow" order="37" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="OctLow"/>
+      <keyMapping columnObjectName="Join_1" columnName="OctLow"/>
+    </attribute>
+    <attribute id="OctMed" order="38" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="OctMed"/>
+      <keyMapping columnObjectName="Join_1" columnName="OctMed"/>
+    </attribute>
+    <attribute id="SepHigh" order="39" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SepHigh"/>
+      <keyMapping columnObjectName="Join_1" columnName="SepHigh"/>
+    </attribute>
+    <attribute id="SepLow" order="40" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SepLow"/>
+      <keyMapping columnObjectName="Join_1" columnName="SepLow"/>
+    </attribute>
+    <attribute id="SepMed" order="41" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SepMed"/>
+      <keyMapping columnObjectName="Join_1" columnName="SepMed"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="100" y="105"/>
+    
+      <rectangleSize width="140"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="MaxDate" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="10" y="303"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape expanded="true" modelObjectName="RAW_FORECAST" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="200" y="331"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="183"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+    <shape modelObjectName="RAW_FORECAST" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+    <shape modelObjectName="MaxDate" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="250"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

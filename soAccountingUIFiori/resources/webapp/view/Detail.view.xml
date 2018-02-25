@@ -1,17 +1,22 @@
-<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:micro="sap.ui.comp.smartmicrochart" controllerName="com.nico.controller.Detail">
-	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:footerbar="sap.ushell.ui.footerbar"
+	xmlns:micro="sap.suite.ui.microchart" controllerName="com.nico.controller.Detail">
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{i18n>detailTitle}"
+		busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
 		<semantic:content>
 			<ObjectHeader id="objectHeader" title="{CustomerName}" number="{ path: 'CustomerID', formatter: '.formatter.integerValue' }"/>
-			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
+			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding" select="onIconSelectChanged">
 				<items>
-					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://expense-report" tooltip="{i18n>detailIconTabBarInfo}">
+					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://expense-report" tooltip="{i18n>detailIconTabBarSummary}" key="1">
 						<content>
-							<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" editable="true" layout="ResponsiveGridLayout" id="__form1111">
+							<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" editable="true"
+								layout="ResponsiveGridLayout" id="__form1111">
 								<sap.ui.layout.form:content>
 									<Toolbar id="summaryToolbar">
 										<Title id="summaryHeader" text="Account Summary"/>
 									</Toolbar>
-									<Table id="CustomerSummary" width="auto" class="sapUiResponsiveMargin" items="{ path: '/CRM_CustomerList', sorter: { path: 'CustomerName', descending: false } }" noDataText="No Data" busyIndicatorDelay="{detailView>/lineItemTableDelay}" growing="true" growingScrollToLoad="true" updateFinished="onUpdateFinished">
+									<Table id="CustomerSummary" width="auto" class="sapUiResponsiveMargin"
+										items="{ path: '/CRM_CustomerList', sorter: { path: 'CustomerName', descending: false } }" noDataText="No Data"
+										busyIndicatorDelay="{detailView>/lineItemTableDelay}" growing="true" growingScrollToLoad="true" updateFinished="onUpdateFinished">
 										<columns>
 											<Column id="nameColumn">
 												<Text text="Period" id="nameColumnTitle"/>
@@ -39,12 +44,14 @@
 									</Table>
 								</sap.ui.layout.form:content>
 							</sap.ui.layout.form:SimpleForm>
-							<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" editable="true" layout="ResponsiveGridLayout" id="__form0">
+							<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" editable="true"
+								layout="ResponsiveGridLayout" id="__form0">
 								<sap.ui.layout.form:content>
 									<Toolbar id="lineItemsToolbar">
 										<Title id="lineItemsHeader" text="{detailView>/lineItemListTitle}"/>
 									</Toolbar>
-									<Table id="lineItemsList" width="auto" items="{CustomerOrders}" updateFinished="onListUpdateFinished" noDataText="{i18n>detailLineItemTableNoDataText}" busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin">
+									<Table id="lineItemsList" width="auto" items="{CustomerOrders}" updateFinished="onListUpdateFinished"
+										noDataText="{i18n>detailLineItemTableNoDataText}" busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin">
 										<headerToolbar/>
 										<columns>
 											<Column>
@@ -67,26 +74,74 @@
 							</sap.ui.layout.form:SimpleForm>
 						</content>
 					</IconTabFilter>
-					<IconTabFilter id="iconTabBarFilter2" icon="sap-icon://future" tooltip="{i18n>detailIconTabBarAttachments}">
+					<IconTabFilter id="iconTabBarFilter4" icon="sap-icon://account" tooltip="{i18n>detailIconTabBarEmployeeChaseList}" key="3">
 						<content>
-							<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" editable="true" layout="ResponsiveGridLayout" id="__form1">
+							<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" editable="true"
+								layout="ResponsiveGridLayout" id="__form11111">
 								<sap.ui.layout.form:content>
-									<sap.ui.core:Title text="Forecast" id="__title1"/>
+									<Toolbar id="employeeChaseToolbar">
+										<Title id="employeeChaseHeader" text="Employee Chase List"/>
+									</Toolbar>
+									<Table id="EmployeeChaseList" width="auto" class="sapUiResponsiveMargin"
+										items="{ path: 'ECL>/EmployeeChaseList' , sorter: { path: 'ECL>EndDate_1', descending: false }}" noDataText="No Data"
+										busyIndicatorDelay="{detailView>/lineItemTableDelay}" growing="true" growingScrollToLoad="true" updateFinished="onUpdateFinished">
+										<columns>
+											<Column id="enameColumn">
+												<Text text="Employee Name/SO ID" id="enameColumnTitle"/>
+											</Column>
+											<Column id="eendDateColumn" hAlign="End">
+												<Text text="End Date" id="eendDateColumnTitle"/>
+											</Column>
+											<Column id="eEstimatedDaysColumn" hAlign="End">
+												<Text text="Booked" id="eEstimatedDaysColumnTitle"/>
+											</Column>
+											<Column id="eReaminingDaysColumn" hAlign="End">
+												<Text text="Remaining" id="eReaminingDaysColumnTitle"/>
+											</Column>
+										</columns>
+										<items>
+											<ColumnListItem>
+												<cells>
+													<ObjectIdentifier title="{ECL>NameOfEmployeeOrApplicants}" text="{ECL>CRMSOID}/{ECL>SALESDOCUMENTITEM_INT}"/>
+													<ObjectNumber number="{path: 'ECL>EndDate_1', formatter: '.formatter.formatDate'}"
+														state="{= ${ECL>ENDDATE_COMPLETE} &gt; 0 ? 'Error' : 'Success' }"/>
+													<ObjectNumber number="{ path: 'ECL>EstimatedActivityDays', formatter: '.formatter.numberUnit' }" unit="Days"/>
+													<ObjectNumber number="{ path: 'ECL>REMAININGDAYS', formatter: '.formatter.numberUnit'}"
+														state="{= ${ECL>ENDDATE_COMPLETE} &gt; 0 ? 'Error' : 'Success' }" unit="Days"/>
+												</cells>
+											</ColumnListItem>
+										</items>
+									</Table>
+								</sap.ui.layout.form:content>
+							</sap.ui.layout.form:SimpleForm>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter id="iconTabBarFilter2" icon="sap-icon://future" tooltip="{i18n>detailIconTabBarForecast}" key="2">
+						<content>
+							<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" editable="true"
+								layout="ResponsiveGridLayout" id="__form1">
+								<sap.ui.layout.form:content>
+									<Toolbar id="forecastToolbar">
+										<Title id="forecastHeader" text="Manual Forecast"/>
+									</Toolbar>
 									<Label text="Forecast Date" id="__label5" required="true"/>
 									<DatePicker width="100%" id="__picker0" valueFormat="yyyy.MM.dd" value="{path: 'manualForecastFlat>/ForecastDate'}"/>
 									<Label text="ContractID/ItemID" id="__label93"/>
-									<ComboBox design="Bold" id="ContractItemDropDown" selectionChange="onComboChange" required="true" items="{path:'ACI>/AccountContractList'}" displaySecondaryValues="true">
+									<ComboBox design="Bold" id="ContractItemDropDown" selectionChange="onComboChange" required="true" items="{path:'ACI>/AccountContractList'}"
+										displaySecondaryValues="true">
 										<items>
 											<sap.ui.core:ListItem key="{ACI>CONTRACTITEM_CONCAT}" additionalText="{ACI>CONTRACT_ITEM_CONCAT}" text="{ACI>CONTRACT_ITEM_CONCAT}"/>
 										</items>
 									</ComboBox>
 									<Label text="ContractID/ItemID" id="__label2"/>
 									<Input width="100%" id="__input3" value="{manualForecastFlat>/ContractID}" visible="False"/>
-									<Input width="100%" id="__input4" value="{manualForecastFlat>/ItemID}" visible="False"/>									
+									<Input width="100%" id="__input4" value="{manualForecastFlat>/ItemID}" visible="False"/>
 									<Label text="" id="__label6" visible="False"/>
-									<Button type="Accept" width="100%" text="Submit Forecast" press="callUserService" ariaDescribedBy="defaultButtonDescription genericButtonDescription"/>
+									<Button type="Accept" width="100%" text="Submit Forecast" press="callUserService"
+										ariaDescribedBy="defaultButtonDescription genericButtonDescription"/>
 									<Label text="Month" id="__label4" visible="False"/>
-									<ActionSelect selectedItem="Element sap.ui.core.ListItem#__item5" selectedKey="{manualForecast>/Month}" selectedItemId="__month1" id="__select1" visible="False">
+									<ActionSelect selectedItem="Element sap.ui.core.ListItem#__item5" selectedKey="{manualForecast>/Month}" selectedItemId="__month1"
+										id="__select1" visible="False">
 										<items>
 											<sap.ui.core:ListItem text="January" key="monthitem1" id="__month1"/>
 											<sap.ui.core:ListItem text="February" key="monthitem2" id="__month2"/>
@@ -104,7 +159,9 @@
 									</ActionSelect>
 								</sap.ui.layout.form:content>
 							</sap.ui.layout.form:SimpleForm>
-							<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" editable="true" layout="ResponsiveGridLayout" id="__form5" labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false">
+							<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" editable="true"
+								layout="ResponsiveGridLayout" id="__form5" labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false"
+								emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false">
 								<sap.ui.layout.form:content>
 									<Panel>
 										<FlexBox renderType="Div" direction="Column">
@@ -326,6 +383,76 @@
 											</items>
 										</FlexBox>
 									</Panel>
+								</sap.ui.layout.form:content>
+							</sap.ui.layout.form:SimpleForm>
+						</content>
+					</IconTabFilter>
+					<IconTabFilter id="iconTabBarFilter5" icon="sap-icon://area-chart" tooltip="{i18n>detailIconTabBarChart}" key="5">
+						<content>
+							<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" editable="true"
+								layout="ResponsiveGridLayout" id="__form111111">
+								<sap.ui.layout.form:content>
+									<Toolbar id="chartToolbar">
+										<Title id="chartHeader" text="Actuals vs Forecast"/>
+									</Toolbar>
+									<FlexBox width="30rem" height="20rem" alignItems="Center" justifyContent="SpaceBetween" class="sapUiSmallMargin">
+										<items>
+											<micro:AreaMicroChart isResponsive="true" minXValue="0" maxXValue="100" minYValue="0" maxYValue="100" press="press">
+												<micro:firstXLabel>
+													<micro:AreaMicroChartLabel label="January 1" color="Good"/>
+												</micro:firstXLabel>
+												<micro:lastXLabel>
+													<micro:AreaMicroChartLabel label="December 30" color="Critical"/>
+												</micro:lastXLabel>
+												<micro:firstYLabel>
+													<micro:AreaMicroChartLabel label="0M" color="Good"/>
+												</micro:firstYLabel>
+												<micro:lastYLabel>
+													<micro:AreaMicroChartLabel label="3M" color="Critical"/>
+												</micro:lastYLabel>
+												<micro:chart>
+													<micro:AreaMicroChartItem>
+														<micro:points>
+															<micro:AreaMicroChartPoint x="0" y="0"/>
+															<micro:AreaMicroChartPoint x="30" y="20"/>
+															<micro:AreaMicroChartPoint x="60" y="20"/>
+															<micro:AreaMicroChartPoint x="100" y="80"/>
+														</micro:points>
+													</micro:AreaMicroChartItem>
+												</micro:chart>
+												<micro:target>
+													<micro:AreaMicroChartItem>
+														<micro:points>
+															<micro:AreaMicroChartPoint x="0" y="0"/>
+															<micro:AreaMicroChartPoint x="30" y="30"/>
+															<micro:AreaMicroChartPoint x="60" y="40"/>
+															<micro:AreaMicroChartPoint x="100" y="90"/>
+														</micro:points>
+													</micro:AreaMicroChartItem>
+												</micro:target>
+												<micro:maxThreshold>
+													<micro:AreaMicroChartItem color="Good">
+														<micro:points>
+															<micro:AreaMicroChartPoint x="0" y="0"/>
+															<micro:AreaMicroChartPoint x="30" y="40"/>
+															<micro:AreaMicroChartPoint x="60" y="50"/>
+															<micro:AreaMicroChartPoint x="100" y="100"/>
+														</micro:points>
+													</micro:AreaMicroChartItem>
+												</micro:maxThreshold>
+												<micro:minThreshold>
+													<micro:AreaMicroChartItem color="Error">
+														<micro:points>
+															<micro:AreaMicroChartPoint x="0" y="0"/>
+															<micro:AreaMicroChartPoint x="30" y="20"/>
+															<micro:AreaMicroChartPoint x="60" y="30"/>
+															<micro:AreaMicroChartPoint x="100" y="70"/>
+														</micro:points>
+													</micro:AreaMicroChartItem>
+												</micro:minThreshold>
+											</micro:AreaMicroChart>
+										</items>
+									</FlexBox>
 								</sap.ui.layout.form:content>
 							</sap.ui.layout.form:SimpleForm>
 						</content>

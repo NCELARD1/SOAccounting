@@ -7,7 +7,7 @@
     <variableProperties datatype="INTEGER" mandatory="true">
       <valueDomain type="empty"/>
       <selection multiLine="false" type="Single"/>
-      <defaultRange lowValue="2017"/>
+      <defaultRange lowValue="2018"/>
     </variableProperties>
   </variable>
 </localVariables>
@@ -414,7 +414,7 @@
       <keyCalculation datatype="INTEGER" expressionLanguage="SQL">
         <formula>$$DELIVERY_YEAR$$</formula>
       </keyCalculation>
-      </calculatedAttribute>
+    </calculatedAttribute>
   </calculatedAttributes>
   <baseMeasures/>
   <calculatedMeasures/>
@@ -447,7 +447,7 @@
     </shape>
     <shape modelObjectName="CRMISP_Consolidated_SOs_Updated" modelObjectNameSpace="CRMISP_Consolidated" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="320" y="30"/>
-      <rectangleSize width="259.98046875"/>
+      <rectangleSize width="259"/>
     </shape>
   </shapes>
 </layout>
