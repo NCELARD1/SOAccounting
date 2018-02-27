@@ -6,7 +6,7 @@
 			<ObjectHeader id="objectHeader" title="{CustomerName}" number="{ path: 'CustomerID', formatter: '.formatter.integerValue' }"/>
 			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding" select="onIconSelectChanged">
 				<items>
-					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://expense-report" tooltip="{i18n>detailIconTabBarSummary}" key="1">
+					<IconTabFilter id="iconTabBarFilter5" icon="sap-icon://area-chart" tooltip="{i18n>detailIconTabBarChart}" key="5">
 						<content>
 							<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" editable="true"
 								layout="ResponsiveGridLayout" id="__form1111">
@@ -45,6 +45,75 @@
 								</sap.ui.layout.form:content>
 							</sap.ui.layout.form:SimpleForm>
 							<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" editable="true"
+								layout="ResponsiveGridLayout" id="__form111111">
+								<sap.ui.layout.form:content>
+									<Toolbar id="chartToolbar">
+										<Title id="chartHeader" text="Actuals vs Forecast"/>
+									</Toolbar>
+									<FlexBox width="30rem" height="20rem" alignItems="Center" justifyContent="SpaceBetween" class="sapUiSmallMargin">
+										<items>
+											<micro:AreaMicroChart isResponsive="true" minXValue="0" maxXValue="120" minYValue="0" maxYValue="100" press="press">
+												<micro:firstXLabel>
+													<micro:AreaMicroChartLabel label="January 1" color="Good"/>
+												</micro:firstXLabel>
+												<micro:lastXLabel>
+													<micro:AreaMicroChartLabel label="December 30" color="Critical"/>
+												</micro:lastXLabel>
+												<micro:firstYLabel>
+													<micro:AreaMicroChartLabel label="0M" color="Good"/>
+												</micro:firstYLabel>
+												<micro:lastYLabel>
+													<micro:AreaMicroChartLabel label="3M" color="Critical"/>
+												</micro:lastYLabel>
+												<micro:chart>
+													<micro:AreaMicroChartItem>
+														<micro:points>
+															<micro:AreaMicroChartPoint x="0" y="0"/>
+															<micro:AreaMicroChartPoint x="10" y="9.6"/>
+															<micro:AreaMicroChartPoint x="20" y="15.8"/>
+														</micro:points>
+													</micro:AreaMicroChartItem>
+												</micro:chart>
+												<micro:target>
+													<micro:AreaMicroChartItem>
+														<micro:points>
+															<micro:AreaMicroChartPoint x="0" y="0"/>
+															<micro:AreaMicroChartPoint x="30" y="30"/>
+															<micro:AreaMicroChartPoint x="60" y="40"/>
+															<micro:AreaMicroChartPoint x="120" y="90"/>
+														</micro:points>
+													</micro:AreaMicroChartItem>
+												</micro:target>
+												<micro:maxThreshold>
+													<micro:AreaMicroChartItem color="Good">
+														<micro:points>
+															<micro:AreaMicroChartPoint x="0" y="0"/>
+															<micro:AreaMicroChartPoint x="30" y="40"/>
+															<micro:AreaMicroChartPoint x="60" y="50"/>
+															<micro:AreaMicroChartPoint x="120" y="100"/>
+														</micro:points>
+													</micro:AreaMicroChartItem>
+												</micro:maxThreshold>
+												<micro:minThreshold>
+													<micro:AreaMicroChartItem color="Error">
+														<micro:points>
+															<micro:AreaMicroChartPoint x="0" y="0"/>
+															<micro:AreaMicroChartPoint x="30" y="20"/>
+															<micro:AreaMicroChartPoint x="60" y="30"/>
+															<micro:AreaMicroChartPoint x="120" y="70"/>
+														</micro:points>
+													</micro:AreaMicroChartItem>
+												</micro:minThreshold>
+											</micro:AreaMicroChart>
+										</items>
+									</FlexBox>
+								</sap.ui.layout.form:content>
+							</sap.ui.layout.form:SimpleForm>
+						</content>
+					</IconTabFilter>					
+					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://expense-report" tooltip="{i18n>detailIconTabBarSummary}" key="1">
+						<content>
+							<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" editable="true"
 								layout="ResponsiveGridLayout" id="__form0">
 								<sap.ui.layout.form:content>
 									<Toolbar id="lineItemsToolbar">
@@ -80,11 +149,11 @@
 								layout="ResponsiveGridLayout" id="__form11111">
 								<sap.ui.layout.form:content>
 									<Toolbar id="employeeChaseToolbar">
-										<Title id="employeeChaseHeader" text="Employee Chase List"/>
+										<Title id="employeeChaseHeader" text="{detailView>/EmployeeChaseListTitle}"/>
 									</Toolbar>
 									<Table id="EmployeeChaseList" width="auto" class="sapUiResponsiveMargin"
 										items="{ path: 'ECL>/EmployeeChaseList' , sorter: { path: 'ECL>EndDate_1', descending: false }}" noDataText="No Data"
-										busyIndicatorDelay="{detailView>/lineItemTableDelay}" growing="true" growingScrollToLoad="true" updateFinished="onUpdateFinished">
+										busyIndicatorDelay="{detailView>/lineItemTableDelay}" growing="true" growingScrollToLoad="true" updateFinished="onEmployeeListUpdateFinished">
 										<columns>
 											<Column id="enameColumn">
 												<Text text="Employee Name/SO ID" id="enameColumnTitle"/>
@@ -383,76 +452,6 @@
 											</items>
 										</FlexBox>
 									</Panel>
-								</sap.ui.layout.form:content>
-							</sap.ui.layout.form:SimpleForm>
-						</content>
-					</IconTabFilter>
-					<IconTabFilter id="iconTabBarFilter5" icon="sap-icon://area-chart" tooltip="{i18n>detailIconTabBarChart}" key="5">
-						<content>
-							<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" editable="true"
-								layout="ResponsiveGridLayout" id="__form111111">
-								<sap.ui.layout.form:content>
-									<Toolbar id="chartToolbar">
-										<Title id="chartHeader" text="Actuals vs Forecast"/>
-									</Toolbar>
-									<FlexBox width="30rem" height="20rem" alignItems="Center" justifyContent="SpaceBetween" class="sapUiSmallMargin">
-										<items>
-											<micro:AreaMicroChart isResponsive="true" minXValue="0" maxXValue="100" minYValue="0" maxYValue="100" press="press">
-												<micro:firstXLabel>
-													<micro:AreaMicroChartLabel label="January 1" color="Good"/>
-												</micro:firstXLabel>
-												<micro:lastXLabel>
-													<micro:AreaMicroChartLabel label="December 30" color="Critical"/>
-												</micro:lastXLabel>
-												<micro:firstYLabel>
-													<micro:AreaMicroChartLabel label="0M" color="Good"/>
-												</micro:firstYLabel>
-												<micro:lastYLabel>
-													<micro:AreaMicroChartLabel label="3M" color="Critical"/>
-												</micro:lastYLabel>
-												<micro:chart>
-													<micro:AreaMicroChartItem>
-														<micro:points>
-															<micro:AreaMicroChartPoint x="0" y="0"/>
-															<micro:AreaMicroChartPoint x="30" y="20"/>
-															<micro:AreaMicroChartPoint x="60" y="20"/>
-															<micro:AreaMicroChartPoint x="100" y="80"/>
-														</micro:points>
-													</micro:AreaMicroChartItem>
-												</micro:chart>
-												<micro:target>
-													<micro:AreaMicroChartItem>
-														<micro:points>
-															<micro:AreaMicroChartPoint x="0" y="0"/>
-															<micro:AreaMicroChartPoint x="30" y="30"/>
-															<micro:AreaMicroChartPoint x="60" y="40"/>
-															<micro:AreaMicroChartPoint x="100" y="90"/>
-														</micro:points>
-													</micro:AreaMicroChartItem>
-												</micro:target>
-												<micro:maxThreshold>
-													<micro:AreaMicroChartItem color="Good">
-														<micro:points>
-															<micro:AreaMicroChartPoint x="0" y="0"/>
-															<micro:AreaMicroChartPoint x="30" y="40"/>
-															<micro:AreaMicroChartPoint x="60" y="50"/>
-															<micro:AreaMicroChartPoint x="100" y="100"/>
-														</micro:points>
-													</micro:AreaMicroChartItem>
-												</micro:maxThreshold>
-												<micro:minThreshold>
-													<micro:AreaMicroChartItem color="Error">
-														<micro:points>
-															<micro:AreaMicroChartPoint x="0" y="0"/>
-															<micro:AreaMicroChartPoint x="30" y="20"/>
-															<micro:AreaMicroChartPoint x="60" y="30"/>
-															<micro:AreaMicroChartPoint x="100" y="70"/>
-														</micro:points>
-													</micro:AreaMicroChartItem>
-												</micro:minThreshold>
-											</micro:AreaMicroChart>
-										</items>
-									</FlexBox>
 								</sap.ui.layout.form:content>
 							</sap.ui.layout.form:SimpleForm>
 						</content>

@@ -90,42 +90,8 @@ sap.ui.define([
 			this.oLocalManualForecastFlatModel = new sap.ui.model.json.JSONModel(oLocalManualForecastFlatData);
 			this.getView().setModel(this.oLocalManualForecastFlatModel, "manualForecastFlat");
 
-			//			this.oTop3ForecastModel = new sap.ui.model.json.JSONModel("top3");
-			//			this.oACIModel = new sap.ui.model.json.JSONModel();
-			//		this.oACIModel = this.getOwnerComponent().getModel("ACI");
-			//		var alpha = this.oACIModel.odata;
-
-			//			this.getView().setModel(this.oTop3ForecastModel, "top3View");
-
-			//			var oTable = this.getView().byId("DetailForecast");
-			//			var bpModel = this.getOwnerComponent().getModel("bpModel");
-			//			oTable.setModel(oTop3ForecastModel);
-
-			//			this.oACIModel = new sap.ui.model.json.JSONModel("ACI");
-
-			//			this.getView().setModel(this.oACIModel, "top3View");
-
-			//		var oCombo = this.getView().byId("__combi1");
-			//			var bpModel = this.getOwnerComponent().getModel("bpModel");
-			//		oCombo.setModel(this.oACIModel);
-
-			var oModel = new sap.ui.model.json.JSONModel();
-			// define data for that model
-			oModel.setData({
-				test: "Test",
-				enabled: true
-			});
-
-			// define a name for that model
-			sap.ui.getCore().setModel(oModel, "myModel");
-
 			this.getView().setModel(this.getOwnerComponent().getModel("ACI"), "ACI");
 
-			var data = {
-				languages: [{
-					"name": "German"
-				}]
-			};
 		},
 
 		/* =========================================================== */
@@ -186,7 +152,29 @@ sap.ui.define([
 				oViewModel.setProperty("/lineItemListTitle", sTitle);
 			}
 		},
+		
+		/**
+		 * Updates the item count within the line item table's header
+		 * @param {object} oEvent an event containing the total number of items in the list
+		 * @private
+		 */
+		onEmployeeListUpdateFinished: function(oEvent) {
+			var sTitle,
+				iTotalItems = oEvent.getParameter("total"),
+				oViewModel = this.getModel("detailView");
 
+			// only update the counter if the length is final
+			if (this.byId("EmployeeChaseList").getBinding("items").isLengthFinal()) {
+				if (iTotalItems) {
+					sTitle = this.getResourceBundle().getText("detailEmployeeTableHeadingCount", [iTotalItems]);
+				} else {
+					//Display 'Line Items' instead of 'Line items (0)'
+					sTitle = this.getResourceBundle().getText("detailEmployeeTableHeading");
+				}
+				oViewModel.setProperty("/EmployeeChaseListTitle", sTitle);
+			}
+		},
+		
 		/**
 		 * Event handler when a table item gets pressed
 		 * @param {sap.ui.base.Event} oEvent the table selectionChange event
@@ -283,7 +271,7 @@ sap.ui.define([
 			});
 
 			var aUrl = '/user/odata/v4/UserData/User';
-			jQuery.ajax({
+			var myInterval0 = setInterval(jQuery.ajax({
 				url: rest_url, //aUrl,
 				method: 'POST',
 				data: JSON.stringify(oEntry),
@@ -302,7 +290,8 @@ sap.ui.define([
 					//	sap.ui.commons.MessageBox.alert("Failure");
 
 				}
-			});
+			}), 10000);
+			clearInterval(myInterval0);
 
 			//			window.location.reload();
 			var rest_url_foreUpd;
