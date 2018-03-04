@@ -255,7 +255,7 @@
 										<FlexBox renderType="Div" direction="Column">
 											<items>
 												<Button text="Committed" type="Emphasized" class="sapUiSmallMarginEnd" width="170px"/>
-												<Input id="iComJan" value="{manualForecastFlat>/JanHigh}" width="auto" class="sapUiSmallMarginEnd">
+												<Input id="iComJan" value="{path: '/CRM_CustomerList(678394)/MANUALFORECASTEDDAYS' }" width="auto" class="sapUiSmallMarginEnd">
 													<layoutData>
 														<FlexItemData growFactor="1"/>
 													</layoutData>

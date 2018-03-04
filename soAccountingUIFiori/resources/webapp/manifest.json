@@ -21,6 +21,14 @@
 					"localUri": "localService/metadata.xml"
 				}
 			},
+			"forecastLatestService": {
+				"uri": "/DisplayForecastLatest.xsodata/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadataForecast.xml"
+				}
+			},
 			"forecastTop3Service": {
 				"uri": "/DisplayForecastTop3.xsodata/",
 				"type": "OData",
@@ -111,6 +119,14 @@
 			},
 			"": {
 				"dataSource": "mainService",
+				"settings": {
+					"metadataUrlParams": {
+						"sap-documentation": "heading"
+					}
+				}
+			},
+			"forecastLatest": {
+				"dataSource": "forecastLatestService",
 				"settings": {
 					"metadataUrlParams": {
 						"sap-documentation": "heading"

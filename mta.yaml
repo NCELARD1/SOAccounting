@@ -71,6 +71,9 @@ modules:
 
  
 
+
+ 
+
 resources:
  - name: hdi-container
    properties:

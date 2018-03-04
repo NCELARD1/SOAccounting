@@ -220,6 +220,11 @@ sap.ui.define([
 			var oList = this.getView().byId("CustomerSummary");
 			var oBinding = oList.getBinding("items");
 			oBinding.filter(aFilter);
+
+			// Bind the latest forecast			
+			var sBindingPath = "/CRM_CustomerList(" + sCustomerID + ")/MANUALFORECASTEDDAYS";
+			this.byId("iComJan").unbindProperty("value");
+			this.byId("iComJan").bindValue(sBindingPath);
 		},
 
 		onNavBack: function() {

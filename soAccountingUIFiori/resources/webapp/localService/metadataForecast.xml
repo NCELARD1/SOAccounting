@@ -1,0 +1,61 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0">
+    <edmx:DataServices
+        xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="2.0">
+        <Schema
+            xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices"
+            xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="default">
+            <EntityType Name="ForecastLatestType">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="2147483647"/>
+                <Property Name="ContractID" Type="Edm.Int32"/>
+                <Property Name="ContractItemID" Type="Edm.String" MaxLength="30"/>
+                <Property Name="ItemID" Type="Edm.Int32"/>
+                <Property Name="ForecastDate" Type="Edm.String" MaxLength="20"/>
+                <Property Name="ForecastID" Type="Edm.Int32"/>
+                <Property Name="AprHigh" Type="Edm.Double"/>
+                <Property Name="AprLow" Type="Edm.Double"/>
+                <Property Name="AprMed" Type="Edm.Double"/>
+                <Property Name="AugHigh" Type="Edm.Double"/>
+                <Property Name="AugLow" Type="Edm.Double"/>
+                <Property Name="AugMed" Type="Edm.Double"/>
+                <Property Name="DecHigh" Type="Edm.Double"/>
+                <Property Name="DecLow" Type="Edm.Double"/>
+                <Property Name="DecMed" Type="Edm.Double"/>
+                <Property Name="FebHigh" Type="Edm.Double"/>
+                <Property Name="FebLow" Type="Edm.Double"/>
+                <Property Name="FebMed" Type="Edm.Double"/>
+                <Property Name="JanHigh" Type="Edm.Double"/>
+                <Property Name="JanLow" Type="Edm.Double"/>
+                <Property Name="JanMed" Type="Edm.Double"/>
+                <Property Name="JulHigh" Type="Edm.Double"/>
+                <Property Name="JulLow" Type="Edm.Double"/>
+                <Property Name="JulMed" Type="Edm.Double"/>
+                <Property Name="JunHigh" Type="Edm.Double"/>
+                <Property Name="JunLow" Type="Edm.Double"/>
+                <Property Name="JunMed" Type="Edm.Double"/>
+                <Property Name="MarHigh" Type="Edm.Double"/>
+                <Property Name="MarLow" Type="Edm.Double"/>
+                <Property Name="MarMed" Type="Edm.Double"/>
+                <Property Name="MayHigh" Type="Edm.Double"/>
+                <Property Name="MayLow" Type="Edm.Double"/>
+                <Property Name="MayMed" Type="Edm.Double"/>
+                <Property Name="NovHigh" Type="Edm.Double"/>
+                <Property Name="NovLow" Type="Edm.Double"/>
+                <Property Name="NovMed" Type="Edm.Double"/>
+                <Property Name="OctHigh" Type="Edm.Double"/>
+                <Property Name="OctLow" Type="Edm.Double"/>
+                <Property Name="OctMed" Type="Edm.Double"/>
+                <Property Name="SepHigh" Type="Edm.Double"/>
+                <Property Name="SepLow" Type="Edm.Double"/>
+                <Property Name="SepMed" Type="Edm.Double"/>
+            </EntityType>
+            <EntityContainer Name="v2" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="ForecastLatest" EntityType="default.ForecastLatestType"/>
+            </EntityContainer>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
