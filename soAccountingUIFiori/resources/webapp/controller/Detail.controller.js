@@ -152,7 +152,7 @@ sap.ui.define([
 				oViewModel.setProperty("/lineItemListTitle", sTitle);
 			}
 		},
-		
+
 		/**
 		 * Updates the item count within the line item table's header
 		 * @param {object} oEvent an event containing the total number of items in the list
@@ -174,7 +174,7 @@ sap.ui.define([
 				oViewModel.setProperty("/EmployeeChaseListTitle", sTitle);
 			}
 		},
-		
+
 		/**
 		 * Event handler when a table item gets pressed
 		 * @param {sap.ui.base.Event} oEvent the table selectionChange event
@@ -207,6 +207,21 @@ sap.ui.define([
 			oBinding.filter(aFilter);
 		},
 
+		onFilterComboContractItems: function(sCustomerID) {
+
+			// build filter array
+			var aFilter = [];
+			//			var sQuery = oEvent.getSource();
+			//			if (sQuery) {
+			aFilter.push(new Filter("CRMCUSTOMERID", FilterOperator.Contains, "'" + sCustomerID + "'"));
+			//			}
+
+			// filter binding
+			var oList = this.getView().byId("ContractItemDropDown");
+			var oBinding = oList.getBinding("items");
+			oBinding.filter(aFilter);
+		},
+
 		onFilterSummary: function(sCustomerID) {
 
 			// build filter array
@@ -225,6 +240,9 @@ sap.ui.define([
 			var sBindingPath = "/CRM_CustomerList(" + sCustomerID + ")/MANUALFORECASTEDDAYS";
 			this.byId("iComJan").unbindProperty("value");
 			this.byId("iComJan").bindValue(sBindingPath);
+			
+			// Bind the combo contract/items	
+			this.onFilterComboContractItems(sCustomerID);
 		},
 
 		onNavBack: function() {
@@ -382,7 +400,7 @@ sap.ui.define([
 					sap.ui.commons.MessageBox.alert(oThis.getView().getModel("i18n").getProperty("TAB_NOT_UPDATED"));
 					oTable.bindItems("/");
 				}
-				
+
 			}), 10000);
 			clearInterval(myInterval);
 			window.location.reload();
@@ -402,10 +420,10 @@ sap.ui.define([
 		onIconSelectChanged: function(oEvent) {
 			var key = oEvent.getParameters().key;
 			if (key === '1') {
-//				alert("Click Test1");
+				//				alert("Click Test1");
 				this._onBindingChange();
 			} else if (key === '2') {
-//				alert("Click Test2");
+				//				alert("Click Test2");
 			}
 		},
 
