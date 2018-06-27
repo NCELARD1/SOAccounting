@@ -36,13 +36,8 @@ sap.ui.define([
 				// Grouping only works if the list is primary sorted by the grouping - the first sorten contains a grouper function
 				this._oViewModel.setProperty("/groupBy", "None");
 			}
-			
-			if (sKey === "RECORDEDDAYSCORRECTED") {
-				return [new Sorter(sKey, true)]; 
-			}
-			else {
-				return [new Sorter(sKey, false)]; 
-			}
+
+			return [new Sorter(sKey, false)];
 		},
 
 		/**
@@ -54,12 +49,12 @@ sap.ui.define([
 		group: function (sKey) {
 			var aSorters = [];
 
-			if (sKey === "RECORDEDDAYSCORRECTED") {
+			if (sKey === "CustomerID") {
 				// Grouping means sorting so we set the select to the same Entity used for grouping
-				this._oViewModel.setProperty("/sortBy", "RECORDEDDAYSCORRECTED");
+				this._oViewModel.setProperty("/sortBy", "CustomerID");
 
 				aSorters.push(
-					new Sorter("RECORDEDDAYSCORRECTED", false,
+					new Sorter("CustomerID", false,
 						this._fnGroupFunction.bind(this))
 				);
 			} else if (sKey === "None") {

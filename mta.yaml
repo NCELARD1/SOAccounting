@@ -74,6 +74,20 @@ modules:
 
  
 
+
+ 
+
+
+ - name: test
+   type: html5
+   path: test
+   requires:
+    - name: soAccountingJS_api
+      group: destinations
+      properties:
+         name: soAccountingJS_be
+         url: ~{service_url}
+
 resources:
  - name: hdi-container
    properties:

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<flowgraph:ContainerNode xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:flowgraph="http://www.sap.com/ndb/flowgraph/1.0" xmi:id="ad01e89209de389c6f26bb70e8baff67" name="TEST_LoadDummyCustomerSummary" runtimeBehavior="BATCH_TASK">
+<flowgraph:ContainerNode xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:flowgraph="http://www.sap.com/ndb/flowgraph/1.0" xmi:version="2.0" xmi:id="ad01e89209de389c6f26bb70e8baff67" name="TEST_LoadDummyCustomerSummary" runtimeBehavior="BATCH_TASK">
   <annotations key="sap.afm.layout" xmi:id="71d3dd538f89c797307f7b9a55bfe239">
     <annotations xmi:id="ffc505e0d52b2c8d8fdda10bcddb98bc" key="x" value="10">
     </annotations>
@@ -11,8 +11,7 @@
     </annotations>
   </annotations>
   <annotations xmi:id="51df9e26f905b053cb7eccc0229f2cf5" key="sap.afm.palette">
-    <annotations xmi:id="636cf4249c6489e16ebd5793feb2db89" key="additions" value="">
-    </annotations>
+    <annotations xmi:id="636cf4249c6489e16ebd5793feb2db89" key="additions" value=""/>
   </annotations>
   <annotations xmi:id="0fb3be68135ea2afa1c45f0de5ebd479" key="sap.afm.nodeType" value="ContainerNode">
   </annotations>
@@ -123,8 +122,7 @@
       <attributes xmi:id="5ecdeb244212e26aca1a57288f143c18" name="CustomerName" type="NVARCHAR" nullable="true" length="100">
       </attributes>
       <attributes xmi:id="f1b17bfaf5275185f1ef55735e07f34a" name="CustomerID" type="INTEGER" nullable="false" length="10">
-        <annotations xmi:id="deb19fb99a73b401778cf0521521854c" key="sap.im.primaryKey" value="true">
-        </annotations>
+        <annotations xmi:id="deb19fb99a73b401778cf0521521854c" key="sap.im.primaryKey" value="true"/>
       </attributes>
       <attributes xmi:id="78131194b2c6788a32270468de11070c" name="TARGETDAYSCORRECTED" type="INTEGER" nullable="true" length="10">
       </attributes>

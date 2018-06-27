@@ -16,7 +16,7 @@ context FORECAST {
         key ContractID     : Integer;
         key ItemID         : Integer;
             ContractItemID : String(30);
-        key ForecastDate   : String(20);
+            ForecastDate   : String(20);
             JanHigh        : Double;
             FebHigh        : Double;
             MarHigh        : Double;

@@ -258,32 +258,26 @@
     </annotations>
     <inputs xmi:id="4dbb0248c3278f09334eff6278114dac" name="DataTarget">
       <attributes xmi:id="123632ad42139d49a29f2347c8a4f8c8" name="LoadDate" type="DATE" nullable="true">
-        <annotations xmi:id="23bf289d543a914b6d3e73f8ab3818fe" key="sap.im.primaryKey" value="true">
-        </annotations>
+        <annotations xmi:id="23bf289d543a914b6d3e73f8ab3818fe" key="sap.im.primaryKey" value="true"/>
       </attributes>
       <attributes xmi:id="56d0e45aa580716a766789bde81a279c" name="SalesDocument" type="INTEGER" nullable="true">
-        <annotations xmi:id="a522d90afd99ea6907e0cdbf00491107" key="sap.im.primaryKey" value="true">
-        </annotations>
+        <annotations xmi:id="a522d90afd99ea6907e0cdbf00491107" key="sap.im.primaryKey" value="true"/>
       </attributes>
       <attributes xmi:id="4cd89266771381ab7531beeb7f860d01" name="SalesDocumentItem" type="NVARCHAR" nullable="true" length="100">
-        <annotations xmi:id="570c6b0f58348816667cb4b1d9922461" key="sap.im.primaryKey" value="true">
-        </annotations>
+        <annotations xmi:id="570c6b0f58348816667cb4b1d9922461" key="sap.im.primaryKey" value="true"/>
       </attributes>
       <attributes xmi:id="6ca9e281801d1d6ed9bb17f0f9dd88cc" name="PersonelNumber" type="NVARCHAR" nullable="true" length="100">
       </attributes>
       <attributes xmi:id="8ebb1167662d71bd55138ad5008734db" name="NameOfEmployeeOrApplicants" type="NVARCHAR" nullable="true" length="100">
-        <annotations xmi:id="eeb6c11dcff131b206c3806d2369e565" key="sap.im.primaryKey" value="true">
-        </annotations>
+        <annotations xmi:id="eeb6c11dcff131b206c3806d2369e565" key="sap.im.primaryKey" value="true"/>
       </attributes>
       <attributes xmi:id="b3b94354750153750274805b02a3475f" name="CompanyCode" type="NVARCHAR" nullable="true" length="100">
       </attributes>
       <attributes xmi:id="0e12942c3682e34414573e04ec0cee9d" name="StartDate" type="DATE" nullable="true">
-        <annotations xmi:id="36bf03b7751a77c1345dbab1f2e808a5" key="sap.im.primaryKey" value="true">
-        </annotations>
+        <annotations xmi:id="36bf03b7751a77c1345dbab1f2e808a5" key="sap.im.primaryKey" value="true"/>
       </attributes>
       <attributes xmi:id="7cdb8fe6846a6667c0b955c8c303e063" name="EndDate" type="DATE" nullable="true">
-        <annotations xmi:id="5e1586256fc290da01356b0439f138c9" key="sap.im.primaryKey" value="true">
-        </annotations>
+        <annotations xmi:id="5e1586256fc290da01356b0439f138c9" key="sap.im.primaryKey" value="true"/>
       </attributes>
       <attributes xmi:id="00e2b85750896a0148ceff91c54f2f38" name="TaskWork" type="NVARCHAR" nullable="true" length="100">
       </attributes>

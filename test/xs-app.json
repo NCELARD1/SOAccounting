@@ -1,0 +1,8 @@
+{
+	"welcomeFile": "index.html",
+	"authenticationMethod": "none",
+	"routes": [{
+		"source": "/AccountContractItemList.xsodata/",
+		"destination": "soAccountingJS_be"
+	}]
+}

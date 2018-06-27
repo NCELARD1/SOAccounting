@@ -26,7 +26,7 @@
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",
-					"localUri": "localService/metadataForecast.xml"
+					"localUri": "localService/metadataF.xml"
 				}
 			},
 			"forecastTop3Service": {
@@ -52,7 +52,7 @@
 					"odataVersion": "2.0",
 					"localUri": "localService/metadataEmployeeChase.xml"
 				}
-			}			
+			}
 		},
 		"sourceTemplate": {
 			"id": "hanatemplates.masterDetailstemplate",
@@ -125,16 +125,16 @@
 					}
 				}
 			},
-			"forecastLatest": {
-				"dataSource": "forecastLatestService",
+			"top3": {
+				"dataSource": "forecastTop3Service",
 				"settings": {
 					"metadataUrlParams": {
 						"sap-documentation": "heading"
 					}
 				}
 			},
-			"top3": {
-				"dataSource": "forecastTop3Service",
+			"forecastLatest": {
+				"dataSource": "forecastLatestService",
 				"settings": {
 					"metadataUrlParams": {
 						"sap-documentation": "heading"
@@ -173,31 +173,27 @@
 				},
 				"async": true
 			},
-			"routes": [
-				{
-					"pattern": "",
-					"name": "master",
-					"target": [
-						"object",
-						"master"
-					]
-				},
-				{
-					"pattern": "CRM_CustomerList/{objectId}",
-					"name": "object",
-					"target": [
-						"master",
-						"object"
-					]
-				},
-				{
-					"pattern": "CRMISP_ConsolidatedSOs/{objectId}/{itemId}",
-					"name": "object2",
-					"target": [
-						"object2"
-					]
-				}
-			],
+			"routes": [{
+				"pattern": "",
+				"name": "master",
+				"target": [
+					"object",
+					"master"
+				]
+			}, {
+				"pattern": "CRM_CustomerList/{objectId}",
+				"name": "object",
+				"target": [
+					"master",
+					"object"
+				]
+			}, {
+				"pattern": "CRMISP_ConsolidatedSOs/{objectId}/{itemId}",
+				"name": "object2",
+				"target": [
+					"object2"
+				]
+			}],
 			"targets": {
 				"master": {
 					"viewName": "Master",

@@ -1,4 +1,3 @@
-/*global location */
 sap.ui.define([
 	"com/nico/controller/BaseController",
 	"sap/ui/model/json/JSONModel",
@@ -102,6 +101,84 @@ sap.ui.define([
 		 * Event handler when the share by E-Mail button has been clicked
 		 * @public
 		 */
+		resetDetailForecast: function() {
+			var oLocalManualForecastFlatData = {
+				"ForecastID": 1,
+				"ContractID": 1,
+				"ContractItemID": "1_1",
+				"ItemID": 1,
+				"ForecastDate": "2017-01-01",
+				"JanHigh": 0,
+				"FebHigh": 0,
+				"MarHigh": 0,
+				"AprHigh": 0,
+				"MayHigh": 0,
+				"JunHigh": 0,
+				"JulHigh": 0,
+				"AugHigh": 0,
+				"SepHigh": 0,
+				"OctHigh": 0,
+				"NovHigh": 0,
+				"DecHigh": 0,
+				"JanMed": 0,
+				"FebMed": 0,
+				"MarMed": 0,
+				"AprMed": 0,
+				"MayMed": 0,
+				"JunMed": 0,
+				"JulMed": 0,
+				"AugMed": 0,
+				"SepMed": 0,
+				"OctMed": 0,
+				"NovMed": 0,
+				"DecMed": 0,
+				"JanLow": 0,
+				"FebLow": 0,
+				"MarLow": 0,
+				"AprLow": 0,
+				"MayLow": 0,
+				"JunLow": 0,
+				"JulLow": 0,
+				"AugLow": 0,
+				"SepLow": 0,
+				"OctLow": 0,
+				"NovLow": 0,
+				"DecLow": 0
+			};
+			// Bind the default forecast			
+			this.oLocalManualForecastFlatModel = new sap.ui.model.json.JSONModel(oLocalManualForecastFlatData);
+			this.getView().setModel(this.oLocalManualForecastFlatModel, "manualForecastFlat");
+			var sBindingPath = "manualForecastFlat>";
+			this.byId("iComJan").unbindProperty("value");
+			this.byId("iComJan").bindValue(sBindingPath + "/JanHigh");
+			this.byId("iComFeb").unbindProperty("value");
+			this.byId("iComFeb").bindValue(sBindingPath + "/FebHigh");
+			this.byId("iComMar").unbindProperty("value");
+			this.byId("iComMar").bindValue(sBindingPath + "/MarHigh");
+			this.byId("iComApr").unbindProperty("value");
+			this.byId("iComApr").bindValue(sBindingPath + "/AprHigh");	
+			this.byId("iComMay").unbindProperty("value");
+			this.byId("iComMay").bindValue(sBindingPath + "/MayHigh");	
+			this.byId("iComJun").unbindProperty("value");
+			this.byId("iComJun").bindValue(sBindingPath + "/JunHigh");	
+			this.byId("iComJul").unbindProperty("value");
+			this.byId("iComJul").bindValue(sBindingPath + "/JulHigh");	
+			this.byId("iComAug").unbindProperty("value");
+			this.byId("iComAug").bindValue(sBindingPath + "/AugHigh");	
+			this.byId("iComSep").unbindProperty("value");
+			this.byId("iComSep").bindValue(sBindingPath + "/SepHigh");
+			this.byId("iComOct").unbindProperty("value");
+			this.byId("iComOct").bindValue(sBindingPath + "/OctHigh");	
+			this.byId("iComNov").unbindProperty("value");
+			this.byId("iComNov").bindValue(sBindingPath + "/NovHigh");
+			this.byId("iComDec").unbindProperty("value");
+			this.byId("iComDec").bindValue(sBindingPath + "/DecHigh");			
+		},
+
+		/**
+		 * Event handler when the share by E-Mail button has been clicked
+		 * @public
+		 */
 		onShareEmailPress: function() {
 			var oViewModel = this.getModel("detailView");
 
@@ -187,9 +264,44 @@ sap.ui.define([
 
 		onComboChange: function(oEvent) {
 			sap.ui.getCore().AppContext.ComboBoxVal = oEvent.getParameter("selectedItem").getText();
-			var MyVariable2 = oEvent.getParameter("selectedItem").getBindingContext();
-			//			alert(sap.ui.getCore().AppContext.ComboBoxVal);
-			//			alert(MyVariable2);
+			//alert(sap.ui.getCore().AppContext.ComboBoxVal);
+			
+			//Get the selected contract/itemID
+			var contractItemID  = sap.ui.getCore().AppContext.ComboBoxVal;
+			var separatorPos = contractItemID.indexOf("_");
+			
+			var contractID = contractItemID.substr(0,separatorPos);
+			var itemID = contractItemID.substr(separatorPos+1,contractItemID.length);			
+			//alert(contractID);
+			//alert(itemID);
+			
+			// Bind the latest forecast			
+			//	var sBindingPath = "/CRM_CustomerList(" + sCustomerID + ")/MANUALFORECASTEDDAYS";
+			var sBindingPath = "forecastLatest>/Forecast(ContractID=" + contractID.toString() + ",ItemID=" + itemID.toString();
+			this.byId("iComJan").unbindProperty("value");
+			this.byId("iComJan").bindValue(sBindingPath + ")/JanHigh");
+			this.byId("iComFeb").unbindProperty("value");
+			this.byId("iComFeb").bindValue(sBindingPath + ")/FebHigh");
+			this.byId("iComMar").unbindProperty("value");
+			this.byId("iComMar").bindValue(sBindingPath + ")/MarHigh");
+			this.byId("iComApr").unbindProperty("value");
+			this.byId("iComApr").bindValue(sBindingPath + ")/AprHigh");		
+			this.byId("iComMay").unbindProperty("value");
+			this.byId("iComMay").bindValue(sBindingPath + ")/MayHigh");
+			this.byId("iComJun").unbindProperty("value");
+			this.byId("iComJun").bindValue(sBindingPath + ")/JunHigh");
+			this.byId("iComJul").unbindProperty("value");
+			this.byId("iComJul").bindValue(sBindingPath + ")/JulHigh");
+			this.byId("iComAug").unbindProperty("value");
+			this.byId("iComAug").bindValue(sBindingPath + ")/AugHigh");
+			this.byId("iComSep").unbindProperty("value");
+			this.byId("iComSep").bindValue(sBindingPath + ")/SepHigh");
+			this.byId("iComOct").unbindProperty("value");
+			this.byId("iComOct").bindValue(sBindingPath + ")/OctHigh");
+			this.byId("iComNov").unbindProperty("value");
+			this.byId("iComNov").bindValue(sBindingPath + ")/NovHigh");
+			this.byId("iComDec").unbindProperty("value");
+			this.byId("iComDec").bindValue(sBindingPath + ")/DecHigh");		
 		},
 
 		onFilterEmployeeChaseList: function(sCustomerID) {
@@ -235,14 +347,10 @@ sap.ui.define([
 			var oList = this.getView().byId("CustomerSummary");
 			var oBinding = oList.getBinding("items");
 			oBinding.filter(aFilter);
-
-			// Bind the latest forecast			
-			var sBindingPath = "/CRM_CustomerList(" + sCustomerID + ")/MANUALFORECASTEDDAYS";
-			this.byId("iComJan").unbindProperty("value");
-			this.byId("iComJan").bindValue(sBindingPath);
 			
 			// Bind the combo contract/items	
 			this.onFilterComboContractItems(sCustomerID);
+			
 		},
 
 		onNavBack: function() {
@@ -268,6 +376,30 @@ sap.ui.define([
 
 			var oEntry = this.getView().getModel("manualForecastFlat").getData();
 			oEntry.ContractItemID = sap.ui.getCore().AppContext.ComboBoxVal;
+			oEntry.JanHigh = this.getView().byId("iComJan").getValue();
+			if (!oEntry.JanHigh) {oEntry.JanHigh = 0;}
+			oEntry.FebHigh = this.getView().byId("iComFeb").getValue();
+			if (!oEntry.FebHigh) {oEntry.FebHigh = 0;}			
+			oEntry.MarHigh = this.getView().byId("iComMar").getValue();	
+			if (!oEntry.MarHigh) {oEntry.MarHigh = 0;}
+			oEntry.AprHigh = this.getView().byId("iComApr").getValue();	
+			if (!oEntry.AprHigh) {oEntry.AprHigh = 0;}
+			oEntry.MayHigh = this.getView().byId("iComMay").getValue();
+			if (!oEntry.MaynHigh) {oEntry.MayHigh = 0;}
+			oEntry.JunHigh = this.getView().byId("iComJun").getValue();
+			if (!oEntry.JunHigh) {oEntry.JunHigh = 0;}
+			oEntry.JulHigh = this.getView().byId("iComJul").getValue();
+			if (!oEntry.JulHigh) {oEntry.JulHigh = 0;}
+			oEntry.AugHigh = this.getView().byId("iComAug").getValue();
+			if (!oEntry.AugHigh) {oEntry.AugHigh = 0;}
+			oEntry.SepHigh = this.getView().byId("iComSep").getValue();
+			if (!oEntry.SepHigh) {oEntry.SepHigh = 0;}
+			oEntry.OctHigh = this.getView().byId("iComOct").getValue();
+			if (!oEntry.OctHigh) {oEntry.OctHigh = 0;}
+			oEntry.NovHigh = this.getView().byId("iComNov").getValue();	
+			if (!oEntry.NovHigh) {oEntry.NovHigh = 0;}
+			oEntry.DecHigh = this.getView().byId("iComDec").getValue();
+			if (!oEntry.DecHigh) {oEntry.DecHigh = 0;}
 			//			var oCombo = this.getView().byId("ContractItemDropDown");
 			//			var aItem = oCombo.getSelectedItemID();
 			// validate that all fields (FName, LName and EmailId) are populated
@@ -518,6 +650,7 @@ sap.ui.define([
 				oResourceBundle.getText("shareSendEmailObjectMessage", [sObjectName, sObjectId, location.href]));
 			this.onFilterSummary(sObjectId);
 			this.onFilterEmployeeChaseList(sObjectId);
+			this.resetDetailForecast();
 		},
 
 		_onMetadataLoaded: function() {

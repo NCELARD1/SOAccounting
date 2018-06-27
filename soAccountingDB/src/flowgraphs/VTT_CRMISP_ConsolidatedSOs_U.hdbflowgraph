@@ -676,20 +676,17 @@
       <attributes xmi:id="d8603cfaa8e8567c9dfcbf5eb5d70a96" name="CONTRACT_ADJUSTED" type="INTEGER" nullable="true" expression="&quot;CONTRACT_ADJUSTED&quot;" length="10">
       </attributes>
       <attributes xmi:id="d97e340941b02b4383f22ffb93bfdbe7" name="CRMCUSTOMERID" type="INTEGER" nullable="true" expression="&quot;CRMCUSTOMERID&quot;" length="10">
-        <annotations xmi:id="524c7c12205c769c84af021f56c412ee" key="sap.im.primaryKey" value="true">
-        </annotations>
+        <annotations xmi:id="524c7c12205c769c84af021f56c412ee" key="sap.im.primaryKey" value="true"/>
       </attributes>
       <attributes xmi:id="81db4eec59b323894dfb6d96fd5578a3" name="LoadDate" type="DATE" nullable="true" expression="&quot;LoadDate&quot;" length="10">
       </attributes>
       <attributes xmi:id="3fa2681ad3a18d6eab52dc6c039eae17" name="ISPSOID" type="INTEGER" nullable="true" expression="&quot;ISPSOID&quot;" length="10">
       </attributes>
       <attributes xmi:id="4d43cd6a22ad7d2982e965f7e75796e1" name="CRMSOID" type="INTEGER" nullable="true" expression="&quot;CRMSOID&quot;" length="10">
-        <annotations xmi:id="a9a0072de3b36faf7aa6211314cfa52f" key="sap.im.primaryKey" value="true">
-        </annotations>
+        <annotations xmi:id="a9a0072de3b36faf7aa6211314cfa52f" key="sap.im.primaryKey" value="true"/>
       </attributes>
       <attributes xmi:id="f18015fc7d972f468cc083c32fdc92eb" name="SALESDOCUMENTITEM_INT" type="INTEGER" nullable="true" expression="&quot;SALESDOCUMENTITEM_INT&quot;" length="10">
-        <annotations xmi:id="718d92ecfec8e16c94509c13d3391ffe" key="sap.im.primaryKey" value="true">
-        </annotations>
+        <annotations xmi:id="718d92ecfec8e16c94509c13d3391ffe" key="sap.im.primaryKey" value="true"/>
       </attributes>
       <attributes xmi:id="1212cdc93097c36c825679ab3bffcb80" name="Description" type="NVARCHAR" nullable="true" expression="&quot;Description&quot;" length="255">
       </attributes>

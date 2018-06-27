@@ -6,7 +6,7 @@
 			<ObjectHeader id="objectHeader" title="{CustomerName}" number="{ path: 'CustomerID', formatter: '.formatter.integerValue' }"/>
 			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding" select="onIconSelectChanged">
 				<items>
-					<IconTabFilter id="iconTabBarFilter5" icon="sap-icon://area-chart" tooltip="{i18n>detailIconTabBarChart}" key="5">
+					<IconTabFilter id="iconTabBarAccountSummary" icon="sap-icon://area-chart" tooltip="{i18n>detailIconTabBarChart}" key="5">
 						<content>
 							<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" editable="true"
 								layout="ResponsiveGridLayout" id="__form1111">
@@ -203,8 +203,8 @@
 										</items>
 									</ComboBox>
 									<Label text="ContractID/ItemID" id="__label2"/>
-									<Input width="100%" id="__input3" value="{manualForecastFlat>/ContractID}" visible="False"/>
-									<Input width="100%" id="__input4" value="{manualForecastFlat>/ItemID}" visible="False"/>
+									<Input width="100%" id="__input3" value="{ACI>CONTRACT_ADJUSTED}" visible="False"/>
+									<Input width="100%" id="__input4" value="{ACI>CITEM_ADJUSTED}" visible="False"/>
 									<Label text="" id="__label6" visible="False"/>
 									<Button type="Accept" width="100%" text="Submit Forecast" press="callUserService"
 										ariaDescribedBy="defaultButtonDescription genericButtonDescription"/>
@@ -252,10 +252,10 @@
 										</FlexBox>
 									</Panel>
 									<Panel>
-										<FlexBox renderType="Div" direction="Column">
+										<FlexBox renderType="Div" direction="Column" id="forecastFlex">
 											<items>
 												<Button text="Committed" type="Emphasized" class="sapUiSmallMarginEnd" width="170px"/>
-												<Input id="iComJan" value="{path: '/CRM_CustomerList(678394)/MANUALFORECASTEDDAYS' }" width="auto" class="sapUiSmallMarginEnd">
+												<Input id="iComJan" value="{manualForecastFlat>/JanHigh}" valueLiveUpdate="true" width="auto" class="sapUiSmallMarginEnd">
 													<layoutData>
 														<FlexItemData growFactor="1"/>
 													</layoutData>
@@ -454,6 +454,78 @@
 									</Panel>
 								</sap.ui.layout.form:content>
 							</sap.ui.layout.form:SimpleForm>
+							<sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" editable="true"
+								layout="ResponsiveGridLayout" id="__form111112">
+								<sap.ui.layout.form:content>
+									<Toolbar id="forecastLatestToolbar">
+										<Title id="forecastLatestHeader" text="Forecast Latest"/>
+									</Toolbar>
+									<Table id="ForecastLatestList" width="auto" class="sapUiResponsiveMargin"
+										items="{ path: 'forecastLatest>/Forecast' }" noDataText="No Data"
+										busyIndicatorDelay="{detailView>/lineItemTableDelay}" growing="true" growingScrollToLoad="true" updateFinished="onEmployeeListUpdateFinished">
+										<columns>
+											<Column id="econtractIDColumn">
+												<Text text="Contract ID/Item ID" id="econtractIDColumnTitle"/>
+											</Column>
+											<Column id="eJanHighColumn" hAlign="End">
+												<Text text="Jan" id="eJanHighColumnTitle"/>
+											</Column>
+											<Column id="eFebHighColumn" hAlign="End">
+												<Text text="Feb" id="eFebHighColumnTitle"/>
+											</Column>
+											<Column id="eMarHighColumn" hAlign="End">
+												<Text text="Mar" id="eMarHighColumnTitle"/>
+											</Column>
+											<Column id="eAprHighColumn" hAlign="End">
+												<Text text="Apr" id="eAprHighColumnTitle"/>
+											</Column>											
+											<Column id="eMayHighColumn" hAlign="End">
+												<Text text="May" id="eMayHighColumnTitle"/>
+											</Column>
+											<Column id="eJunHighColumn" hAlign="End">
+												<Text text="Jun" id="eJunHighColumnTitle"/>
+											</Column>
+											<Column id="eJulHighColumn" hAlign="End">
+												<Text text="Jul" id="eJulHighColumnTitle"/>
+											</Column>
+											<Column id="eAugHighColumn" hAlign="End">
+												<Text text="Aug" id="eAugHighColumnTitle"/>
+											</Column>
+											<Column id="eSepHighColumn" hAlign="End">
+												<Text text="Sep" id="eSepHighColumnTitle"/>
+											</Column>
+											<Column id="eOctHighColumn" hAlign="End">
+												<Text text="Oct" id="eOctHighColumnTitle"/>
+											</Column>											
+											<Column id="eNovHighColumn" hAlign="End">
+												<Text text="Nov" id="eNovHighColumnTitle"/>
+											</Column>
+											<Column id="eDecHighColumn" hAlign="End">
+												<Text text="Dec" id="eDecHighColumnTitle"/>
+											</Column>
+										</columns>
+										<items>
+											<ColumnListItem>
+												<cells>
+													<ObjectIdentifier title="{forecastLatest>ContractID}/{forecastLatest>ItemID}" text=""/>
+													<ObjectNumber number="{path: 'forecastLatest>JanHigh', formatter: '.formatter.numberUnit'}"/>
+													<ObjectNumber number="{ path: 'forecastLatest>FebHigh', formatter: '.formatter.numberUnit' }"/>
+													<ObjectNumber number="{ path: 'forecastLatest>MarHigh', formatter: '.formatter.numberUnit' }"/>
+													<ObjectNumber number="{ path: 'forecastLatest>AprHigh', formatter: '.formatter.numberUnit' }"/>
+													<ObjectNumber number="{ path: 'forecastLatest>MayHigh', formatter: '.formatter.numberUnit' }"/>
+													<ObjectNumber number="{ path: 'forecastLatest>JunHigh', formatter: '.formatter.numberUnit' }"/>
+													<ObjectNumber number="{path: 'forecastLatest>JulHigh', formatter: '.formatter.numberUnit'}"/>
+													<ObjectNumber number="{ path: 'forecastLatest>AugHigh', formatter: '.formatter.numberUnit' }"/>
+													<ObjectNumber number="{ path: 'forecastLatest>SepHigh', formatter: '.formatter.numberUnit' }"/>
+													<ObjectNumber number="{ path: 'forecastLatest>OctHigh', formatter: '.formatter.numberUnit' }"/>
+													<ObjectNumber number="{ path: 'forecastLatest>NovHigh', formatter: '.formatter.numberUnit' }"/>
+													<ObjectNumber number="{ path: 'forecastLatest>DecHigh', formatter: '.formatter.numberUnit' }"/>													
+												</cells>
+											</ColumnListItem>
+										</items>
+									</Table>
+								</sap.ui.layout.form:content>
+							</sap.ui.layout.form:SimpleForm>							
 						</content>
 					</IconTabFilter>
 				</items>

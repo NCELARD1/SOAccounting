@@ -17,7 +17,7 @@
 		"source": "/DisplayForecastTop3.xsodata/",
 		"destination": "soAccountingJS_be"
 	}, {
-		"source": "/DisplayForecastLastest.xsodata/",
+		"source": "/DisplayForecastLatest.xsodata/",
 		"destination": "soAccountingJS_be"
 	}, {
 		"source": "/AccountContractItemList.xsodata/",
